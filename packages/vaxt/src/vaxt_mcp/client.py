@@ -13,7 +13,7 @@ def _resolve_db_path() -> str:
     path = os.environ.get("VAXT_DUCKDB_PATH", "")
     if path:
         return path
-    # Try relative to workspace root (common in monorepo)
+    # Try relative to workspace root (WORKSPACE_ROOT env)
     workspace = os.environ.get("WORKSPACE_ROOT", "/workspace")
     candidate = Path(workspace) / _DEFAULT_DB_PATH
     if candidate.exists():

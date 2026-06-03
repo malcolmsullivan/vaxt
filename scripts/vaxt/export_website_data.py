@@ -2,7 +2,7 @@
 """
 Export VAXT Airtable data → JSON files for website.
 
-Produces 9 JSON files in sauce-technologies/vaxt/public/data/:
+Produces 9 JSON files in website/public/data/:
   varieties.json          — All varieties (full fields)
   seed_sources.json       — Seed sources directory
   planting_calendars.json — Planting windows by zone/crop
@@ -31,7 +31,7 @@ from urllib.error import HTTPError
 
 SCRIPT_DIR = Path(__file__).parent
 WORKSPACE = SCRIPT_DIR.parent.parent
-OUTPUT_DIR = WORKSPACE / "sauce-technologies" / "vaxt" / "public" / "data"
+OUTPUT_DIR = WORKSPACE / "website" / "public" / "data"
 
 BASE_ID = os.environ.get("VAXT_AIRTABLE_BASE_ID", "appgv7zVxZnT2q9BX")
 PAT = os.environ.get("VAXT_AIRTABLE_PAT", "")

@@ -271,8 +271,8 @@ To add Notion links inside Airtable records:
 3. This creates bidirectional navigation: Airtable → Notion and Notion → Airtable
 ---
 ## Related
-- Airtable schema: `docs/sauce-technologies/vaxt/AIRTABLE_DESIGN.md`
-- Notion KB spec: `docs/sauce-technologies/vaxt/NOTION-KB-SPEC.md`
+- Airtable schema: `docs/AIRTABLE_DESIGN.md`
+- Notion KB spec: `docs/NOTION-KB-SPEC.md`
 - Export script: `scripts/vaxt/export_airtable_varieties.py`
 - Sync script: `scripts/vaxt/sync_airtable_notion.py`
 - Env template: `scripts/vaxt/.env.example`
