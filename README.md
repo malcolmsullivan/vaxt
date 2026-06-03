@@ -130,7 +130,7 @@ suite on Python 3.11. The client tests exercise every tool group against a real 
 
 ## What broke and how I fixed it
 
-*(Engineering notes — the real value of reading this repo. Replace/expand with your own war stories.)*
+*(Engineering notes — the real value of reading this repo.)*
 
 - **Tests passed by silently skipping.** The MCP client tests `skip` when the DuckDB isn't present. In CI
   that read as "green" while testing nothing. Fix: made the build step (`load_heritage_grain.py`) a
