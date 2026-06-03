@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vaxt-api"
+version = "0.1.0"
+description = "VAXT BrAPI v2.1 endpoint — germplasm, studies, and observations over the heritage-grain DuckDB"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+    "duckdb>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "httpx>=0.27",   # required by fastapi.testclient
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

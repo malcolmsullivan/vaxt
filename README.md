@@ -81,6 +81,31 @@ notes that tell you which pipeline to run).
 
 ---
 
+## BrAPI v2.1 endpoint
+
+A fourth surface: a read-only **[BrAPI v2.1](https://brapi.org)** server (`packages/vaxt-api/`, FastAPI)
+makes VAXT consumable by standard breeding tools (BMS, Breedbase, Field Book), not just Claude and the
+website.
+
+```bash
+pip install -e "packages/vaxt-api[dev]"
+uvicorn vaxt_api.app:app --reload          # interactive docs at /docs
+curl "localhost:8000/brapi/v2/germplasm?commonCropName=wheat&pageSize=5"
+```
+
+| Call | Backed by |
+|---|---|
+| `GET /brapi/v2/serverinfo` | — |
+| `GET /brapi/v2/germplasm[/{id}]` | `t3_germplasm` (200) |
+| `GET /brapi/v2/studies[/{id}]` | distinct T3 studies (82) |
+| `GET /brapi/v2/observationunits` | `t3_observations` |
+| `GET /brapi/v2/observations` | `t3_observations` (6 202) |
+
+All list calls page with `page`/`pageSize` and return the standard BrAPI envelope
+(`metadata.pagination` + `result.data`). Details in `packages/vaxt-api/README.md`.
+
+---
+
 ## The data pipeline
 
 `vaxt_runner.py` orchestrates 9 sources into DuckDB (20 tables). All are public/open-licensed:
@@ -117,14 +142,13 @@ python scripts/vaxt/vaxt_runner.py --validate-only # gate the existing DB
 ## Testing & CI
 
 ```bash
-pip install -e "packages/vaxt[dev]"
-python scripts/vaxt/load_heritage_grain.py     # tests SKIP without the DuckDB (by design)
-pytest tests/vaxt-mcp/ -v
+pip install -e "packages/vaxt[dev]" -e "packages/vaxt-api[dev]"
+pytest tests/ -v          # MCP + BrAPI, against the committed DuckDB
 ```
 
-CI (`.github/workflows/ci.yml`) installs the package, builds the DuckDB from committed data, and runs the
-suite on Python 3.11. The client tests exercise every tool group against a real DuckDB — they `skip`
-(rather than error) when the DB is absent, so the build step is what makes them meaningful.
+CI (`.github/workflows/ci.yml`) installs both packages and runs both suites (MCP client + BrAPI) against
+the **committed** `heritage-grain.duckdb` on Python 3.11. The tests `skip` (rather than error) only if the
+DB is ever removed, so a green run means they actually executed.
 
 ---
 
@@ -133,9 +157,9 @@ suite on Python 3.11. The client tests exercise every tool group against a real 
 *(Engineering notes — the real value of reading this repo.)*
 
 - **Tests passed by silently skipping.** The MCP client tests `skip` when the DuckDB isn't present. In CI
-  that read as "green" while testing nothing. Fix: made the build step (`load_heritage_grain.py`) a
-  required CI stage and asserted `tables >= 20` + presence of core tables in `health_check`, so an
-  incomplete load fails loudly instead of skipping quietly.
+  that read as "green" while testing nothing. Fix: committed a prebuilt `heritage-grain.duckdb` so the
+  suite runs against real data in CI, with `health_check` asserting `tables >= 20` + core tables present —
+  a missing or incomplete DB now fails loudly instead of skipping quietly.
 - **A 9-source pipeline can't reach a clean state online in CI.** T3/BrAPI alone is a ~20-minute,
   rate-limited crawl, and remote APIs flake. Fix: split *derived/computed* sources (growing-season,
   photoperiod) from *network* sources, committed the curated + derived CSVs so the DB builds offline and
