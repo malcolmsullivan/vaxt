@@ -1,7 +1,10 @@
 # VAXT — Heritage Grain Genomics Data Platform
 
 [![CI](https://github.com/malcolmsullivan/vaxt/actions/workflows/ci.yml/badge.svg)](https://github.com/malcolmsullivan/vaxt/actions/workflows/ci.yml)
-&nbsp;License: code **MIT** · data **CC BY 4.0** · Live: **[vaxt.bio](https://vaxt.bio)**
+[![Code: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](LICENSE)
+[![Data: CC BY 4.0](https://img.shields.io/badge/Data-CC%20BY%204.0-green.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Python: 3.11+](https://img.shields.io/badge/Python-3.11%2B-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![Live: vaxt.bio](https://img.shields.io/badge/Live-vaxt.bio-FF6B35.svg)](https://vaxt.bio)
 
 VAXT turns fragmented public agricultural, climate, and genomics data into a single, queryable
 knowledge base for **cold-climate heritage grain breeding** — and exposes it three ways: a public
