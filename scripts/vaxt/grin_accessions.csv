@@ -1,0 +1,70 @@
+pi_number,species,common_name,crop_group,origin_country,improvement_status,cold_hardiness_zone,collection_site,latitude,longitude,traits,notes,source
+PI 172382,Triticum aestivum,Kharkov wheat,cereal,Ukraine,landrace,3,Kharkiv Oblast,49.99,36.23,winterhardiness;drought tolerance,Introduced to US 1900; foundation of Great Plains hard red winter wheat,GRIN-Global NPGS
+PI 191382,Triticum aestivum,Minhardi wheat,cereal,USA,cultivar,3,Minnesota,44.97,-93.27,winterhardiness,Derived from Minhardi x Turkey crosses; extremely cold hardy,GRIN-Global NPGS
+PI 268210,Triticum aestivum,Norstar wheat,cereal,Canada,cultivar,2,Alberta,51.05,-114.07,extreme winterhardiness;LT50 -22C,Reference check for cold hardiness; Winalta x Alabaskaya,GRIN-Global NPGS
+PI 306862,Hordeum vulgare,Dicktoo barley,cereal,USA,cultivar,3,Montana,46.87,-110.36,winterhardiness;feed,Classic winter barley check; widely used in frost tolerance research,GRIN-Global NPGS
+PI 371610,Secale cereale,Petkus rye,cereal,Germany,cultivar,3,Brandenburg,52.41,13.07,winterhardiness;bread quality,Foundation gene pool for modern rye; open-pollinated population,GRIN-Global NPGS
+PI 428490,Triticum aestivum,Mironovskaya 808,cereal,Ukraine,cultivar,3,Myronivka,49.65,31.48,extreme winterhardiness;yield,Ukrainian winter wheat; widely grown in Soviet Union,GRIN-Global NPGS
+PI 583674,Avena sativa,Wintok oat,cereal,USA,cultivar,4,Virginia,37.54,-77.44,winterhardiness;grain,Winter oat for southeastern US; marginal hardiness,GRIN-Global NPGS
+PI 610726,Secale cereale,Wheeler rye,cereal,Canada,cultivar,2,Saskatchewan,52.13,-106.67,extreme winterhardiness;forage,Canadian winter rye; very hardy; used as forage cover crop,GRIN-Global NPGS
+PI 272557,Malus baccata,Siberian crabapple,fruit,Russia,wild,1,Siberia,56.0,93.0,extreme cold hardiness -50C;small fruit,Hardiest apple species; used as rootstock and breeding parent,GRIN-Global NPGS
+PI 286599,Malus baccata var. himalaica,Himalayan crabapple,fruit,Nepal,wild,2,Nepal Himalaya,28.2,85.3,cold hardiness;fire blight resistance,High-altitude Malus; cold hardy at elevation,GRIN-Global NPGS
+PI 437654,Malus sieversii,Kazakh wild apple,fruit,Kazakhstan,wild,3,Tian Shan,43.2,77.0,disease resistance;large fruit;cold tolerant,Progenitor of M. domestica; collected by Vavilov,GRIN-Global NPGS
+PI 588890,Pyrus ussuriensis,Ussurian pear,fruit,Russia,wild,2,Primorsky Krai,43.1,131.9,extreme cold hardiness -40C;small fruit,Hardiest pear species; parental for hardy pear cultivars,GRIN-Global NPGS
+PI 262524,Vitis amurensis,Amur grape,vine,Russia,wild,2,Amur River valley,48.5,134.7,extreme cold -40C;high resveratrol,Hardiest Vitis species; source of cold tolerance in breeding,GRIN-Global NPGS
+PI 588629,Vitis riparia,Riverbank grape,vine,USA,wild,2,Minnesota,44.9,-93.2,cold -40C;phylloxera resistant;vigorous,Native N. American grape; cold hardiness donor for wine grapes,GRIN-Global NPGS
+PI 588333,Vitis labrusca,Fox grape,vine,USA,wild,3,New York,42.4,-76.5,cold tolerant;foxy flavor,Native N. American; parent of Concord and many hybrid grapes,GRIN-Global NPGS
+GRIN 9612,Lonicera caerulea var. kamtschatica,Kamchatka haskap,berry,Russia,wild,1,Kamchatka,53.0,158.6,extreme cold -50C;edible berry,Wild haskap; source of extreme cold tolerance for breeding,GRIN-Global / Vavilov Institute
+PI 617885,Vaccinium angustifolium,Lowbush blueberry,berry,Canada,wild,2,New Brunswick,47.0,-66.5,cold hardy;ground cover;wild harvest,Native N. American; parent of half-high hybrids,GRIN-Global NPGS
+PI 554791,Ribes nigrum,Wild black currant,berry,Russia,wild,2,Siberia,55.0,83.0,extreme cold;high vitamin C,Wild Siberian ecotype; source of cold hardiness genes,GRIN-Global NPGS
+PI 551523,Rubus idaeus subsp. strigosus,Wild red raspberry,berry,Canada,wild,2,Alberta,53.5,-113.5,cold hardy;small fruit;aromatic,North American wild raspberry; cold hardiness source,GRIN-Global NPGS
+PI 616612,Fragaria vesca,Woodland strawberry,berry,Sweden,wild,3,Sweden,59.3,18.1,cold tolerant;alpine type;everbearing,Wild European strawberry; reference genome species for Fragaria,GRIN-Global NPGS
+PI 637966,Prunus cerasus,Sour cherry,fruit,Russia,wild,3,Urals,56.8,60.6,cold hardy;sour fruit,Wild sour cherry; Ural ecotype with strong winter hardiness,GRIN-Global NPGS
+PI 509164,Prunus fruticosa,Ground cherry,fruit,Hungary,wild,3,Central Europe,47.5,19.0,cold tolerant;dwarf habit,European dwarf cherry; parent of U Saskatchewan Romance series,GRIN-Global NPGS
+PI 618789,Hippophae rhamnoides,Sea buckthorn,berry,Finland,wild,2,Lapland,66.5,25.7,extreme cold;nitrogen fixing;high omega-7,Wild Finnish sea buckthorn; Lapland ecotype,GRIN-Global NPGS
+PI 655078,Amelanchier alnifolia,Saskatoon berry,berry,Canada,wild,2,Saskatchewan,52.1,-106.6,cold hardy -45C;edible berry;ornamental,Native N. American shrub; zone 2; similar niche to blueberry,GRIN-Global NPGS
+CIav 2524,Avena sativa,Fulghum oat,cereal,USA,cultivar,5,Georgia,33.7,-84.4,winter oat;southeastern adapted,Historical winter oat; limited cold hardiness compared to wheat/rye,GRIN-Global NPGS
+PI 264453,Hordeum spontaneum,Wild barley,cereal,Israel,wild,5,Fertile Crescent,32.5,35.5,drought tolerance;disease resistance,Wild progenitor of cultivated barley; limited cold tolerance,GRIN-Global NPGS
+PI 573718,Secale vavilovii,Vavilov rye,cereal,Turkey,wild,4,Eastern Turkey,39.9,43.9,disease resistance;genetic diversity,Wild rye species; annual; limited cold hardiness but genetic diversity,GRIN-Global NPGS
+PI 306263,Triticum urartu,Wild einkorn wheat,cereal,Lebanon,wild,5,Bekaa Valley,33.8,36.0,drought;disease resistance,A-genome donor for polyploid wheat; limited cold tolerance,GRIN-Global NPGS
+PI 428167,Triticum turgidum subsp. dicoccoides,Wild emmer,cereal,Israel,wild,5,Mt. Hermon,33.3,35.8,drought;stripe rust resistance,AB-genome tetraploid ancestor; limited cold tolerance,GRIN-Global NPGS
+PI 655091,Aronia melanocarpa,Black chokeberry,berry,Canada,wild,2,Manitoba,49.9,-97.1,extreme cold;high antioxidants,Native shrub; extremely cold hardy; superfruit,GRIN-Global NPGS
+PI 109558,Phleum pratense,Timothy grass,forage,Norway,cultivar,3,Ås,59.66,10.78,winter hardy;high yield,Norwegian timothy collection; Grindstad type; important Nordic forage,GRIN-Global NPGS
+PI 234881,Festuca pratensis,Meadow fescue,forage,Sweden,cultivar,3,Umeå,63.83,20.26,winter hardy;persistence,Swedish meadow fescue; IRI gene family reference material,GRIN-Global NPGS
+PI 547390,Lolium perenne,Perennial ryegrass,forage,Norway,cultivar,4,Oslo,59.91,10.75,winter survival;quality,Norwegian perennial ryegrass; cold-adapted ecotype,GRIN-Global NPGS
+PI 538978,Dactylis glomerata,Orchardgrass,forage,Russia,wild,3,Altai,51.96,85.96,winter hardy;shade tolerant,Altai ecotype; cold-adapted orchardgrass from Siberian collection,GRIN-Global NPGS
+PI 232560,Phleum pratense,Timothy grass,forage,Finland,cultivar,2,Oulu,65.01,25.47,extreme cold;persistence,Finnish Arctic timothy; Engmo type; grown at 65N,GRIN-Global NPGS
+PI 440453,Trifolium pratense,Red clover,forage,Sweden,landrace,3,Norrbotten,66.5,20.2,winterhardiness;persistence,Northern Swedish red clover landrace; Bjursele type; extremely hardy,GRIN-Global NPGS
+PI 325388,Medicago falcata,Yellow alfalfa,forage,Russia,wild,2,Yakutia,62.03,129.73,extreme cold -40C;drought,Yakutian yellow-flowered alfalfa; coldest alfalfa collection site,GRIN-Global NPGS
+PI 361741,Medicago sativa subsp. falcata,Sickle alfalfa,forage,Kazakhstan,wild,2,Karaganda,49.8,73.1,cold hardiness;drought,Central Asian yellow-flowered alfalfa; Vavilov collection,GRIN-Global / Vavilov Institute
+PI 251881,Triticum aestivum,Ul'yanovka wheat,cereal,Russia,cultivar,2,Ulyanovsk,54.32,48.39,extreme winterhardiness,Volga region winter wheat; bred for extreme continental cold,GRIN-Global NPGS
+PI 94738,Triticum aestivum,Albidum 114 wheat,cereal,Russia,cultivar,3,Saratov,51.53,46.0,winterhardiness;drought,Saratov winter wheat; important in Soviet cold tolerance research,GRIN-Global NPGS
+PI 178383,Secale cereale,Anatolian rye,cereal,Turkey,landrace,4,Kars,40.6,43.1,winterhardiness;altitude adapted,Eastern Turkish rye landrace; high-altitude cold adaptation,GRIN-Global NPGS
+PI 326317,Hordeum vulgare,Siberian barley,cereal,Russia,landrace,2,Krasnoyarsk,56.01,92.87,extreme cold;short season,Siberian landrace barley; Vavilov Institute collection; extreme cold tolerance,GRIN-Global / Vavilov Institute
+PI 382150,Avena sativa,Ural oat,cereal,Russia,landrace,3,Sverdlovsk,56.84,60.6,winterhardiness;grain,Ural region oat; cold-adapted; Vavilov Institute collection,GRIN-Global / Vavilov Institute
+PI 560693,Triticum aestivum,Kazakh wheat,cereal,Kazakhstan,landrace,3,Almaty,43.24,76.95,drought;cold;altitude,Kazakh wheat landrace; high-altitude continental climate; Vavilov collection,GRIN-Global / Vavilov Institute
+PI 170917,Hordeum vulgare,Afghan barley,cereal,Afghanistan,landrace,4,Badakhshan,36.73,70.81,altitude adapted;cold nights,High-altitude Afghan barley; cold nights at 3000m; diverse alleles,GRIN-Global NPGS
+PI 486115,Triticum aestivum,Tibetan wheat,cereal,China,landrace,3,Tibet,29.65,91.1,altitude adapted;UV tolerance;cold,Tibetan Plateau wheat; extreme altitude cold adaptation; unique alleles,GRIN-Global NPGS
+PI 561006,Vaccinium angustifolium,Maine lowbush blueberry,berry,USA,wild,2,Maine,44.8,-68.8,cold hardy;small fruit;wild crop,Wild Maine blueberry; basis of commercial lowbush industry,GRIN-Global NPGS
+PI 554806,Vaccinium myrtillus,Swedish bilberry,berry,Sweden,wild,2,Dalarna,61.0,14.5,cold hardy;anthocyanin rich,Wild European bilberry from central Sweden; very cold hardy,GRIN-Global NPGS
+PI 618456,Vaccinium uliginosum,Bog blueberry,berry,Finland,wild,2,Lapland,68.4,27.3,extreme cold;arctic adapted,Arctic bog blueberry; Lapland collection; hardiest Vaccinium,GRIN-Global NPGS
+PI 652402,Ribes aureum,Golden currant,berry,USA,wild,3,Montana,47.0,-109.6,cold hardy;drought adapted,Wild Montana golden currant; useful rootstock for currant cultivation,GRIN-Global NPGS
+PI 556845,Ribes hudsonianum,Northern black currant,berry,Canada,wild,2,Yukon,60.7,-135.0,extreme cold;boreal,Wild Yukon black currant; extreme cold tolerance; mildew resistance source,GRIN-Global NPGS
+PI 633640,Prunus americana,American plum,fruit,USA,wild,2,South Dakota,43.8,-99.3,extreme cold;native plum,Wild Great Plains plum; parent of many cold-hardy plum cultivars,GRIN-Global NPGS
+PI 617941,Prunus besseyi,Western sand cherry,fruit,USA,wild,2,Nebraska,41.5,-101.7,extreme cold;dwarf,Wild Great Plains sand cherry; parent of cherry-plum hybrids,GRIN-Global NPGS
+PI 262135,Prunus armeniaca var. mandshurica,Manchurian apricot,fruit,China,wild,2,Manchuria,43.9,125.3,extreme cold;small fruit,Hardiest apricot species; survives -40C; parent of Scout and Westcot,GRIN-Global NPGS
+PI 618791,Hippophae rhamnoides subsp. mongolica,Mongolian sea buckthorn,berry,Mongolia,wild,2,Ulaanbaatar,47.9,106.9,extreme cold;large fruit,Mongolian sea buckthorn ecotype; basis of Chinese commercial cultivars,GRIN-Global NPGS
+PI 618790,Hippophae rhamnoides,Russian sea buckthorn,berry,Russia,wild,2,Altai,51.5,85.8,cold hardy;high vitamin C,Altai sea buckthorn; Lisavenko Institute collection material,GRIN-Global NPGS
+PI 655080,Amelanchier alnifolia,Wild saskatoon berry,berry,Canada,wild,2,Alberta,53.5,-114.0,cold hardy;native fruit,Wild Alberta saskatoon; basis of Thiessen/Smoky/Martin cultivars,GRIN-Global NPGS
+PI 655082,Amelanchier alnifolia,Rocky Mountain saskatoon,berry,USA,wild,2,Montana,46.8,-110.4,cold hardy;mountain adapted,Wild Montana saskatoon; mountain ecotype; large fruit form,GRIN-Global NPGS
+PI 655083,Amelanchier alnifolia,Pacific saskatoon,berry,Canada,wild,3,British Columbia,49.3,-123.1,mild climate;large fruit,Pacific Coast saskatoon; milder climate adaptation; larger berries,GRIN-Global NPGS
+PI 618793,Hippophae rhamnoides,Finnish sea buckthorn,berry,Finland,wild,2,Turku,60.5,22.3,cold hardy;coastal adapted,Finnish coastal sea buckthorn; different ecotype from Lapland collection,GRIN-Global NPGS
+PI 634221,Prunus nigra,Canada plum,fruit,Canada,wild,2,Ontario,46.5,-79.9,extreme cold;native plum,Wild Canada plum; hardiest Prunus species; zone 2,GRIN-Global NPGS
+PI 383011,Actinidia kolomikta,Arctic kiwi,vine,Russia,wild,3,Primorsky Krai,43.1,132.0,cold hardy -40C;small sweet fruit,Wild arctic kiwi from Russian Far East; hardiest kiwifruit relative,GRIN-Global NPGS
+PI 262523,Vitis amurensis,Manchurian Amur grape,vine,China,wild,2,Jilin,43.8,126.6,extreme cold;resveratrol,Chinese Amur grape collection; distinct from Russian accessions,GRIN-Global NPGS
+PI 588631,Vitis riparia,Northern riverbank grape,vine,Canada,wild,2,Manitoba,50.0,-97.0,extreme cold;native,Northern range V. riparia; Manitoba collection; hardiest grape provenance,GRIN-Global NPGS
+PI 486162,Malus baccata var. mandshurica,Manchurian crabapple,fruit,China,wild,1,Heilongjiang,47.4,128.9,extreme cold -48C;small fruit,Manchurian crabapple; Heilongjiang collection; among hardiest tree fruits,GRIN-Global NPGS
+CIav 8236,Avena sativa,Wintok oat (NC),cereal,USA,cultivar,4,North Carolina,35.8,-78.6,winter oat;southeastern,North Carolina winter oat selection; mild winter adaptation,GRIN-Global NPGS
+PI 401558,Secale cereale,Siberian rye,cereal,Russia,landrace,2,Novosibirsk,55.03,82.92,extreme cold;Siberian,Siberian winter rye landrace; extreme continental cold tolerance,GRIN-Global / Vavilov Institute
+PI 639932,Lonicera caerulea var. edulis,Japanese haskap,berry,Japan,cultivar,3,Hokkaido,43.1,141.3,berry quality;mild winter,Japanese haskap selection; basis of flavor in USask breeding,GRIN-Global / Hokkaido Station
+PI 639933,Lonicera caerulea var. emphyllocalyx,Kuril haskap,berry,Russia,wild,2,Kuril Islands,44.0,146.0,cold hardy;maritime,Kuril Islands haskap; maritime cold adaptation; intermediate hardiness,GRIN-Global / Vavilov Institute

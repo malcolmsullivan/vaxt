@@ -1,0 +1,80 @@
+calendar_id,zone,crop,type,sow_start,sow_end,vernalization_weeks,expected_harvest,notes
+PC-001,2-3,wheat,winter,Aug 15,Sep 10,12-16,Jul 15-Aug 15,Sow early to establish before hard freeze; snow cover critical for survival
+PC-002,2-3,wheat,spring,May 01,May 25,0,Aug 15-Sep 15,Short season; choose earliest-maturing varieties like Veli
+PC-003,3-4,wheat,winter,Sep 01,Sep 25,10-14,Jul 20-Aug 20,Standard Nordic timing; varieties like Magnifik and Stava
+PC-004,3-4,wheat,spring,Apr 15,May 15,0,Aug 10-Sep 10,Good window for spring wheat; Diamant and SW Kadrilj
+PC-005,5-6,wheat,winter,Sep 15,Oct 15,8-12,Jul 01-Jul 30,Longer establishment window; wider variety selection
+PC-006,5-6,wheat,spring,Mar 15,Apr 15,0,Jul 15-Aug 15,Early spring sowing; most spring wheats suitable
+PC-007,7-8,wheat,winter,Oct 01,Nov 15,6-8,Jun 15-Jul 15,Mild winters; vernalization may be marginal in zone 8
+PC-008,7-8,wheat,spring,Feb 15,Mar 30,0,Jun 15-Jul 30,Earliest sowing possible; good for Bread Lab varieties
+PC-009,2-3,rye,winter,Aug 10,Sep 05,10-14,Jul 10-Aug 10,Rye is the hardiest cereal; Elonkerjuu for extreme cold
+PC-010,2-3,rye,spring,May 01,May 20,0,Aug 10-Sep 10,Spring rye less common; use if winter kill is frequent
+PC-011,3-4,rye,winter,Aug 25,Sep 20,8-12,Jul 15-Aug 15,Standard for Nordic rye bread; Petkus and Imperial
+PC-012,3-4,rye,spring,Apr 20,May 15,0,Aug 05-Sep 05,Backup if winter sowing fails
+PC-013,5-6,rye,winter,Sep 10,Oct 10,6-10,Jul 01-Jul 25,Reliable in most continental climates
+PC-014,5-6,rye,spring,Mar 20,Apr 15,0,Jul 10-Aug 10,Quick cover crop option; spring rye matures fast
+PC-015,7-8,rye,winter,Oct 01,Nov 10,4-6,Jun 10-Jul 10,May not fully vernalize in zone 8; check local conditions
+PC-016,7-8,rye,spring,Feb 20,Mar 30,0,Jun 10-Jul 15,Good for mild-winter regions; double-crop after winter harvest
+PC-017,2-3,barley,winter,Aug 15,Sep 05,8-12,Jul 15-Aug 10,Winter barley risky in zone 2; try Dicktoo or six-row types
+PC-018,2-3,barley,spring,May 05,May 25,0,Aug 01-Aug 30,Spring barley main crop in Nordic zone 2-3; Brage and Heder
+PC-019,3-4,barley,winter,Sep 01,Sep 20,6-10,Jul 10-Aug 05,Marginal; winter barley less hardy than wheat or rye
+PC-020,3-4,barley,spring,Apr 20,May 15,0,Jul 25-Aug 25,Primary barley window; malting varieties need full season
+PC-021,5-6,barley,winter,Sep 15,Oct 10,6-8,Jun 25-Jul 20,Reliable for winter barley; good malting potential
+PC-022,5-6,barley,spring,Mar 20,Apr 15,0,Jul 15-Aug 15,Standard spring barley season; Morex and Rasmusson
+PC-023,7-8,barley,winter,Oct 01,Nov 10,4-6,Jun 01-Jun 30,Strong winter barley region; wide variety selection
+PC-024,7-8,barley,spring,Feb 15,Mar 30,0,Jun 15-Jul 20,Early sowing for spring barley; good for craft malt
+PC-025,2-3,oat,spring,May 01,May 25,0,Aug 15-Sep 15,Oats prefer cool moist; Ridabu and Ringsaker for Nordic
+PC-026,3-4,oat,spring,Apr 15,May 15,0,Aug 01-Sep 01,Standard oat window; Belinda and Niklas
+PC-027,5-6,oat,spring,Mar 15,Apr 15,0,Jul 15-Aug 15,Spring oats; hull-less types for direct food use
+PC-028,7-8,oat,spring,Feb 15,Mar 30,0,Jun 15-Jul 30,Early sowing; watch for heat stress at grain fill
+PC-029,2-3,spelt,winter,Aug 15,Sep 10,10-14,Jul 20-Aug 20,Hardy ancient wheat; hulled grain needs dehulling
+PC-030,3-4,spelt,winter,Sep 01,Sep 25,8-12,Jul 15-Aug 15,Good winter survival; Oberkulmer and Frankenkorn
+PC-031,5-6,spelt,winter,Sep 15,Oct 15,6-10,Jul 01-Jul 30,Reliable spelt zone; tall plants need no herbicide
+PC-032,7-8,spelt,winter,Oct 01,Nov 10,4-6,Jun 15-Jul 10,Wide window; spelt adapts well to mild winters
+PC-033,2-3,emmer,winter,Aug 20,Sep 10,10-14,Jul 25-Aug 25,Ancient hulled wheat; very winter hardy; low-input
+PC-034,3-4,emmer,winter,Sep 01,Sep 25,8-12,Jul 20-Aug 15,Good for low-fertility soils; disease resistant
+PC-035,5-6,emmer,spring,Mar 20,Apr 15,0,Jul 20-Aug 20,Spring emmer available; lower yield than winter
+PC-036,7-8,emmer,spring,Feb 20,Mar 30,0,Jun 20-Jul 20,Spring type; excellent pasta grain
+PC-037,2-3,einkorn,spring,May 05,May 25,0,Aug 20-Sep 20,Earliest domesticated wheat; very hardy but slow
+PC-038,3-4,einkorn,spring,Apr 20,May 15,0,Aug 10-Sep 10,Spring einkorn; long season needed; hulled grain
+PC-039,5-6,einkorn,winter,Sep 15,Oct 10,8-12,Jul 10-Aug 05,Winter einkorn where available; check seed source
+PC-040,7-8,einkorn,spring,Feb 25,Mar 30,0,Jun 25-Jul 25,Short-season spring einkorn; niche but rewarding
+PC-041,5-6,oat,winter,Sep 15,Oct 10,6-8,Jun 20-Jul 15,Winter oats viable in zone 5-6; less hardy than rye or wheat; choose sheltered sites
+PC-042,7-8,oat,winter,Oct 01,Nov 10,4-6,Jun 01-Jun 30,Good winter oat region; mild winters allow reliable overwintering; wide variety selection
+PC-043,3-4,spelt,spring,Apr 20,May 15,0,Aug 15-Sep 15,Spring spelt for shorter seasons; lower yield than winter but viable in zone 3-4
+PC-044,5-6,spelt,spring,Mar 20,Apr 15,0,Jul 20-Aug 20,Spring spelt; good alternative if winter sowing missed; reliable in continental climates
+PC-045,7-8,spelt,spring,Feb 20,Mar 30,0,Jun 20-Jul 20,Early spring spelt; quick establishment in mild conditions; good for double-cropping
+PC-046,5-6,emmer,winter,Sep 15,Oct 10,6-10,Jul 01-Jul 30,Winter emmer reliable in zone 5-6; very disease resistant; excellent low-input option
+PC-047,7-8,emmer,winter,Oct 01,Nov 10,4-6,Jun 15-Jul 10,Strong emmer region; mild winters; excellent for organic systems; pasta-quality grain
+PC-048,5-6,einkorn,spring,Mar 20,Apr 15,0,Jul 25-Aug 25,Spring einkorn; needs full season; harvest before overripe; hulled grain requires processing
+PC-049,7-8,einkorn,winter,Oct 01,Nov 10,6-8,Jun 15-Jul 10,Winter einkorn where seed is available; mild zone suits this ancient wheat; low input
+PC-050,3-4,emmer,spring,Apr 20,May 15,0,Aug 15-Sep 15,Spring emmer for shorter seasons; lower yield than winter type; hulled grain needs dehulling; excellent low-input option
+PC-051,2-3,timothy,perennial,May 15,Jun 10,0,Jul-Aug (year 2+),Sow spring into prepared seedbed; slow to establish year 1; harvest begins year 2; very winter hardy
+PC-052,3-4,timothy,perennial,May 01,May 25,0,Jul-Aug (year 2+),Standard Nordic forage grass; combine with red clover; productive for 3-5 years
+PC-053,4-5,timothy,perennial,Apr 15,May 15,0,Jun-Jul (year 2+),Earlier spring sow window; first cut in June from year 2; excellent hay quality
+PC-054,2-3,meadow fescue,perennial,May 15,Jun 10,0,Jul-Aug (year 2+),Very winter hardy forage grass; persistent in cold zones; good grazing tolerance
+PC-055,4-5,meadow fescue,perennial,Apr 15,May 10,0,Jun-Jul (year 2+),Reliable perennial forage; mix with legumes for nitrogen fixation; 4-6 year stands
+PC-056,2-3,red clover,perennial,May 15,Jun 05,0,Jul-Aug (year 2+),Nitrogen-fixing legume forage; typically 2-3 year stand life; excellent companion to timothy
+PC-057,4-5,red clover,perennial,Apr 15,May 10,0,Jun-Jul (year 2+),Spring-sow into nurse crop or alone; two cuts per season from year 2; fixes 80-150 kg N/ha
+PC-058,3-4,perennial ryegrass,perennial,May 01,May 25,0,Jul-Sep (year 1+),Fast establishing; less winter hardy than timothy; best in maritime zone 3-4 climates
+PC-059,4-5,perennial ryegrass,perennial,Apr 15,May 10,0,Jun-Sep (year 1+),Rapid establishment; productive from first autumn; 3-4 year stand life; needs adequate moisture
+PC-060,3-4,cherry,perennial,Apr 20,May 15,0,Year 3-5 (first fruit),Plant bare-root or container trees in spring; choose cold-hardy rootstock like Gisela 5; protect from late frost
+PC-061,4-5,cherry,perennial,Apr 01,Apr 30,0,Year 3-5 (first fruit),Earlier planting window; sweet and sour types; sour cherry hardier; mulch heavily first winter
+PC-062,5,cherry,perennial,Mar 15,Apr 15,0,Year 3-4 (first fruit),Wide variety selection; rain cover reduces cracking in sweet types; standard or dwarf rootstock
+PC-063,3-4,plum,perennial,Apr 20,May 15,0,Year 3-5 (first fruit),Choose cold-hardy cultivars like Mount Royal or Pembina; European plums hardier than Japanese
+PC-064,5,plum,perennial,Mar 15,Apr 15,0,Year 3-4 (first fruit),Full range of European and Japanese plums; prune to open center; well-drained site essential
+PC-065,2-3,currant,perennial,May 10,Jun 05,0,Year 2-3 (first fruit),Black and red currant very cold-hardy; plant bare-root in spring; rich in vitamin C
+PC-066,4-5,currant,perennial,Apr 10,May 05,0,Year 2 (first fruit),Spring or fall planting; prune oldest wood annually; productive for 10-15 years
+PC-067,2-3,gooseberry,perennial,May 10,Jun 05,0,Year 2-3 (first fruit),Hardy to zone 2; thorny and thornless cultivars; excellent for preserves and fresh eating
+PC-068,4-5,gooseberry,perennial,Apr 10,May 05,0,Year 2 (first fruit),Spring or fall plant; partial shade tolerated; mildew-resistant cultivars recommended
+PC-069,2-3,saskatoon,perennial,May 10,Jun 05,0,Year 3-4 (first fruit),Native Amelanchier; extremely cold-hardy; prairie-adapted; excellent wildlife and food crop
+PC-070,4-5,blueberry,perennial,Apr 15,May 10,0,Year 3-4 (first fruit),Requires acidic soil pH 4.5-5.5; half-high types for zone 4; highbush for zone 5; heavy mulch
+PC-071,2-3,pea,spring,May 15,Jun 05,0,Aug 15-Sep 15,90-120 day field pea; nitrogen-fixing; good break crop in cereal rotations; cold-tolerant seedlings
+PC-072,3-4,pea,spring,May 01,May 25,0,Aug 01-Sep 01,Standard spring pea window; sow as soon as soil workable; inoculate seed with rhizobia
+PC-073,4-5,pea,spring,Apr 10,May 05,0,Jul 15-Aug 15,80-110 days to maturity; earlier sowing extends season; excellent green manure if plowed under
+PC-074,2-3,faba bean,spring,May 15,Jun 05,0,Sep 01-Sep 30,90-120 days; very cold-tolerant seedlings; heavy nitrogen fixer; traditional Nordic protein crop
+PC-075,3-4,faba bean,spring,May 01,May 20,0,Aug 15-Sep 15,Spring faba bean; sow deep (8-10 cm); aphid-prone mid-season; harvest at black-pod stage
+PC-076,4-5,faba bean,spring,Apr 10,May 05,0,Jul 25-Aug 25,80-110 days; earlier sowing improves yield; excellent companion in cereal rotations
+PC-077,3-4,grape (cold-climate),perennial,May 15,Jun 10,0,Year 3-4 (first fruit),Hybrids like Marquette and Frontenac; trellis system essential; winter protect vines year 1-2
+PC-078,4-5,grape (cold-climate),perennial,Apr 20,May 15,0,Year 3 (first fruit),Wider hybrid selection; Solaris and Rondo for wine; table grapes possible in sheltered sites
+PC-079,5,grape (cold-climate),perennial,Apr 01,Apr 30,0,Year 2-3 (first fruit),Best cold-climate grape zone; full range of interspecific hybrids; south-facing slope ideal

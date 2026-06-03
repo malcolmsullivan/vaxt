@@ -1,0 +1,281 @@
+variety,crop,program,country,traits,cold_tolerance_notes,usda_zone,source
+Magnifik,wheat,Graminor,Norway,winterhardiness;bread-making quality,Winter wheat for southern Norway,3-5,Horticulture field guide
+Veli,wheat,Boreal,Finland,exceptional winterhardiness,Winter wheat; extreme cold tolerance,2-5,Horticulture field guide
+Julius,wheat,Lantmannen,Sweden,winter wheat,Cold-hardy commercial variety,,Horticulture field guide
+Stava,wheat,Lantmannen,Sweden,winter wheat,Cold-hardy commercial variety,,Horticulture field guide
+Skagen,wheat,Lantmannen,Sweden,winter wheat,Cold-hardy commercial variety,,Horticulture field guide
+Elonkerjuu,rye,Boreal,Finland,exceptional winterhardiness,Winter rye; extreme cold tolerance,2-5,Horticulture field guide
+Aroma,apple,SLU,Sweden,cold hardiness;bud dormancy,Filippa x Ingrid Marie; Sweden most popular apple,,Horticulture field guide
+Katja,apple,SLU,Sweden,cold hardiness,Balsgard station,,Horticulture field guide
+Frida,apple,SLU,Sweden,cold hardiness,Balsgard station,,Horticulture field guide
+Kim,apple,SLU,Sweden,cold hardiness,Balsgard station,,Horticulture field guide
+Tundra,haskap,U Saskatchewan,Canada,flower frost tolerance -7C;survives -45C,Japanese x Russian crosses; zone 2,2,Horticulture field guide
+Borealis,haskap,U Saskatchewan,Canada,flower frost tolerance -7C;survives -45C,Japanese x Russian crosses; zone 2,2,Horticulture field guide
+Aurora,haskap,U Saskatchewan,Canada,flower frost tolerance -7C;survives -45C,Japanese x Russian crosses; zone 2,2,Horticulture field guide
+Tytti,sea buckthorn,Luke,Finland,reduced thorniness;high vitamin C,Cold-hardy berry,,Horticulture field guide
+Terhi,sea buckthorn,Luke,Finland,reduced thorniness;high vitamin C,Cold-hardy berry,,Horticulture field guide
+Tarmo,sea buckthorn,Luke,Finland,reduced thorniness;high vitamin C,Cold-hardy berry,,Horticulture field guide
+Sussi,black currant,SLU Balsgard,Sweden,high anthocyanins;vigorous,Swedish black currant; bred at Balsgard station,3,SLU Balsgard breeding program
+Koralle,lingonberry,Germany,Germany,early domestication,Traditionally wild-harvested species,,Horticulture field guide
+Mespi,arctic bramble,,,exceptional aromatic quality,Cold-hardy berry; low yields,,Horticulture field guide
+Pima,arctic bramble,,,exceptional aromatic quality,Cold-hardy berry; low yields,,Horticulture field guide
+Marika,arctic bramble,,,exceptional aromatic quality,Cold-hardy berry; low yields,,Horticulture field guide
+Marquette,grape,U Minnesota,USA,red wine quality;survives -34C,V. riparia x V. vinifera; zone 3,3,Horticulture field guide
+Zilga,grape (table/wine),Latvian breeding,Latvia,earliest ripening;zone 3;multi-use,Latvian hybrid; commercial in Sweden; Denmark; Norway; very early ripening; zone 3-4,3-4,Latvian variety records
+Solaris,grape,,,northern viticulture,Grown commercially in Sweden; Denmark; Norway,,Horticulture field guide
+Rondo,grape,,,northern viticulture,Grown commercially in Sweden; Denmark; Norway,,Horticulture field guide
+Mirakel,wheat (spring),Graminor,Norway,high yield;exceptional baking quality;disease resistance,Most grown wheat in Norway; wild-type Gpc-B1 allele,4-6,Graminor official; Mros et al. Crop Science 62 2022
+Brage,barley (spring 6-row),Graminor,Norway,stable high yield;field resistance powdery mildew;medium-early,Major variety in Norway and Finland; registered 2010,4-6,Graminor official
+Heder,barley (spring 6-row),Graminor,Norway,short sturdy stems;quick growth;arctic-adapted,Grown successfully in Arctic Norway; very short frost-free seasons,3-5,Graminor official
+Tiril,barley (spring 6-row),Graminor,Norway,early maturity;moderate yield,Norwegian six-row barley,4-6,Graminor official
+Ridabu,oat (spring),Graminor,Norway,newest Graminor variety;yield potential,Adapted to Norwegian cool-temperate climate,4-6,Graminor official
+Ringsaker,oat (spring),Graminor,Norway,yield;widely grown,Among largest oat area cultivated in Finland 2023,4-6,Finnish Plant Variety Journal 2019
+Niklas,oat (spring),Boreal,Finland,yield;northern adaptation,Among most widely cultivated oats in Finland,3-5,Finnish Plant Variety Journal 2019
+Akseli,oat (spring),Boreal,Finland,yield;northern adaptation,Widely cultivated in Finland 2023,3-5,Finnish Plant Variety Journal 2019
+Urho,wheat (winter),Boreal,Finland,winterhardiness;bread wheat,Among most popular Finnish winter wheat cultivars; breeding parent,2-5,Hommo 1994 Plant Breeding 112:285
+Hallfreda,wheat (winter),Lantmannen,Sweden,milling wheat;winter hardy,Promising milling wheat for northern European markets,4-6,Lantmannen Seed official
+Brons,wheat (winter),Lantmannen,Sweden,winter wheat;industry quality,Appreciated in Sweden; winter hardy for Nordic conditions,4-6,Lantmannen Seed official
+Ceylon,wheat (winter),Lantmannen,Sweden,winter wheat;wide adaptation,Grown in Finland; Sweden; Baltics,4-6,Lantmannen Seed official
+Fredrik,apple,SLU Balsgard,Sweden,Vf scab resistance;aromatic fruit;stores to April,Named 2003; sibling of Frida from Aroma x P.R.I. 1858/102 cross,3-5,Sehic et al. Acta Hort 663:157 2004
+Boreal Beauty,haskap,U Saskatchewan,Canada,large firm berries;oval;extends season,Released 2017; mechanical harvest adapted; Japanese x Russian crosses; latest Boreal series,2,USask Fruit Program official
+Boreal Beast,haskap,U Saskatchewan,Canada,excellent flavor 4.5/5;2g berries;pollinator,Released 2016; ripens mid-late July; pollinator for Beauty and Blizzard,2,USask Fruit Program official
+Boreal Blizzard,haskap,U Saskatchewan,Canada,very large berries 2x normal;meaty,Released 2014; berries more than twice as heavy as comparable varieties,2,USask Fruit Program official
+Indigo Gem,haskap,U Saskatchewan,Canada,most productive Indigo series;upright growth,Runner-up to Borealis and Tundra; slight mildew susceptibility,2,USask Fruit Program official
+Honey Bee,haskap,U Saskatchewan,Canada,pollinator;fast growing;early fruiting;mildew resistant,Pollinator for Borealis; Tundra; Indigo series,2,USask Fruit Program official
+Carmine Jewel,sour cherry (bush),U Saskatchewan,Canada,dark red;self-fertile;bush form 5-8ft,Hybrid P. cerasus x P. fruticosa; extremely cold hardy,2,U Saskatchewan Romance Series
+Romeo,sour cherry (bush),U Saskatchewan,Canada,best fresh eating;bush type,Considered tastiest bush cherry for fresh eating,3,U Saskatchewan Romance Series
+Juliet,sour cherry (bush),U Saskatchewan,Canada,earliest flowering;productive,Earliest flowering of Romance series; possibly hardier than zone 2,2,U Saskatchewan Romance Series
+North Star,sour cherry (tree),U Minnesota,USA,naturally dwarf;self-fertile;compact,Bred for northern gardens,4,U Minnesota fruit breeding
+Sanna,lingonberry,SLU Balsgard,Sweden,erect habitus 15-30cm;mechanical harvest adapted,Released 1988; suited for commercial cultivation,2-4,SLU Balsgard; NordGen
+Ida,lingonberry,SLU Balsgard,Sweden,large berries 0.45g each;productive,Largest individual berry weight among Swedish cultivars,2-4,SLU Balsgard; NordGen
+Linnea,lingonberry,SLU Balsgard,Sweden,strong producer;medium-sized berries,Released 1999; open-pollinated seedling of Sanna,2-4,SLU Balsgard; NordGen
+Fjellgull,cloudberry (female),NIBIO,Norway,high carpel count;large berries,First Norwegian cloudberry cultivar; selected at 69N in Tromso,2-3,Rapp Acta Hort 585 2002
+Fjordgull,cloudberry (female),NIBIO,Norway,high carpel count;stability,Selected for number of pistils per flower,2-3,Rapp Acta Hort 585 2002
+Nyby,cloudberry (hermaphrodite),Finnish/Nordic,Finland,hermaphrodite;self-fertile,Reference cultivar in Nordic breeding; commercially grown,2-3,Rapp & Hohtola Acta Hort 585 2002
+Apollen,cloudberry (male),NIBIO,Norway,abundant pollen production,Male pollinator cultivar,2-3,Rapp Acta Hort 585 2002
+Norstar,wheat (winter),U Alberta,Canada,extreme winterhardiness;LT50 -22C,Reference cultivar for cold hardiness research; one of hardiest wheats globally,2-3,Fowler & Limin Plant Physiol 135:1587 2004
+Kharkov,wheat (winter),landrace,Ukraine,extreme winterhardiness;historic,Ukrainian landrace; introduced to US Great Plains 1900; parental line for many hardy cultivars,3-4,Clark et al. USDA Bulletin 1074 1922
+Mironovskaya 808,wheat (winter),Myronivka Institute,Ukraine,extreme winterhardiness;high yield,Ukrainian variety; widely grown in former Soviet Union; excellent cold tolerance,3-4,Myronivka Institute breeding records
+Puma,wheat (winter),SW Seed,Sweden,winter hardy;bread quality,Swedish winter wheat; bred for Nordic conditions,4-6,SW Seed official
+Olivin,wheat (winter),Lantmannen,Sweden,early maturity;winter hardy,Short-strawed winter wheat for southern Scandinavia,4-6,Lantmannen Seed official
+Fredrick,wheat (winter),U Manitoba,Canada,winterhardiness;bread quality,Canadian winter wheat; adapted to prairie winters,3-4,U Manitoba breeding program
+CDC Buteo,wheat (winter),CDC Saskatchewan,Canada,winterhardiness;yield,Canada Western Red Winter class; hard red winter wheat,3-4,CDC Saskatoon variety description
+Dicktoo,barley (winter 2-row),USDA,USA,extreme winterhardiness;feed,Classic winter barley; widely used as cold-hardy check in research,3-5,USDA germplasm records
+Nure,barley (winter 2-row),Sementi Veneta,Italy,winterhardiness;feed;research standard,Winter barley; Nure x Tremois is the reference mapping population for Fr-H loci,4-6,Francia et al. Theor Appl Genet 108:670 2004
+Morex,barley (spring 6-row),USDA,USA,reference genome;malt quality,First barley with complete genome sequence; used in all barley genomics,4-6,IBSC Nature 491:711 2012
+Rasmusson,barley (spring 6-row),U Minnesota,USA,malt quality;yield,Major malting barley of upper Midwest; adapted to northern US,3-5,U Minnesota variety release 2011
+Petkus,rye (winter),German landrace,Germany,bread quality;tall straw;winterhardiness,Most important rye gene pool globally; parental line for most modern rye,3-5,Geiger & Miedaner Plant Breeding 128:1 2009
+Imperial,rye (winter),AAFC,Canada,extreme winterhardiness;forage,Canadian winter rye; grown to zone 2; used for fall/spring grazing,2-4,AAFC Lethbridge variety release
+Musketeer,rye (winter),AAFC,Canada,winterhardiness;feed grain,Canadian winter rye; widely grown on prairies,2-4,AAFC variety release
+Danko,rye (winter),DANKO,Poland,bread quality;short straw,Polish winter rye; popular in central/northern Europe,3-5,DANKO Plant Breeding Ltd
+Belinda,oat (spring),Graminor,Norway,high yield;tall,Norwegian spring oat; widely grown in Scandinavia,4-6,Graminor official
+SW Ingeborg,oat (spring),SW Seed,Sweden,yield;grain quality,Swedish spring oat; adapted to Nordic growing season,4-6,SW Seed official
+Ivory,oat (spring),SW Seed,Sweden,yield;white grain,Swedish spring oat; good milling quality,4-6,SW Seed official
+Cosinus,triticale (winter),DANKO,Poland,winterhardiness;yield;short straw,Polish winter triticale; among hardiest triticale cultivars,3-5,DANKO Plant Breeding official
+Szala,triticale (winter),DANKO,Poland,winterhardiness;forage;grain,Polish winter triticale; widely tested in Nordic conditions,3-5,DANKO Plant Breeding official
+Cinderella,haskap,U Saskatchewan,Canada,mid-season;oval berries;mild flavor,Japanese x Russian crosses; earlier generation than Boreal series,2,USask Fruit Program official
+Berry Smart Blue,haskap,Oregon State,USA,large berries;upright;PNW adapted,Bred for Pacific Northwest; adapted to milder winters,4-6,Oregon State U berry breeding
+Keiko,haskap,U Saskatchewan,Canada,compact;early fruiting;good flavor,Japanese x Russian hybrid; compact bush habit,2-3,USask Fruit Program official
+Northblue,blueberry (half-high),U Minnesota,USA,compact bush 60-90cm;dark blue;productive,V. corymbosum x V. angustifolium hybrid; extremely cold hardy,3-4,U Minnesota Fruit Breeding 1983
+Northcountry,blueberry (half-high),U Minnesota,USA,early season;light blue;compact,Half-high blueberry; very productive in short seasons,3-4,U Minnesota Fruit Breeding 1986
+Polaris,blueberry (half-high),U Minnesota,USA,early season;aromatic;medium bush,Half-high hybrid; one of earliest ripening blueberries,3,U Minnesota Fruit Breeding 1996
+St. Cloud,blueberry (half-high),U Minnesota,USA,very early;small bush 45-60cm;productive,Ultra-hardy half-high; among earliest ripening cultivars,3,U Minnesota Fruit Breeding 1990
+Patriot,blueberry (highbush),U Maine,USA,large berry;upright;adaptable,Cold-hardy northern highbush; good for zone 3-4,3-4,U Maine Cooperative Extension
+Titania,black currant,SLU Balsgard,Sweden,mildew resistant;high yield;vigorous,Swedish standard cultivar; Ribes nigrum; widely grown commercially,3-5,SLU Balsgard breeding program
+Ben Alder,black currant,SCRI,UK,late season;high yield;juice quality,Scottish cultivar adapted to Nordic conditions; widely grown in Scandinavia,4-6,James Hutton Institute
+Mortti,black currant,Luke,Finland,winterhardiness;Finnish adapted;small bush,Finnish black currant; bred for extreme winter conditions,2-4,Luke Natural Resources Institute Finland
+Melalahti,black currant,Luke,Finland,winterhardiness;juice quality,Finnish cultivar; one of hardiest black currants,2-4,Luke Natural Resources Institute Finland
+Frontenac,grape (red wine),U Minnesota,USA,red wine;survives -34C;vigorous,V. riparia complex hybrid; produces high-quality red wine in zone 3,3,U Minnesota Grape Breeding 1996
+La Crescent,grape (white wine),U Minnesota,USA,white wine;apricot notes;cold hardy,V. riparia hybrid; Muscat-like aroma; zone 4,4,U Minnesota Grape Breeding 2002
+Itasca,grape (white wine),U Minnesota,USA,white wine;crisp;disease resistant,Newest white wine grape from U Minnesota; excellent cold hardiness,4,U Minnesota Grape Breeding 2017
+Valiant,grape (table/juice),South Dakota State,USA,extremely hardy;Concord-type;zone 2,V. riparia hybrid; possibly hardiest cultivated grape; survives -40C,2,SDSU variety release 1982
+Hasansky Sladky,grape (table),Amur selection,Russia,V. amurensis x V. vinifera;extremely hardy,Russian grape; tolerates -35 to -40C; short season ripening,2-3,Russian viticulture records
+Somerset Seedless,grape (table),Elmer Swenson,USA,seedless;red;zone 4,Swenson breeding; one of few seedless grapes for cold climates,4,Swenson grape selections
+Honeycrisp,apple,U Minnesota,USA,crisp texture;balanced flavor;storage,MN 1711; released 1991; commercially most successful cold-hardy apple,3-4,U Minnesota Apple Breeding Program
+Haralson,apple,U Minnesota,USA,tart;long storage;heavy producer,Heritage Minnesota apple; released 1922; very cold hardy,3-4,U Minnesota Apple Breeding Program
+Zestar!,apple,U Minnesota,USA,early season;crisp;sweet-tart,MN 1824; released 1999; ripens mid-August in Minnesota,3-4,U Minnesota Apple Breeding Program
+Parkland,apple,Morden Research,Canada,hardy;medium;all-purpose,Prairie apple; bred for Canadian zone 2-3 conditions,2-3,AAFC Morden Research Station
+Goodland,apple,U Manitoba,Canada,Delicious-type;productive;zone 3,Canadian prairie apple; very reliable in cold climates,3,U Manitoba fruit breeding
+Crimson Passion,sour cherry (bush),U Saskatchewan,Canada,darkest color;bush type;late season,Romance series; darkest cherry; ripens late August,2-3,U Saskatchewan Romance Series
+Valentine,sour cherry (bush),U Saskatchewan,Canada,large fruit;late season;baking quality,Romance series; large cherries for processing; very productive,2-3,U Saskatchewan Romance Series
+Cupid,sour cherry (bush),U Saskatchewan,Canada,largest fruit;sweet;latest ripening,Romance series; largest cherry; best for fresh eating,2-3,U Saskatchewan Romance Series
+Ure,pear,AAFC Morden,Canada,small fruit;hardy tree;zone 2,Ussurian pear (P. ussuriensis) hybrid; extremely cold hardy,2,AAFC Morden Research Station
+Early Gold,pear,SDSU,USA,yellow;sweet;early,Ussurian hybrid; cold-hardy pear for northern plains,3,South Dakota State U variety release
+Pembina,plum,AAFC Morden,Canada,red skin;yellow flesh;zone 2,Canadian hybrid plum; P. nigra x P. salicina cross,2-3,AAFC Morden Research Station
+Brookred,plum,SDSU,USA,red;medium;productive,Cold-hardy Japanese-American hybrid plum,3,South Dakota State U variety release
+Boyne,raspberry,AAFC Morden,Canada,very hardy;red;summer bearing,Standard cold-hardy raspberry for Canadian prairies; zone 2,2-3,AAFC Morden Research Station
+Nova,raspberry,AAFC Kentville,Canada,thornless;large berry;productive,Red raspberry; thornless; very cold hardy for maritime conditions,3-4,AAFC Kentville Research Station
+Killarney,raspberry,AAFC Morden,Canada,extremely hardy;bright red;medium,One of hardiest red raspberries; widely grown in Manitoba,2-3,AAFC Morden Research Station
+Grindstad,timothy,Graminor,Norway,high yield;winter hardy;dense sward,Most widely grown timothy in Scandinavia; suited to 2-3 cuts,3-5,Graminor official
+Lidar,timothy,Graminor,Norway,late heading;high digestibility;winter hardy,Norwegian timothy bred for quality and persistence,3-5,Graminor official
+Switch,timothy,Graminor,Norway,early heading;high yield;persistence,Suited for intensive cutting regimes in Nordic conditions,3-5,Graminor official
+Engmo,timothy,NIBIO,Norway,arctic-adapted;survives 70N,Developed for northernmost Norway; extreme winter survival,2-3,NIBIO Nord-Norge
+Noreng,timothy,NIBIO,Norway,northern adapted;winter hardy;good regrowth,Bred for northern Norway conditions,2-4,NIBIO official
+Iki,timothy,Boreal,Finland,winterhardiness;Finnish adapted,Finnish timothy cultivar; bred for persistence under ice encasement,2-4,Boreal Plant Breeding official
+Jonathan,timothy,Boreal,Finland,late heading;yield;persistence,Finnish timothy; widely grown in Finland and Baltics,3-5,Boreal Plant Breeding official
+Vega,meadow fescue,Graminor,Norway,winterhardiness;yield;palatable,Norwegian meadow fescue; important companion to timothy in leys,3-5,Graminor official
+Fure,meadow fescue,Graminor,Norway,persistence;winter hardy;dense,Long-lived meadow fescue for Norwegian conditions,3-5,Graminor official
+Kasper,meadow fescue,Boreal,Finland,winterhardiness;Finnish adapted,Finnish meadow fescue; suited for northern Finland,2-4,Boreal Plant Breeding official
+Hykor,festulolium,DLF,Denmark,high yield;winter hardy;hybrid vigor,Festuca pratensis x Lolium multiflorum hybrid; combines forage quality and hardiness,4-5,DLF Seeds official
+Perun,festulolium,Hladke Zivotice,Czech Republic,winter hardy;high yield;persistence,Festulolium hybrid for Central-Northern Europe,3-5,Czech variety records
+Trygve,perennial ryegrass,Graminor,Norway,northernmost ryegrass;winter hardy,One of few perennial ryegrasses bred for Nordic conditions,4-5,Graminor official
+Figgjo,perennial ryegrass,Graminor,Norway,persistence;Nordic adapted,Norwegian perennial ryegrass; limited to southern Norway,4-5,Graminor official
+Birger,perennial ryegrass,Lantmannen,Sweden,winter survival;Swedish adapted,Swedish perennial ryegrass; zone 4-5 limit,4-5,Lantmannen Seed official
+Gondolin,red clover,Graminor,Norway,persistence;winter hardy;high yield,Norwegian red clover; bred for 3+ year persistence,3-5,Graminor official
+Lea,red clover,Graminor,Norway,large-leaved;late;high yield,Norwegian red clover for silage production,3-5,Graminor official
+Bjursele,red clover,Lantmannen,Sweden,extreme winterhardiness;northern adapted,Swedish landrace-derived red clover; very winter hardy,2-4,Lantmannen Seed official
+Betty,white clover,Graminor,Norway,stolon density;winter hardy,Norwegian white clover; bred for pasture persistence,3-5,Graminor official
+Bezostaya 1,wheat (winter),Krasnodar Institute,Russia,winterhardiness;high yield;bread quality,Legendary Russian winter wheat; foundation of many modern cultivars worldwide,3-5,Krasnodar Institute official
+Moskovskaya 39,wheat (winter),VNIIKH,Russia,extreme winterhardiness;bread quality,Russian winter wheat bred for Moscow region; very hardy,3-4,VNIIKH breeding program
+Zdar,wheat (winter),Selgen,Czech Republic,winterhardiness;bread quality;central European,Czech winter wheat; widely tested in Nordic trials,4-5,Czech variety trials
+Pamyati Fedina,wheat (winter),ICISG,Russia,winterhardiness;short straw,Russian semi-dwarf winter wheat; good cold tolerance with modern yield,3-5,Russian variety registry
+Chulpan,rye (winter),Bashkir Institute,Russia,extreme winterhardiness;yield;bread,Bashkir winter rye; bred for Ural region extreme cold,2-3,Russian variety registry
+Saratovskaya 5,rye (winter),NIISKH,Russia,winterhardiness;drought;dual-purpose,Volga region rye; extremely hardy; grain and forage,2-4,Russian variety registry
+Viatka 2,rye (winter),Kirov Institute,Russia,extreme winterhardiness;tall,Northern Russian rye; one of hardiest rye cultivars,2-3,Russian variety registry
+Onohoiskaya,rye (winter),Buryat Institute,Russia,extreme winterhardiness;Siberian adapted,Siberian winter rye; bred for Transbaikal region,2-3,Russian variety registry
+Otello,barley (winter 6-row),Graminor,Norway,winterhardiness;Norwegian adapted,Norwegian winter barley; one of few winter barleys for Scandinavia,4-5,Graminor official
+Skálinn,barley (spring 6-row),RALA/AUI,Iceland,short season;volcanic soil adapted,Icelandic barley; 60-70 day crop cycle; grown at 65N,3-4,Agricultural University of Iceland
+Hrafn,barley (spring 6-row),AUI,Iceland,very early maturity;Iceland adapted,Icelandic barley bred for extreme latitude; minimal frost-free season,3-4,Agricultural University of Iceland
+Vísir,wheat (spring),AUI,Iceland,earliest spring wheat;Iceland adapted,Icelandic spring wheat; experimental cultivation since 2000s,4-5,Agricultural University of Iceland
+Magni,barley (spring 6-row),AUI,Iceland,malt quality;short season,Icelandic malting barley; adapted to long photoperiod,3-4,Agricultural University of Iceland
+Blessi,oat (spring),AUI,Iceland,early;grain;Iceland adapted,Icelandic oat variety; very short growing season,3-4,Agricultural University of Iceland
+Bjarni,barley (spring 6-row),AUI,Iceland,feed;early;stable yield,Icelandic feed barley; one of oldest current cultivars,3-4,Agricultural University of Iceland
+Glasgow,wheat (winter),SRUC,UK,milling wheat;winter hardy;Scottish,Scottish milling wheat; bred for northern UK conditions,5-6,SRUC Edinburgh
+Belenus,wheat (winter),Saaten-Union,Germany/UK,bread quality;winter hardy,Grown in Scotland; hardy for northern UK maritime climate,5-6,Saaten-Union UK trials
+KWS Lili,wheat (winter),KWS,Germany/UK,feed wheat;high yield;winter hardy,Widely grown in Scotland and northern England,5-6,KWS UK variety trials
+Optic,barley (spring 2-row),SCRI,UK,malt quality;Scottish standard,Scottish malting barley; reference cultivar for UK barley breeding,5-6,James Hutton Institute
+Toka,plum,SDSU,USA,extremely hardy;sweet;red,P. americana x P. salicina hybrid; one of hardiest plums,2-3,South Dakota State U variety release
+Waneta,plum,SDSU,USA,large fruit;red;hardy,American hybrid plum; zone 2; large fruit for cold climate,2-3,SDSU/Morden breeding
+Superior,plum,U Minnesota,USA,dessert quality;large;hardy,P. salicina x P. americana hybrid; excellent eating quality,3-4,U Minnesota fruit breeding
+Alderman,plum,U Minnesota,USA,large;blue;excellent quality,Japanese-American hybrid; one of best cold-hardy plums,3-4,U Minnesota fruit breeding
+Brookgold,plum,SDSU,USA,yellow;sweet;hardy,Cold-hardy yellow plum; hybrid origin,3,South Dakota State U
+Sapalta,cherry-plum,AAFC Brooks,Canada,cherry-plum hybrid;compact;zone 2,P. besseyi x P. salicina; extremely hardy bush form,2,AAFC Brooks Alberta
+Meteor,sour cherry (tree),U Minnesota,USA,self-fertile;bright red;pie quality,Montmorency-type; natural semi-dwarf; very cold hardy tree form,3-4,U Minnesota fruit breeding
+Consort,black currant,AAFC Ottawa,Canada,white pine blister rust immune;productive,Resistant to Cronartium ribicola; allows cultivation where currants were banned,3-5,AAFC Ottawa breeding program
+Ben Tirran,black currant,SCRI,UK,very late;large berry;juice quality,Scottish black currant; extends harvest season; good for Nordic conditions,4-6,James Hutton Institute
+Risager,black currant,Danish breeding,Denmark,early;large berry;aroma,Scandinavian black currant; widely grown in Nordic countries,4-5,Danish berry breeding
+Ojebyn,black currant,SLU,Sweden,winterhardiness;compact bush;self-fertile,Swedish black currant; one of hardiest cultivars; bred from northern Swedish material,2-4,SLU breeding program
+Rovada,red currant,Netherlands,Netherlands,very large clusters;late;productive,Dutch red currant; excellent for northern European climates,4-6,Dutch berry breeding
+Jonkheer van Tets,red currant,Netherlands,Netherlands,early;bright red;prolific,Classic Dutch red currant; widely grown in Scandinavia,4-6,Dutch variety records
+Hinnomaki Red,gooseberry,MTT,Finland,disease resistant;red;productive,Finnish gooseberry; mildew resistant; winter hardy,3-5,MTT Agrifood Research Finland
+Pixwell,gooseberry,NDSU,USA,thornless;pink;prolific;zone 2,American gooseberry; extremely cold hardy; nearly thornless,2-3,North Dakota State U
+Thiessen,saskatoon berry,ISC/USask,Canada,large berry 1.5cm;productive;early,Named 1976; largest-fruited saskatoon; commercially successful,2-3,U Saskatchewan Fruit Program
+Smoky,saskatoon berry,AAFC Beaverlodge,Canada,sweet;mild;most planted commercial,Most widely planted saskatoon cultivar; good processing,2-3,AAFC Beaverlodge Alberta
+Northline,saskatoon berry,AAFC Beaverlodge,Canada,compact bush;dark;sweet-tart,Compact form 2m; suited for u-pick and commercial planting,2-3,AAFC Beaverlodge Alberta
+Martin,saskatoon berry,ISC/USask,Canada,upright;large;late ripening,Large-fruited saskatoon; upright habit; commercial cultivar,2-3,U Saskatchewan Fruit Program
+JB30,saskatoon berry,USask,Canada,largest fruit;newest release,Newest saskatoon selection; exceptional berry size,2-3,U Saskatchewan Fruit Program
+Frontenac Gris,grape (white wine),U Minnesota,USA,white wine;cold hardy;aromatic,Grey-skinned mutation of Frontenac; zone 3-4; apricot/peach notes,3-4,U Minnesota Grape Breeding 2003
+Brianna,grape (white wine),Elmer Swenson,USA,white wine;pineapple aroma;zone 4,Swenson selection; one of hardiest quality white wine grapes,4,Private breeding/Iowa State evaluation
+Louise Swenson,grape (white wine),Elmer Swenson,USA,white wine;honey-melon;zone 3,One of Swenson's finest; versatile white; ages well,3-4,Swenson grape selections
+St. Croix,grape (red wine),Elmer Swenson,USA,red wine;Beaujolais-style;zone 3,Swenson hybrid; excellent cold hardiness with good wine quality,3-4,Swenson grape selections
+Mars,grape (seedless table),U Arkansas,USA,seedless;blue;Concord-like;zone 5,One of hardiest seedless grapes; V. labrusca heritage; moderate cold tolerance,5,U Arkansas fruit breeding
+Strawberry Sensation,haskap,U Saskatchewan,Canada,strawberry flavor;upright;compact,Newest haskap release; unique strawberry-like flavor profile,2,USask Fruit Program official
+Berry Blue,haskap,Oregon State,USA,large;sweet;PNW adapted;zone 4,Pacific Northwest haskap; adapted to milder maritime climate,4-5,Oregon State U berry breeding
+Taka,haskap,Hokkaido/Japan,Japan,early;sweet;Japanese type,Japanese selection; crossed with Russian for North American cultivars,4-5,Hokkaido breeding program
+Yubari,haskap,Hokkaido/Japan,Japan,large berry;dessert quality,Premium Japanese haskap; basis for USask breeding program,4-5,Hokkaido breeding program
+Longjiang 4,sea buckthorn,Heilongjiang Academy,China,large fruit;high oil;thornless,Chinese sea buckthorn cultivar; H. rhamnoides subsp. mongolica derived,3-4,Chinese Academy of Agricultural Sciences
+Prozrachnaya,sea buckthorn,Lisavenko Institute,Russia,large fruit;few thorns;orange,Altai region selection; commercially grown in Russia,3-4,Lisavenko Institute Barnaul
+Jokioinen,lingonberry,MTT,Finland,large berry;semi-erect,Finnish lingonberry cultivar; commercially available; larger than wild,2-4,MTT Agrifood Research Finland
+Red Pearl,lingonberry,Netherlands,Netherlands,large berry;ornamental;productive,Dutch lingonberry selection; commercially grown,4-5,Dutch berry breeding
+Longan No. 14,apricot,Liaoning Academy,China,extremely hardy;small;early,Chinese cold-hardy apricot; P. armeniaca var. mandshurica derived,3-4,Liaoning Academy of Agricultural Sciences
+Scout,apricot,AAFC Morden,Canada,zone 2;Canadian hybrid;reliable,P. mandshurica x P. armeniaca; one of hardiest named apricots,2-3,AAFC Morden Research Station
+Harlayne,apricot,Agriculture Canada,Canada,large fruit;zone 4;reliable,Harrow series; one of hardiest full-size apricots,4,AAFC Harrow Ontario
+Kosui,pear (Asian),NIFTS,Japan,sweet;juicy;early ripening,Japanese Nashi pear; limited cold tolerance but important breeding parent,5-6,National Institute of Fruit Tree Science Japan
+Shinko,pear (Asian),NIFTS,Japan,disease resistant;late;storage,Japanese Nashi; fire blight resistant; grown experimentally in cold climates,5-6,NIFTS Japan
+Lieksa,barley (spring 6-row),Boreal,Finland,extreme northern adapted;feed,Finnish spring barley; bred for Arctic Finland growing conditions,2-3,Boreal Plant Breeding official
+Kustaa,barley (spring 6-row),Boreal,Finland,winterhardiness;feed;northern,Finnish barley bred for survival in harsh continental conditions,2-4,Boreal Plant Breeding official
+Bamse,wheat (winter),Lantmannen,Sweden,strong straw;winter hardy,Swedish winter wheat; strong straw for Nordic conditions,4-5,Lantmannen Seed official
+Runar,wheat (spring),Graminor,Norway,bread quality;northern adapted,Norwegian spring wheat; grown in central/northern Norway,3-5,Graminor official
+Priekuli 481,barley (spring 6-row),Priekuli,Latvia,early;northern adapted;feed,Latvian spring barley; grown across Baltics and Scandinavia,3-5,Priekuli Plant Breeding Station
+Auksiniai 3,barley (spring 2-row),Lithuanian Institute,Lithuania,malt quality;Baltic adapted,Lithuanian spring barley; suited for Baltic maritime climate,4-5,Lithuanian Institute of Agriculture
+Semu 509,wheat (winter),Jogeva,Estonia,winterhardiness;bread quality,Estonian winter wheat; bred for Baltic winter conditions,3-5,Jogeva Plant Breeding Institute
+Ada,oat (spring),Jogeva,Estonia,early;yield;Baltic adapted,Estonian spring oat; widely grown in Baltic states,4-5,Jogeva Plant Breeding Institute
+Fredrika,wheat (winter),Graminor,Norway,newest winter wheat;high yield;hardy,Recent Graminor release; combines yield and winter survival,3-5,Graminor official
+Kelliher,wheat (winter),CDC Saskatchewan,Canada,CWRW class;prairie adapted;high yield,Canadian Western Red Winter wheat for prairie conditions,3-4,CDC Saskatoon variety release
+AC Hazlet,wheat (winter),AAFC Swift Current,Canada,extreme winterhardiness;drought tolerant,Bred for Saskatchewan prairies; one of hardiest Canadian wheats,2-3,AAFC Swift Current variety release
+Antonovka,apple,,,,,,
+Borlaug 100,wheat,,Mexico,high-yield;disease-resistant,Limited cold tolerance; bred for subtropical regions.,9-12,CIMMYT
+Dala Lantvete,wheat,,Sweden,cold-hardy;tall-straw;landrace,,,
+Einkorn,einkorn,,other,ancient-grain;diploid-wheat,,,
+Emmer,wheat,,Italy,ancient-grain;nutty-flavor,Survives light frost; not for extreme cold.,5-9,Slow Food Foundation
+Frankenkorn,spelt,,,,,,
+Freekeh,wheat,,Syria,ancient-grain;smoky-flavor,Limited cold tolerance; prefers warm climates.,8-11,Syrian Agricultural Research
+Glenn,wheat,,USA,high-protein;disease-resistant,Excellent cold tolerance; bred for North Dakota.,3-6,NDSU Foundation Seedstocks
+Jagger,wheat,,USA,winter-hardy;high-yield,Excellent cold tolerance; bred for Kansas winters.,3-6,Kansas Wheat Innovation Center
+Kamut,wheat,,Egypt,ancient-grain;high-protein,Moderate cold tolerance; best in temperate climates.,4-8,Kamut International
+Kungs-Rye,rye,,Sweden,winter-rye;deep-roots;erosion-control,,,
+Marquis,wheat,,Canada,early-maturing;high-yield,Good cold tolerance; bred for Canadian prairies.,2-6,Canadian Grain Commission
+Norin 10,wheat,,Japan,semi-dwarf;high-yield,Good cold tolerance; bred for Japanese winters.,5-8,Japanese Ministry of Agriculture
+Oberkulmer,spelt,,,,,,
+Oberkulmer Rotkorn,spelt,,Switzerland,spelt;hulled-grain;disease-resistant,,,
+Olandsvete,wheat,,,,,,
+Purple Straw,wheat,,USA,heirloom;soft-grain,Tolerates mild frost; not for severe cold.,6-9,Southern Exposure Seed Exchange
+Red Fife,wheat,,Canada,heirloom;disease-resistant;high-yield,Tolerates mild frost; not suitable for harsh winters.,3-7,Heritage Grain Trust
+Rouge de Bordeaux,wheat,,France,heirloom;aromatic,Moderate cold tolerance; traditional French variety.,6-9,Terroir Seeds
+Sonora,wheat,,Mexico,soft-grain;early-maturing,Not frost tolerant; best in warm regions.,8-11,Native Seeds/SEARCH
+Spelt,wheat,,Germany,ancient-grain;nutty-flavor,Moderate cold tolerance; grows in cool climates.,4-8,Biodiversity Heritage Library
+Turkey Red,wheat,,Ukraine,heirloom;drought-tolerant,Good cold tolerance; adapted to harsh winters.,3-7,Heritage Grain Trust
+Yecora Rojo,wheat,,USA,high-protein;semi-dwarf,Limited cold tolerance; prefers warm climates.,7-10,UC Davis
+Ölandsvete,wheat,,Sweden,heritage-landrace;drought-tolerant;low-input,,,
+Tammisto,timothy,MTT/Hankkija,Finland,winter hardy;high yield;dense sward;widely adapted,One of oldest Finnish timothy cultivars; extremely winter hardy; foundation of Nordic forage breeding,2-4,MTT Agrifood Research Finland
+Lischka,timothy,DSV,Germany,high yield;late heading;good regrowth,German timothy adapted to Central-Northern Europe; good winter survival in maritime climates,4-6,Deutsche Saatveredelung (DSV)
+Alma,timothy,Jogeva PBI,Estonia,winter hardy;Baltic adapted;medium-early,Estonian timothy bred for Baltic conditions; good persistence under ice encasement,3-5,Jogeva Plant Breeding Institute
+Lejre,timothy,DLF,Denmark,high digestibility;early heading;persistent,Danish timothy suited for intensive cutting; maritime adapted,4-5,DLF Seeds official
+Retu,tall fescue,Boreal,Finland,extreme winterhardiness;persistence;deep roots,Finnish tall fescue; one of hardiest Festuca arundinacea cultivars globally; persists in northern Finland,2-4,Boreal Plant Breeding official
+Swaj,tall fescue,SW Seed/Lantmannen,Sweden,winter hardy;forage quality;deep-rooted,Swedish tall fescue bred for Scandinavian conditions; drought tolerant via deep root system,4-5,Lantmannen Seed official
+Palaton,reed canary grass,USDA/Iowa State,USA,low alkaloid;palatable;high yield,First low-alkaloid reed canary grass; breakthrough for forage quality; widely used in Nordic trials,3-5,USDA-ARS Iowa; Carlson et al. Crop Science 1996
+Venture,reed canary grass,AAFC,Canada,low alkaloid;winter hardy;wetland adapted,Canadian low-alkaloid Phalaris arundinacea; suited for marginal wet soils,2-4,AAFC Saskatoon breeding program
+Lara,reed canary grass,Svalof,Sweden,bioenergy;tall;high biomass;winter hardy,Swedish reed canary grass bred for bioenergy production; tolerates waterlogged soils,3-5,Svalof Weibull/Lantmannen official
+Carlton,smooth bromegrass,AAFC Saskatoon,Canada,winter hardy;high yield;creeping root,Canadian smooth bromegrass; widely grown on prairies; excellent cold tolerance,2-4,AAFC Saskatoon variety release
+Fleet,smooth bromegrass,AAFC Saskatoon,Canada,improved regrowth;leafy;persistent,Canadian Bromus inermis; improved aftermath yield over Carlton,2-4,AAFC Saskatoon variety release
+Paddock,smooth bromegrass,AAFC Saskatoon,Canada,disease resistant;grazing tolerant;productive,Canadian smooth bromegrass; resistant to brown leaf spot,2-4,AAFC Saskatoon variety release
+Signal,smooth bromegrass,AAFC Brandon,Canada,meadow bromegrass;non-creeping;bunch type,Bromus riparius (meadow brome); non-sod-forming; winter hardy to zone 2,2-4,AAFC Brandon Manitoba
+Frisk,cocksfoot,Graminor,Norway,winter hardy;Nordic adapted;persistent,Norwegian Dactylis glomerata; bred for persistence in Scandinavian conditions,4-5,Graminor official
+Laban,cocksfoot,Graminor,Norway,late heading;winter survival;forage quality,Norwegian cocksfoot; improved winter hardiness for Nordic use; late maturity group,4-5,Graminor official
+Entopper,kentucky bluegrass,DLF,Denmark,turf quality;dense sward;disease resistant,Danish Poa pratensis bred for Nordic turf and forage; excellent winter color retention,4-6,DLF Seeds official
+Monopoly,kentucky bluegrass,Barenbrug,Netherlands,aggressive establishment;dense;wear tolerant,Dutch Kentucky bluegrass cultivar; widely used in Northern European turf programs,4-6,Barenbrug Seeds official
+Aurora,alsike clover,Svalof,Sweden,winter hardy;wet soil tolerant;nitrogen fixing,Swedish Trifolium hybridum; thrives in poorly drained acidic soils; excellent for northern leys,3-5,Svalof Weibull breeding records
+Dawn,alsike clover,AAFC,Canada,winter hardy;persistent;high seed yield,Canadian alsike clover; bred for northern prairie and parkland conditions,2-4,AAFC Ottawa forage breeding
+Norcen,bird's-foot trefoil,USDA/Iowa State,USA,non-bloating;persistent;high tannin,Lotus corniculatus cultivar; does not cause bloat; excellent for mixed pastures,3-5,USDA-ARS Iowa; Seaney & Henson 1970
+Leo,bird's-foot trefoil,DLF/Poulsen,Denmark,European type;erect;high yield;persistent,Danish Lotus corniculatus; widely grown in Northern Europe; good winter survival,4-6,DLF Seeds official
+Surefire,sour cherry (tree),U Minnesota,USA,extremely productive;self-fertile;disease tolerant,P. cerasus; bred for northern gardens; heavy cropping; reliable in zone 3,3-4,U Minnesota fruit breeding
+Mesabi,sour cherry (tree),U Minnesota,USA,large fruit;cold hardy;vigorous tree,U Minnesota release; Morello-type; good for processing and fresh eating,3-4,U Minnesota fruit breeding
+Nefris,sour cherry (tree),Skierniewice,Poland,productive;dark fruit;disease resistant,Polish sour cherry from Skierniewice institute; widely grown in Central-Northern Europe,4-5,Research Institute of Horticulture Skierniewice
+Lutowka,sour cherry (tree),Polish landrace,Poland,very late season;processing quality;vigorous,Traditional Polish sour cherry; widely grown for juice and preserves; hardy to zone 4,4-5,Polish pomological records
+Shubinka,sour cherry (tree),Russian selection,Russia,extreme cold tolerance;small dark fruit;productive,Russian heritage sour cherry; survives -35C; grown across northern Russia,3-4,Russian pomological records
+Kuban Comet,cherry plum,Krasnodar Institute,Russia,early ripening;large fruit;productive;cold hardy,P. cerasifera hybrid bred in Krasnodar; adapted to Russian winters; excellent fresh eating,4-5,Krasnodar Research Institute official
+Obilnaya,cherry plum,Krymsk Station,Russia,extremely productive;medium fruit;purple skin,Russian cherry plum (alycha); Prunus cerasifera; high-yielding ornamental and fruit tree,4-5,Krymsk Breeding Station official
+Manchurian,apricot,Heilongjiang Academy,China,extreme cold tolerance;small fruit;ornamental,Prunus mandshurica; survives -40C; parent of many cold-hardy apricot hybrids globally,2-3,Chinese Academy of Agricultural Sciences
+Wojtek,haskap,University of Life Sciences Lublin,Poland,large berries;late season;productive,Polish Lonicera caerulea; bred from Kamchatka germplasm; excellent flavor,3-5,University of Life Sciences Lublin Poland
+Leningradskiy Velikan,haskap,Pavlovsk Station,Russia,very large fruit;productive;spreading bush,Russian haskap (zhimolost); Leningrad Giant; one of largest-fruited Russian cultivars,3-4,Pavlovsk Experimental Station St. Petersburg
+Kamchadalka,haskap,Bakcharskoe/VNIIR,Russia,upright compact;medium fruit;early ripening,Russian Kamchatka-origin haskap; widely grown in Siberia; extremely cold hardy,2-3,Bakcharskoe breeding nursery Russia
+Erntedank,lingonberry,Geisenheim,Germany,large berry;high yield;semi-erect,German Vaccinium vitis-idaea cultivar; one of first named lingonberry cultivars,4-6,Geisenheim Research Institute Germany
+Runo Bielawskie,lingonberry,Skierniewice,Poland,large berry;vigorous;good ground cover,Polish lingonberry selection; adapted to Central-Northern European conditions,4-5,Research Institute of Horticulture Skierniewice
+Hergo,sea buckthorn,Humboldt-Universitat,Germany,low thorn;high vitamin C;early ripening,German Hippophae rhamnoides cultivar; bred for easy mechanical harvest; widely planted,4-6,Humboldt University Berlin breeding program
+Leikora,sea buckthorn,Humboldt-Universitat,Germany,large fruit;late season;high yield,German sea buckthorn; most widely planted cultivar in Western Europe,4-6,Humboldt University Berlin breeding program
+Botanicheskaya,sea buckthorn,Botanical Garden Moscow,Russia,few thorns;large fruit;aromatic,Russian sea buckthorn bred at Moscow Botanical Garden; excellent fruit quality,3-5,Moscow Botanical Garden breeding records
+Viking,aronia,Finnish/Russian selection,Finland,large berry clusters;vigorous;productive,Aronia melanocarpa; most widely grown chokeberry cultivar worldwide; extremely cold hardy,2-4,Finnish berry breeding records; Russian origin
+Nero,aronia,Czech breeding,Czech Republic,large berries;compact bush;high anthocyanin,Czech Aronia melanocarpa; bred for juice production; very high antioxidant content,3-5,Czech horticultural breeding records
+Galicjanka,aronia,Bolestraszyce Arboretum,Poland,very productive;upright;juice quality,Polish chokeberry cultivar; bred for commercial juice production; hardy,4-5,Bolestraszyce Arboretum Poland
+Haschberg,elderberry,Austrian selection,Austria,large berry clusters;high pigment;vigorous,Sambucus nigra; most important commercial elderberry cultivar in Europe,4-6,Austrian pomological records
+Sampo,elderberry,Luke/Finnish breeding,Finland,cold hardy;compact;productive;early,Finnish Sambucus nigra selection; bred for Nordic conditions; ripens early,3-5,Luke Natural Resources Institute Finland
+Stevens,cranberry,Rutgers,USA,large berry;high yield;industry standard,Vaccinium macrocarpon; most widely planted cranberry cultivar worldwide; tolerates boggy acidic soils,3-5,Rutgers University New Jersey
+Pilgrim,cranberry,USDA,USA,large berry;deep red;late season,USDA-released Vaccinium macrocarpon; excellent color and storage; commercially important,3-5,USDA cranberry breeding program
+Leon Millot,grape (red wine),Kuhlmann/Alsace,France,early ripening;dark wine;Marechal Foch sibling,French hybrid 194-2; Goldriesling x V. riparia-rupestris; ripens very early; zone 4,4-5,French hybrid grape records; Alsace breeding
+Marechal Foch,grape (red wine),Kuhlmann/Alsace,France,early ripening;Burgundy-style wine;cold hardy,French hybrid 188-2; Goldriesling x V. riparia-rupestris; widely grown in cold climates,4-5,French hybrid grape records; Alsace breeding
+Regent,grape (red wine),JKI Geilweilerhof,Germany,disease resistant;Pinot-like quality;PIWI,German PIWI grape; excellent mildew resistance; planted in Scandinavia and UK,5-6,Julius Kuhn Institute Geilweilerhof Germany
+Muscaris,grape (white wine),JKI Geilweilerhof,Germany,Muscat aroma;disease resistant;PIWI,German PIWI crossing; Solaris x Gelber Muskateller; aromatic white for northern climates,5-6,Julius Kuhn Institute Geilweilerhof Germany
+Johanniter,grape (white wine),JKI Geilweilerhof,Germany,Riesling-like;mildew resistant;PIWI,German PIWI grape; Riesling heritage; grown successfully in southern Scandinavia,5-6,Julius Kuhn Institute Geilweilerhof Germany
+Supaga,grape (table),Latvian breeding,Latvia,early ripening;sweet;Muscat aroma;cold hardy,Latvian table grape; extremely early ripening for fresh eating; grown in Baltic states,4-5,Latvian grape breeding program
+Beta,grape (juice/wine),South Dakota State,USA,extremely hardy;Concord-type;vigorous,V. riparia x Concord hybrid; survives -40C; one of hardiest named grapes; juice and jelly,2-3,SDSU variety release 1881
+Bluebell,grape (juice/table),U Minnesota,USA,early ripening;Concord-type;cold hardy,V. labrusca hybrid; bred for short-season northern climates; blue-black fruit,3-4,U Minnesota grape breeding 1983
+Alvesta,field pea,Lantmannen,Sweden,high yield;semi-leafless;standing ability,Swedish field pea (Pisum sativum); bred for Nordic conditions; good combine harvest traits,4-6,Lantmannen Seed official
+Ingrid,field pea,Lantmannen,Sweden,early maturity;high protein;standing ability,Swedish field pea; adapted to Scandinavian growing season; reliable protein crop,4-6,Lantmannen Seed official
+Clara,field pea,Boreal,Finland,winter hardy;high yield;Finnish adapted,Finnish field pea; bred for northern latitude short-season conditions,3-5,Boreal Plant Breeding official
+Perttu,field pea,Boreal,Finland,high protein;early;northern adapted,Finnish field pea cultivar; suited for Finnish growing conditions; good seed quality,3-5,Boreal Plant Breeding official
+Kontu,faba bean,Boreal,Finland,earliest maturity;determinate;short plant,Finnish Vicia faba; one of earliest maturing faba beans globally; suited for zone 3,3-5,Boreal Plant Breeding official
+Sampo Faba,faba bean,Boreal,Finland,early maturity;high yield;tannin-free,Finnish faba bean; zero-tannin type suited for feed; adapted to short northern season,3-5,Boreal Plant Breeding official
+Louhi,faba bean,Boreal,Finland,cold tolerant;early;high protein,Finnish faba bean named after Kalevala character; very early maturity for Arctic agriculture,2-4,Boreal Plant Breeding official
+CDC Maxim,lentil,CDC Saskatchewan,Canada,large green;high yield;widely adapted,Canadian large green lentil; most widely grown lentil cultivar in Saskatchewan,3-5,CDC University of Saskatchewan
+Boruta,narrow-leafed lupin,Poznan Plant Breeding,Poland,low alkaloid;self-completing;determinate,Polish Lupinus angustifolius; sweet (low alkaloid) type; nitrogen-fixing grain legume,4-6,Poznan Plant Breeding Ltd Poland
+Boros,narrow-leafed lupin,Poznan Plant Breeding,Poland,early maturity;low alkaloid;high protein,Polish narrow-leafed lupin; bred for Northern European conditions; thermoneutral,4-6,Poznan Plant Breeding Ltd Poland

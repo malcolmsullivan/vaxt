@@ -1,0 +1,61 @@
+variety_or_gene,crop,pathogen,resistance_level,mechanism,test_method,region,qtl_or_gene,source
+Norstar,winter wheat,Microdochium nivale,moderate,tolerance;regrowth after infection,field + inoculated chamber,Canada;Norway,quantitative,Gaudet et al. Plant Pathology 60:567 2011
+Veli,winter wheat,Microdochium nivale,moderate-high,tolerance;rapid spring regrowth,field + inoculated chamber,Finland,quantitative,Hommo 1994 Plant Breeding 112:285
+Elonkerjuu,winter rye,Microdochium nivale,high,cell wall reinforcement;rapid tissue recovery,field trial,Finland,quantitative + Mn resistance,Miedaner et al. Plant Breeding 132:558 2013
+Petkus,winter rye,Microdochium nivale,high,constitutive resistance;thick cell walls,field trial,Germany;Finland,quantitative,Miedaner et al. Plant Breeding 132:558 2013
+Dicktoo,winter barley,Microdochium nivale,low-moderate,limited tolerance;barley generally susceptible,inoculated chamber,USA;Finland,quantitative,Gaudet et al. Can J Plant Pathol 21:236 1999
+Grindstad,timothy,Microdochium nivale,moderate,crown tolerance;regrowth,field trial,Norway,quantitative,Tronsmo 1993 Acta Agric Scand 43:89
+Engmo,timothy,Microdochium nivale,moderate-high,arctic-adapted;rapid spring recovery,field trial,Norway (69N),quantitative,Tronsmo 1993 Acta Agric Scand 43:89
+Iki,timothy,Typhula ishikariensis,moderate,tolerance;crown regrowth,field + inoculated,Finland,quantitative,Jamalainen 1974 Ann Agric Fenn 13:98
+Jonathan,timothy,Typhula ishikariensis,low-moderate,susceptible to prolonged Typhula exposure,field + inoculated,Finland,quantitative,Jamalainen 1974 Ann Agric Fenn 13:98
+Vega,meadow fescue,Microdochium nivale,moderate,IRI protein expression;crown tolerance,field trial,Norway,quantitative + FpIRI,Sandve et al. Plant Physiol 144:171 2008
+Norstar,winter wheat,Typhula ishikariensis,moderate-high,tolerance;survives prolonged snow cover,field + inoculated chamber,Canada;Finland,quantitative,Gaudet et al. Can J Plant Pathol 21:236 1999
+Veli,winter wheat,Typhula ishikariensis,high,excellent Typhula tolerance in Finnish trials,field trial,Finland,quantitative,Hommo 1994 Plant Breeding 112:285
+Elonkerjuu,winter rye,Typhula ishikariensis,very high,rye inherently resistant to Typhula spp.,field trial,Finland,quantitative,Miedaner et al. Plant Breeding 132:558 2013
+Petkus,winter rye,Typhula ishikariensis,very high,strongest Typhula resistance among tested cereals,field + inoculated,Germany;Finland,quantitative,Miedaner et al. Plant Breeding 132:558 2013
+Dicktoo,winter barley,Typhula ishikariensis,low,barley highly susceptible to Typhula,inoculated chamber,USA;Finland,quantitative,Gaudet et al. Can J Plant Pathol 21:236 1999
+Norstar,winter wheat,Typhula incarnata,moderate,tolerance;less virulent than T. ishikariensis,field,Canada,quantitative,Gaudet et al. Can J Plant Pathol 21:236 1999
+Elonkerjuu,winter rye,Typhula incarnata,high,rye resistant to T. incarnata,field,Finland,quantitative,Miedaner et al. Plant Breeding 132:558 2013
+Norstar,winter wheat,Sclerotinia borealis,moderate,tolerance;Sclerotinia less common than Microdochium,field,Canada;Norway,quantitative,Ergon et al. Plant Pathology 52:653 2003
+Petkus,winter rye,Sclerotinia borealis,high,rye resistant;cell wall barriers,field,Finland;Norway,quantitative,Ergon et al. Plant Pathology 52:653 2003
+Grindstad,timothy,Sclerotinia borealis,low-moderate,timothy susceptible to Sclerotinia under prolonged snow,field trial,Norway,quantitative,Tronsmo 1993 Acta Agric Scand 43:89
+QTL-SM-5A,winter wheat,Microdochium nivale,QTL effect,major QTL on 5A near CBF cluster,GWAS;bi-parental,Nordic/Canadian,Qsm.crc-5A,Gaudet et al. Theor Appl Genet 120:1451 2010
+QTL-SM-5B,winter wheat,Microdochium nivale,QTL effect,minor QTL on 5B homoeolog,GWAS;bi-parental,Nordic/Canadian,Qsm.crc-5B,Gaudet et al. Theor Appl Genet 120:1451 2010
+QTL-SM-1A,winter wheat,Microdochium nivale,QTL effect,minor QTL on 1A,bi-parental,Canadian,Qsm.crc-1A,Gaudet et al. Theor Appl Genet 120:1451 2010
+Fhn1,winter wheat,Microdochium nivale,gene,linked to Tsn1 locus; cold acclimation-enhanced resistance,inoculated chamber,Norwegian,Fhn1 (Fr locus linked),Ergon et al. Plant Pathology 52:653 2003
+TaCBF14/15 haplotype,winter wheat,Microdochium nivale,gene haplotype,CBF copy number correlates with snow mold tolerance,molecular marker,Global,TaCBF14/TaCBF15 CNV,Pearce et al. BMC Plant Biology 13:140 2013
+WCS120 expression,winter wheat,Microdochium nivale,functional marker,dehydrin WCS120 accumulation correlates with snow mold survival,protein assay,Canadian/Nordic,WCS120,Gaudet et al. Plant Pathology 60:567 2011
+PR-1.1 induction,winter wheat,Microdochium nivale,defense response,pathogenesis-related protein 1 induced under snow,gene expression,Norwegian,TaPR-1.1,Ergon et al. Plant Pathology 52:653 2003
+Bjursele,red clover,Sclerotinia trifoliorum,moderate,persistence under Sclerotinia pressure,field trial,Sweden (66N),quantitative,Swedish red clover breeding records
+Lea,red clover,Sclerotinia trifoliorum,moderate,Norwegian red clover with clover rot tolerance,field trial,Norway,quantitative,Graminor official
+Gondolin,red clover,Sclerotinia trifoliorum,moderate-high,improved clover rot resistance over older cultivars,field trial,Norway,quantitative,Graminor official
+Grindstad,timothy,Typhula ishikariensis,moderate,crown recovery after Typhula infection,field + inoculated,Norway;Finland,quantitative,Jamalainen 1974 Ann Agric Fenn 13:98
+Engmo,timothy,Typhula ishikariensis,moderate-high,best Typhula tolerance among Norwegian timothy cultivars,field trial,Norway (69N),quantitative,NIBIO forage trials
+Trygve,perennial ryegrass,Microdochium nivale,low-moderate,ryegrass generally susceptible to snow mold,field trial,Norway,quantitative,Graminor forage evaluation
+Hykor,festulolium,Microdochium nivale,moderate,hybrid combines fescue resistance with ryegrass quality,field trial,Nordic,quantitative,DLF Festulolium trials
+Magnifik,winter wheat,Microdochium nivale,moderate,good Norwegian wheat but less resistant than Norstar/Veli,field + inoculated,Norway,quantitative,Graminor wheat trial data
+Kharkov,winter wheat,Microdochium nivale,moderate,historic landrace; moderate snow mold tolerance,field,Ukraine/USA,quantitative,Clark et al. USDA Bulletin 1074 1922
+Mironovskaya 808,winter wheat,Microdochium nivale,moderate-high,excellent snow mold tolerance in Ukrainian/Finnish trials,field,Ukraine;Finland,quantitative,Myronivka Institute records
+Cosinus,winter triticale,Microdochium nivale,moderate,triticale combines wheat and rye resistance traits,field,Poland;Nordic,quantitative,DANKO trial records
+Szala,winter triticale,Typhula ishikariensis,moderate-high,good Typhula tolerance from rye parent genome,field,Poland;Finland,quantitative,DANKO trial records
+Fure,meadow fescue,Typhula ishikariensis,moderate,good persistence under Typhula pressure,field trial,Norway,quantitative,Graminor forage evaluation
+Kasper,meadow fescue,Microdochium nivale,moderate,Finnish meadow fescue with good snow mold survival,field trial,Finland,quantitative,Boreal forage evaluation
+Figgjo,perennial ryegrass,Microdochium nivale,low,perennial ryegrass most susceptible forage to snow mold,field trial,Norway,quantitative,Graminor forage evaluation
+Puma,winter wheat,Microdochium nivale,moderate,Swedish wheat with moderate snow mold tolerance,field,Sweden,quantitative,SW Seed trial data
+Fredrika,winter wheat,Microdochium nivale,moderate,newest Graminor winter wheat; improved snow mold tolerance,field,Norway,quantitative,Graminor trial data
+AC Hazlet,winter wheat,Microdochium nivale,moderate-high,Canadian prairie wheat with good snow mold tolerance,field,Canada (SK),quantitative,AAFC Swift Current trial data
+Imperial,winter rye,Typhula ishikariensis,very high,Canadian winter rye; excellent Typhula resistance,field,Canada (AB),quantitative,AAFC Lethbridge variety release
+Musketeer,winter rye,Typhula ishikariensis,high,Canadian rye with strong Typhula tolerance,field,Canada (prairies),quantitative,AAFC variety release
+Chulpan,winter rye,Sclerotinia borealis,high,Bashkir rye with Sclerotinia tolerance in Ural region,field,Russia (Urals),quantitative,Russian breeding records
+Grindstad,timothy,Drechslera dictyoides (leaf spot),moderate,leaf lesion tolerance;maintains tiller density,field trial,Norway;Finland,quantitative,Tronsmo & Skjelvag 1987 Acta Agric Scand 37:205
+Engmo,timothy,Drechslera dictyoides (leaf spot),moderate-high,arctic-adapted;rapid leaf turnover limits lesion spread,field trial,Norway (69N),quantitative,NIBIO forage pathology trials
+Kasper,meadow fescue,Puccinia coronata (crown rust),moderate,partial resistance;slow rusting phenotype,field trial,Finland,quantitative,Boreal forage disease evaluation
+Fure,meadow fescue,Puccinia coronata (crown rust),moderate-high,strong crown rust tolerance in Norwegian trials,field trial,Norway,quantitative,Graminor forage evaluation
+Stella,sweet cherry,Pseudomonas syringae pv. morsprunorum (bacterial canker),moderate,bark wound healing;reduced canker spread,field + inoculated,UK;Canada,quantitative,East Malling Research cherry trials
+Prunus avium (wild),sweet cherry,Pseudomonas syringae pv. morsprunorum (bacterial canker),moderate-high,wild cherry populations show canker tolerance,field survey,Scandinavia;Central Europe,quantitative,Spotts et al. Plant Dis 74:794 1990
+Stanley,European plum,Monilinia fructigena (brown rot),moderate,reduced fruit rot incidence vs susceptible cultivars,field trial,Romania;Hungary,quantitative,Holb 2003 Int J Hort Sci 9:45
+Ben Hope,blackcurrant,Podosphaera mors-uvae (American gooseberry mildew),high,Ce gene-mediated resistance from Ribes dikuscha,field trial,Scotland;Scandinavia,Ce (from R. dikuscha),SCRI James Hutton Institute breeding records
+Hinnonmaki Red,gooseberry,Podosphaera mors-uvae (American gooseberry mildew),moderate-high,field resistance;reduced sporulation,field trial,Finland,quantitative,MTT Agrifood Research Finland
+Invicta,gooseberry,Drepanopeziza ribis (leaf spot),moderate,partial leaf spot tolerance,field trial,UK,quantitative,East Malling gooseberry evaluation
+Kelvedon Wonder,garden pea,Ascochyta pisi,moderate,reduced lesion size;partial resistance,field + inoculated,UK;France,quantitative,Timmerman-Vaughan et al. TAG 104:1135 2002
+Superaguadulce,faba bean,Botrytis fabae (chocolate spot),moderate,field tolerance;reduced lesion severity,field trial,Spain;Ethiopia,quantitative,Hanounik & Robertson Phytopathology 79:863 1989

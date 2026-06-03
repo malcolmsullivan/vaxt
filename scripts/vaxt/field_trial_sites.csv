@@ -1,0 +1,41 @@
+site_id,name,institution,country,latitude,longitude,elevation_m,usda_zone,mean_jan_temp_c,record_low_c,snow_cover_days,trial_types,crops_tested,active,source
+SITE-001,NIBIO Apelsvoll,NIBIO,Norway,60.70,10.87,250,4,-7.0,-35.0,120,"field;controlled_chamber","wheat;barley;oat;rye;forage grasses",yes,NIBIO official
+SITE-002,NIBIO Holt,NIBIO,Norway,69.65,18.96,10,3,-3.5,-18.0,180,"field","forage grasses;cloudberry;arctic potato",yes,NIBIO official
+SITE-003,Graminor Ridabu,Graminor,Norway,60.79,11.10,180,4,-7.5,-36.0,130,"field;controlled_chamber","wheat;barley;oat;rye;forage grasses;clover",yes,Graminor official
+SITE-004,Luke Jokioinen,Luke/Boreal,Finland,60.81,23.50,100,4,-7.0,-38.0,140,"field;controlled_chamber;ice_encasement","wheat;barley;rye;oat;forage;clover",yes,Luke/Boreal official
+SITE-005,Luke Sotkamo,Luke,Finland,64.11,28.34,160,3,-12.0,-42.0,170,"field","barley;oat;forage;potato",yes,Luke official
+SITE-006,Luke Rovaniemi,Luke,Finland,66.50,25.73,110,2,-14.0,-45.0,180,"field","forage grasses;potato;barley",yes,Luke official
+SITE-007,SLU Balsgard,SLU,Sweden,56.03,14.16,50,5,-1.0,-25.0,60,"field;controlled_chamber;DTA","apple;pear;cherry;plum;currant;lingonberry",yes,SLU official
+SITE-008,SLU Ultuna,SLU,Sweden,59.82,17.65,20,5,-3.5,-32.0,90,"field;controlled_chamber","wheat;barley;oat;forage",yes,SLU official
+SITE-009,SLU Lannas/Umea,SLU,Sweden,63.83,20.26,30,3,-10.0,-38.0,150,"field","forage grasses;barley;oat;berries",yes,SLU official
+SITE-010,Lantmannen Svalov,Lantmannen,Sweden,55.91,13.11,50,6,-0.5,-24.0,40,"field;controlled_chamber","wheat;barley;oat;rye;rapeseed",yes,Lantmannen official
+SITE-011,AAFC Morden,AAFC,Canada,49.19,-98.10,300,3,-18.0,-43.0,120,"field","apple;cherry;plum;raspberry;wheat",yes,AAFC official
+SITE-012,AAFC Swift Current,AAFC,Canada,50.29,-107.80,825,3,-16.0,-46.0,100,"field","wheat;durum;rye;flax;pulse",yes,AAFC official
+SITE-013,USask Saskatoon,U Saskatchewan,Canada,52.13,-106.63,500,3,-17.5,-45.0,130,"field;controlled_chamber","haskap;saskatoon;cherry;wheat;lentil",yes,USask official
+SITE-014,AAFC Beaverlodge,AAFC,Canada,55.21,-119.43,730,2,-16.0,-48.0,150,"field","saskatoon;strawberry;shelter belt trees",yes,AAFC official
+SITE-015,UMN St. Paul,U Minnesota,USA,44.98,-93.23,280,4,-11.0,-39.0,100,"field;controlled_chamber","apple;grape;blueberry;wheat;barley",yes,U Minnesota official
+SITE-016,UMN Morris,U Minnesota,USA,45.59,-95.91,345,3,-14.0,-42.0,120,"field","wheat;barley;oat;corn;soybean",yes,U Minnesota official
+SITE-017,UMN Grand Rapids,U Minnesota,USA,47.24,-93.53,400,3,-16.0,-44.0,140,"field","blueberry;apple;hazelnut;potato",yes,U Minnesota official
+SITE-018,Cornell Ithaca,Cornell University,USA,42.45,-76.47,290,5,-5.0,-32.0,80,"field;controlled_chamber","apple;grape;cherry;wheat;barley",yes,Cornell official
+SITE-019,AUI Hvanneyri,Agricultural U Iceland,Iceland,64.56,-21.75,20,4,-0.5,-19.0,90,"field","barley;oat;forage;potato",yes,AUI official
+SITE-020,AUI Akureyri,Agricultural U Iceland,Iceland,65.68,-18.09,10,4,-1.0,-25.0,100,"field","barley;forage;potato",yes,AUI official
+SITE-021,Vavilov Pushkin,Vavilov Institute,Russia,59.72,30.40,70,4,-8.0,-36.0,130,"field;controlled_chamber;genebank","wheat;barley;rye;oat;fruit;berries;vegetables",yes,Vavilov Institute
+SITE-022,Novosibirsk Sib Station,Russian Academy,Russia,55.03,82.92,140,2,-19.0,-50.0,160,"field","wheat;rye;barley;oat;forage",yes,Russian Academy records
+SITE-023,Jogeva Plant Breeding,ECRI,Estonia,58.75,26.39,80,4,-7.0,-36.0,110,"field","wheat;barley;oat;rye;clover;timothy",yes,ECRI official
+SITE-024,Priekuli Station,Priekuli,Latvia,57.31,25.34,100,4,-5.5,-34.0,100,"field","barley;oat;potato;clover",yes,Priekuli official
+SITE-025,Dotnuva LIA,Lithuanian Institute,Lithuania,55.40,23.87,60,5,-5.0,-33.0,80,"field","barley;wheat;oat;triticale",yes,Lithuanian Institute
+SITE-026,Agroscope Reckenholz,Agroscope,Switzerland,47.43,8.52,440,6,-0.5,-24.0,30,"field;controlled_chamber","wheat;barley;triticale;forage;potato",yes,Agroscope official
+SITE-027,JKI Quedlinburg,JKI,Germany,51.79,11.15,120,6,-1.0,-28.0,40,"field;controlled_chamber","wheat;barley;rye;triticale;potato",yes,JKI official
+SITE-028,DANKO Choryn,DANKO,Poland,51.98,16.78,90,5,-3.0,-30.0,50,"field","rye;triticale;wheat;oat",yes,DANKO official
+SITE-029,Hokkaido NARO,NARO,Japan,43.06,141.35,15,5,-4.0,-25.0,120,"field;controlled_chamber","haskap;apple;onion;rice;wheat",yes,NARO official
+SITE-030,SDSU Brookings,South Dakota State U,USA,44.31,-96.78,500,4,-13.0,-40.0,100,"field","grape;plum;apple;wheat;corn",yes,SDSU official
+SITE-031,Iowa State Ames,Iowa State U,USA,42.03,-93.65,290,4,-9.0,-37.0,80,"field;controlled_chamber","grape;apple;hazelnut;corn;soybean",yes,ISU official
+SITE-032,AAFC Kentville,AAFC,Canada,45.07,-64.50,50,5,-6.0,-30.0,90,"field","apple;raspberry;strawberry;grape",yes,AAFC official
+SITE-033,AAFC Brooks,AAFC,Canada,50.56,-111.90,760,3,-13.0,-45.0,80,"field","cherry-plum;apricot;crabapple",yes,AAFC official
+SITE-034,Krasnodar RII,Krasnodar Institute,Russia,45.04,38.98,30,6,1.0,-25.0,10,"field","wheat;barley;rice;maize",yes,Krasnodar records
+SITE-035,Myronivka Institute,Myronivka,Ukraine,49.65,31.48,170,5,-5.5,-30.0,80,"field","wheat;barley",yes,Myronivka records
+SITE-036,Lisavenko Barnaul,Lisavenko Institute,Russia,53.36,83.75,190,3,-17.0,-48.0,140,"field","sea buckthorn;currant;berry;fruit",yes,Lisavenko records
+SITE-037,Heilongjiang HAAS,HAAS,China,45.75,126.65,150,3,-19.0,-42.0,150,"field","sea buckthorn;soybean;wheat;rice",yes,HAAS records
+SITE-038,SRUC Edinburgh,SRUC,UK,55.92,-3.17,60,7,3.5,-18.0,15,"field","wheat;barley;oat;potato",yes,SRUC official
+SITE-039,James Hutton Dundee,James Hutton Institute,UK,56.46,-3.07,40,7,3.0,-20.0,15,"field;controlled_chamber","black currant;raspberry;barley;potato",yes,James Hutton official
+SITE-040,OSU Corvallis,Oregon State U,USA,44.56,-123.26,70,8,4.0,-18.0,5,"field","haskap;blueberry;strawberry;raspberry",yes,OSU official

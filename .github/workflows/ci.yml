@@ -1,0 +1,41 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install package + dev deps
+        run: pip install -e "packages/vaxt[dev]"
+
+      # The prebuilt heritage-grain.duckdb is committed (see .gitignore), so the
+      # MCP client tests run against real data — 27 tables, verified. They skip
+      # only if the DB is ever removed.
+      - name: Run tests
+        env:
+          VAXT_DUCKDB_PATH: data/datasets/heritage-grain/heritage-grain.duckdb
+        run: pytest tests/vaxt-mcp/ -v
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Ruff (non-blocking)
+        run: |
+          pip install ruff
+          ruff check packages/vaxt/src scripts/vaxt || true

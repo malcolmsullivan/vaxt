@@ -1,0 +1,610 @@
+# VAXT sources.toml — Declarative manifest for heritage-grain data pipeline
+#
+# Source types:
+#   static  — CSV committed to git, loaded into DuckDB
+#   etl     — fetched from remote API, output to data/ dir, then loaded
+#
+# Validation rules (per source):
+#   script         — path to validator script (exit code 0 = pass)
+#   min_rows       — minimum row count
+#   max_rows       — maximum row count (sanity bound)
+#   unique_key     — column that must have no duplicates
+#   numeric_bounds — { col = [min, max] }
+#   required_values — { col = ["val1", "val2"] }
+#
+# ETL options (per source):
+#   timeout_sec    — subprocess timeout (default: 300; use higher for slow ETLs)
+
+[global]
+output_dir = "data/datasets/heritage-grain"
+duckdb_path = "data/datasets/heritage-grain/heritage-grain.duckdb"
+contact = "malcolm@vav-os.com"
+user_agent = "VAV-OS/1.0 (malcolm@vav-os.com) heritage-grain-ETL"
+
+# ---------------------------------------------------------------------------
+# Static CSV sources (committed to git under scripts/vaxt/)
+# ---------------------------------------------------------------------------
+
+[source.markers]
+name = "Cold Tolerance Markers"
+type = "static"
+path = "scripts/vaxt/cold_tolerance_markers.csv"
+table_name = "markers"
+enabled = true
+columns.required = [
+    "species", "locus", "chromosome", "gene", "marker",
+    "marker_type", "frost_tolerance_pct", "notes", "source",
+]
+
+[source.markers.validation]
+script = "scripts/vaxt/validate_markers.py"
+min_rows = 80
+max_rows = 500
+required_values = { species = ["wheat", "barley", "rye", "apple", "grape"] }
+
+[source.varieties]
+name = "Nordic Variety Trait Index"
+type = "static"
+path = "scripts/vaxt/nordic_variety_trait_index.csv"
+table_name = "varieties"
+enabled = true
+columns.required = [
+    "variety", "crop", "program", "country",
+    "traits", "cold_tolerance_notes", "usda_zone", "source",
+]
+
+[source.varieties.validation]
+script = "scripts/vaxt/validate_variety_index.py"
+min_rows = 100
+max_rows = 1000
+unique_key = "variety"
+required_values = { crop = ["wheat", "rye", "apple"] }
+
+[source.phenotype_records]
+name = "Phenotype Template"
+type = "static"
+path = "scripts/vaxt/phenotype_template.csv"
+table_name = "phenotype_records"
+enabled = true
+columns.required = [
+    "record_id", "trial_id", "trial_type", "location", "season",
+    "observation_date", "genotype_id", "genotype_name", "species", "crop_type",
+]
+
+[source.phenotype_records.validation]
+script = "scripts/vaxt/validate_phenotype.py"
+min_rows = 15
+max_rows = 10000
+unique_key = "record_id"
+
+[source.grin_accessions]
+name = "GRIN Germplasm Accessions"
+type = "static"
+path = "scripts/vaxt/grin_accessions.csv"
+table_name = "grin_accessions"
+enabled = true
+columns.required = [
+    "pi_number", "species", "common_name", "crop_group",
+    "origin_country", "improvement_status", "cold_hardiness_zone",
+]
+
+[source.grin_accessions.validation]
+min_rows = 25
+max_rows = 500
+unique_key = "pi_number"
+required_values = { crop_group = ["cereal", "fruit", "berry"] }
+
+[source.climate_zones]
+name = "USDA Hardiness Zones"
+type = "static"
+path = "scripts/vaxt/climate_zones.csv"
+table_name = "climate_zones"
+enabled = true
+columns.required = [
+    "zone", "subzone", "min_temp_f", "max_temp_f",
+    "min_temp_c", "max_temp_c", "example_locations",
+]
+
+[source.climate_zones.validation]
+min_rows = 16
+max_rows = 16
+numeric_bounds = { min_temp_c = [-60, 10] }
+
+[source.crop_wild_relatives]
+name = "Crop Wild Relatives"
+type = "static"
+path = "scripts/vaxt/crop_wild_relatives.csv"
+table_name = "crop_wild_relatives"
+enabled = true
+columns.required = [
+    "species", "common_name", "family", "crop_group",
+    "domesticated_relative", "native_range", "min_survival_temp_c",
+]
+
+[source.crop_wild_relatives.validation]
+min_rows = 18
+max_rows = 200
+unique_key = "species"
+numeric_bounds = { min_survival_temp_c = [-60, 0] }
+
+[source.breeding_programs]
+name = "Breeding Programs"
+type = "static"
+path = "scripts/vaxt/breeding_programs.csv"
+table_name = "breeding_programs"
+enabled = true
+columns.required = [
+    "program_id", "institution", "country", "city",
+    "latitude", "longitude", "crops", "focus_areas",
+]
+
+[source.breeding_programs.validation]
+min_rows = 40
+max_rows = 200
+unique_key = "program_id"
+required_values = { country = ["Norway", "Finland", "Sweden", "Canada", "USA"] }
+
+[source.rootstock_compatibility]
+name = "Rootstock Compatibility"
+type = "static"
+path = "scripts/vaxt/rootstock_compatibility.csv"
+table_name = "rootstock_compatibility"
+enabled = true
+columns.required = [
+    "rootstock", "rootstock_species", "crop_group",
+    "compatible_scions", "cold_hardiness_zone",
+]
+
+[source.rootstock_compatibility.validation]
+min_rows = 40
+max_rows = 300
+required_values = { crop_group = ["apple", "cherry", "grape"] }
+
+[source.disease_resistance]
+name = "Disease Resistance"
+type = "static"
+path = "scripts/vaxt/disease_resistance.csv"
+table_name = "disease_resistance"
+enabled = true
+columns.required = [
+    "variety_or_gene", "crop", "pathogen",
+    "resistance_level", "mechanism",
+]
+
+[source.disease_resistance.validation]
+min_rows = 35
+max_rows = 300
+required_values = { pathogen = ["Microdochium nivale", "Typhula ishikariensis"] }
+
+[source.field_trial_sites]
+name = "Field Trial Sites"
+type = "static"
+path = "scripts/vaxt/field_trial_sites.csv"
+table_name = "field_trial_sites"
+enabled = true
+columns.required = [
+    "site_id", "name", "institution", "country",
+    "latitude", "longitude", "usda_zone",
+]
+
+[source.field_trial_sites.validation]
+min_rows = 30
+max_rows = 200
+unique_key = "site_id"
+numeric_bounds = { latitude = [-90, 90] }
+
+# ---------------------------------------------------------------------------
+# Static CSV — distillery profiles
+# ---------------------------------------------------------------------------
+
+[source.distillery_profiles]
+name = "Distillery Profiles"
+type = "static"
+path = "scripts/vaxt/distillery_profiles.csv"
+table_name = "distillery_profiles"
+enabled = true
+columns.required = ["distillery_id", "name", "country", "spirit_type", "heritage_focus"]
+
+[source.distillery_profiles.validation]
+min_rows = 10
+max_rows = 100
+unique_key = "distillery_id"
+
+# ---------------------------------------------------------------------------
+# ETL sources (fetched from remote APIs, output to data/ dir)
+# ---------------------------------------------------------------------------
+
+[source.graingenes_qtl]
+name = "GrainGenes QTL"
+type = "etl"
+path = "data/datasets/heritage-grain/graingenes_qtl.csv"
+table_name = "graingenes_qtl"
+enabled = true
+columns.required = [
+    "qtl_name", "species", "chromosome", "trait",
+]
+
+[source.graingenes_qtl.etl]
+script = "scripts/vaxt/etl_graingenes.py"
+delay_sec = 1.0
+dry_run_flag = "--dry-run"
+base_url = "https://graingenes.org/cgi-bin/GG3"
+
+[source.graingenes_qtl.validation]
+min_rows = 40
+max_rows = 500
+
+[source.t3_observations]
+name = "T3 Triticeae Observations"
+type = "etl"
+path = "data/datasets/heritage-grain/t3_observations.csv"
+table_name = "t3_observations"
+enabled = true
+columns.required = [
+    "crop", "observation_id", "germplasm_name", "variable_name", "value",
+]
+
+[source.t3_observations.etl]
+script = "scripts/vaxt/etl_t3_brapi.py"
+delay_sec = 1.0
+dry_run_flag = "--dry-run"
+timeout_sec = 1800
+base_url = "https://wheat.triticeaetoolbox.org/brapi/v2"
+
+[source.t3_observations.validation]
+min_rows = 100
+max_rows = 500000
+
+[source.t3_germplasm]
+name = "T3 Triticeae Germplasm"
+type = "etl"
+path = "data/datasets/heritage-grain/t3_germplasm.csv"
+table_name = "t3_germplasm"
+enabled = true
+parent_source = "t3_observations"
+columns.required = [
+    "crop", "germplasm_db_id", "germplasm_name",
+]
+
+[source.t3_germplasm.etl]
+script = "scripts/vaxt/etl_t3_brapi.py"
+delay_sec = 1.0
+dry_run_flag = "--dry-run"
+base_url = "https://wheat.triticeaetoolbox.org/brapi/v2"
+
+[source.t3_germplasm.validation]
+min_rows = 50
+max_rows = 50000
+
+[source.gbif_occurrences]
+name = "GBIF Cold-Hardy Occurrences"
+type = "etl"
+path = "data/datasets/heritage-grain/gbif_occurrences.csv"
+table_name = "gbif_occurrences"
+enabled = true
+columns.required = [
+    "gbif_id", "species", "genus", "group",
+    "decimal_latitude", "decimal_longitude", "country_code",
+]
+
+[source.gbif_occurrences.etl]
+script = "scripts/vaxt/etl_gbif.py"
+delay_sec = 1.0
+dry_run_flag = "--dry-run"
+timeout_sec = 600
+base_url = "https://api.gbif.org/v1"
+
+[source.gbif_occurrences.validation]
+min_rows = 50
+max_rows = 100000
+required_values = { group = ["wheat_wild_relative", "barley_wild_relative"] }
+
+# ---------------------------------------------------------------------------
+# Static CSV — culture preservation
+# ---------------------------------------------------------------------------
+
+[source.sourdough_starters]
+name = "Sourdough Starter Registry"
+type = "static"
+path = "scripts/vaxt/sourdough_starters.csv"
+table_name = "sourdough_starters"
+enabled = true
+columns.required = [
+    "starter_id", "name", "origin_country", "grain_base",
+    "culture_type", "preservation_method",
+]
+
+[source.sourdough_starters.validation]
+min_rows = 20
+max_rows = 500
+unique_key = "starter_id"
+required_values = { grain_base = ["wheat", "rye", "rice"] }
+
+# ---------------------------------------------------------------------------
+# Static CSV — sourdough recipes (enrichment for starters)
+# ---------------------------------------------------------------------------
+
+[source.sourdough_recipes]
+name = "Sourdough Recipes"
+type = "static"
+path = "scripts/vaxt/sourdough_recipes.csv"
+table_name = "sourdough_recipes"
+enabled = true
+columns.required = [
+    "starter_id", "recipe", "hydration_pct",
+    "flour_type", "fermentation_schedule",
+]
+
+[source.sourdough_recipes.validation]
+min_rows = 8
+max_rows = 200
+unique_key = "starter_id"
+
+# ---------------------------------------------------------------------------
+# Static CSV — seed sources (Table 13)
+# ---------------------------------------------------------------------------
+
+[source.seed_sources]
+name = "Seed Sources"
+type = "static"
+path = "scripts/vaxt/seed_sources.csv"
+table_name = "seed_sources"
+enabled = true
+columns.required = [
+    "source_id", "name", "type", "country",
+    "website", "ships_to", "specialties", "access",
+]
+
+[source.seed_sources.validation]
+min_rows = 25
+max_rows = 200
+unique_key = "source_id"
+required_values = { type = ["gene_bank", "heritage_seed_company", "community"] }
+
+# ---------------------------------------------------------------------------
+# Static CSV — planting calendars (Table 14)
+# ---------------------------------------------------------------------------
+
+[source.planting_calendars]
+name = "Planting Calendars"
+type = "static"
+path = "scripts/vaxt/planting_calendars.csv"
+table_name = "planting_calendars"
+enabled = true
+columns.required = [
+    "calendar_id", "zone", "crop", "type",
+    "sow_start", "sow_end", "vernalization_weeks", "expected_harvest",
+]
+
+[source.planting_calendars.validation]
+min_rows = 35
+max_rows = 200
+unique_key = "calendar_id"
+required_values = { crop = ["wheat", "rye", "barley", "oat"] }
+
+# ---------------------------------------------------------------------------
+# Static CSV — variety growing enrichment
+# ---------------------------------------------------------------------------
+
+[source.variety_growing_enrichment]
+name = "Variety Growing Enrichment"
+type = "static"
+path = "scripts/vaxt/variety_growing_enrichment.csv"
+table_name = "variety_growing_enrichment"
+enabled = true
+columns.required = [
+    "variety", "seeding_rate", "seeding_depth",
+    "seeding_window", "days_to_maturity", "row_spacing",
+]
+
+[source.variety_growing_enrichment.validation]
+min_rows = 25
+max_rows = 500
+unique_key = "variety"
+
+# ---------------------------------------------------------------------------
+# ETL — macro production data
+# ---------------------------------------------------------------------------
+
+[source.faostat_production]
+name = "FAOSTAT Crop Production"
+type = "etl"
+path = "data/datasets/heritage-grain/faostat_production.csv"
+table_name = "faostat_production"
+enabled = true
+columns.required = [
+    "area", "item", "element", "year", "value", "unit",
+]
+
+[source.faostat_production.etl]
+script = "scripts/vaxt/etl_faostat.py"
+dry_run_flag = "--dry-run"
+timeout_sec = 300
+base_url = "https://bulks-faostat.fao.org/production/"
+
+[source.faostat_production.validation]
+min_rows = 1000
+max_rows = 50000
+required_values = { item = ["Wheat", "Barley", "Rye"] }
+
+[source.eurostat_production]
+name = "Eurostat Crop Production (EU Humidity)"
+type = "etl"
+path = "data/datasets/heritage-grain/eurostat_production.csv"
+table_name = "eurostat_production"
+enabled = true
+columns.required = [
+    "geo", "geo_label", "crop_code", "crop_label",
+    "metric_code", "metric_label", "year", "value", "unit",
+]
+
+[source.eurostat_production.etl]
+script = "scripts/vaxt/etl_eurostat.py"
+dry_run_flag = "--dry-run"
+timeout_sec = 120
+base_url = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/apro_cpsh1"
+
+[source.eurostat_production.validation]
+min_rows = 500
+max_rows = 10000
+required_values = { crop_label = ["Wheat and spelt", "Barley", "Rye"] }
+
+# ---------------------------------------------------------------------------
+# ETL — NOAA GHCN-Daily climate observations
+# ---------------------------------------------------------------------------
+
+[source.ghcn_stations]
+name = "NOAA GHCN-Daily Stations"
+type = "etl"
+path = "data/datasets/heritage-grain/ghcn_stations.csv"
+table_name = "ghcn_stations"
+enabled = true
+columns.required = [
+    "station_id", "name", "latitude", "longitude",
+    "elevation_m", "country_fips", "country_name",
+]
+
+[source.ghcn_stations.etl]
+script = "scripts/vaxt/etl_ghcn.py"
+delay_sec = 0.5
+dry_run_flag = "--dry-run"
+base_url = "https://www.ncei.noaa.gov/pub/data/ghcn/daily"
+
+[source.ghcn_stations.validation]
+min_rows = 100
+max_rows = 5000
+unique_key = "station_id"
+numeric_bounds = { latitude = [50, 85], longitude = [-120, 180] }
+required_values = { country_fips = ["NO", "SW", "FI"] }
+
+[source.ghcn_observations]
+name = "NOAA GHCN-Daily TMIN Observations"
+type = "etl"
+path = "data/datasets/heritage-grain/ghcn_climate_observations.csv"
+table_name = "ghcn_climate_observations"
+enabled = true
+parent_source = "ghcn_stations"
+columns.required = [
+    "station_id", "date", "year", "month", "tmin_c",
+    "quality_flag", "source_flag",
+]
+
+[source.ghcn_observations.etl]
+script = "scripts/vaxt/etl_ghcn.py"
+delay_sec = 0.5
+dry_run_flag = "--dry-run"
+base_url = "https://www.ncei.noaa.gov/pub/data/ghcn/daily"
+
+[source.ghcn_observations.validation]
+min_rows = 10000
+max_rows = 5000000
+numeric_bounds = { tmin_c = [-60, 30], year = [2000, 2030] }
+
+# ---------------------------------------------------------------------------
+# Static CSV — community grain projects
+# ---------------------------------------------------------------------------
+
+[source.community_grain_projects]
+name = "Community Grain Projects"
+type = "static"
+path = "scripts/vaxt/community_grain_projects.csv"
+table_name = "community_grain_projects"
+enabled = true
+columns.required = ["project_id", "name", "country", "crops"]
+
+[source.community_grain_projects.validation]
+min_rows = 20
+max_rows = 200
+unique_key = "project_id"
+
+# ---------------------------------------------------------------------------
+# Static CSV — EPPO pathogens
+# ---------------------------------------------------------------------------
+
+[source.eppo_pathogens]
+name = "EPPO Pathogens"
+type = "static"
+path = "scripts/vaxt/eppo_pathogens.csv"
+table_name = "eppo_pathogens"
+enabled = true
+columns.required = ["eppo_code", "pathogen_name", "host_crops"]
+
+[source.eppo_pathogens.validation]
+min_rows = 30
+max_rows = 300
+unique_key = "eppo_code"
+
+# ---------------------------------------------------------------------------
+# ETL — derived / enrichment sources (Priority 1 backlog)
+# ---------------------------------------------------------------------------
+
+[source.growing_season]
+name = "Growing Season Metrics"
+type = "etl"
+path = "data/datasets/heritage-grain/growing_season.csv"
+table_name = "growing_season"
+enabled = true
+parent_source = "ghcn_observations"
+columns.required = [
+    "station_id", "station_name", "country_name", "latitude", "longitude",
+    "year", "last_spring_frost", "first_fall_frost", "frost_free_days",
+    "hard_freeze_days", "annual_min_tmin_c", "obs_count",
+]
+
+[source.growing_season.etl]
+script = "scripts/vaxt/etl_growing_season.py"
+dry_run_flag = "--dry-run"
+timeout_sec = 120
+
+[source.growing_season.validation]
+min_rows = 50
+max_rows = 50000
+numeric_bounds = { annual_min_tmin_c = [-60, 10], frost_free_days = [0, 365] }
+
+[source.photoperiod_zones]
+name = "Photoperiod Zones"
+type = "etl"
+path = "data/datasets/heritage-grain/photoperiod_zones.csv"
+table_name = "photoperiod_zones"
+enabled = true
+columns.required = [
+    "site_id", "name", "country", "latitude", "longitude",
+    "daylength_summer_solstice_h", "daylength_winter_solstice_h",
+    "photoperiod_class", "annual_daylength_range_h",
+]
+
+[source.photoperiod_zones.etl]
+script = "scripts/vaxt/etl_photoperiod.py"
+dry_run_flag = "--dry-run"
+timeout_sec = 30
+
+[source.photoperiod_zones.validation]
+min_rows = 30
+max_rows = 200
+unique_key = "site_id"
+numeric_bounds = { daylength_summer_solstice_h = [0, 24], latitude = [-90, 90] }
+required_values = { photoperiod_class = ["long-day", "intermediate"] }
+
+[source.soilgrids]
+name = "SoilGrids Soil Properties"
+type = "etl"
+path = "data/datasets/heritage-grain/soilgrids.csv"
+table_name = "soilgrids"
+enabled = true
+columns.required = [
+    "site_id", "name", "country", "latitude", "longitude",
+    "ph_h2o", "clay_pct", "sand_pct", "silt_pct", "soc_g_per_kg",
+]
+
+[source.soilgrids.etl]
+script = "scripts/vaxt/etl_soilgrids.py"
+delay_sec = 1.0
+dry_run_flag = "--dry-run"
+timeout_sec = 120
+base_url = "https://rest.soilgrids.org/v2.0/properties/query"
+
+[source.soilgrids.validation]
+min_rows = 25
+max_rows = 200
+unique_key = "site_id"
+numeric_bounds = { ph_h2o = [3, 10], clay_pct = [0, 100] }

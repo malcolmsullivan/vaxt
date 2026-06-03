@@ -1,0 +1,387 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VAXT Cold Tolerance Phenotype Record",
+  "description": "Schema for recording cold/frost tolerance phenotyping data across cereals, fruit trees, and berries.",
+  "type": "object",
+  "required": [
+    "record_id",
+    "trial_id",
+    "trial_type",
+    "location",
+    "season",
+    "observation_date",
+    "genotype_id",
+    "genotype_name",
+    "species",
+    "crop_type",
+    "replication"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "description": "Unique record identifier",
+      "examples": ["REC-2026-0001"]
+    },
+    "trial_id": {
+      "type": "string",
+      "description": "Trial or experiment identifier",
+      "examples": ["GRAM-WW-2026-01"]
+    },
+    "trial_type": {
+      "type": "string",
+      "enum": ["field", "controlled_chamber", "lab_assay"],
+      "description": "Type of trial"
+    },
+    "location": {
+      "type": "string",
+      "description": "Trial site name or coordinates",
+      "examples": ["As, Norway", "62.78N,15.18E"]
+    },
+    "season": {
+      "type": "string",
+      "description": "Growing season (year or range)",
+      "pattern": "^\\d{4}(-\\d{4})?$",
+      "examples": ["2025-2026"]
+    },
+    "observation_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of observation (ISO 8601)"
+    },
+    "genotype_id": {
+      "type": "string",
+      "description": "Accession, line, or cultivar identifier",
+      "examples": ["NOR-WW-1234"]
+    },
+    "genotype_name": {
+      "type": "string",
+      "description": "Cultivar or line name",
+      "examples": ["Magnifik"]
+    },
+    "species": {
+      "type": "string",
+      "description": "Binomial species name",
+      "examples": ["Triticum aestivum"]
+    },
+    "crop_type": {
+      "type": "string",
+      "enum": ["cereal", "forage_grass", "fruit_tree", "berry", "vine"],
+      "description": "Crop category"
+    },
+    "growth_habit": {
+      "type": "string",
+      "enum": ["winter", "facultative", "spring", "perennial"],
+      "description": "Growth habit"
+    },
+    "replication": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Replicate number within the trial"
+    },
+    "plot_id": {
+      "type": "string",
+      "description": "Plot or pot identifier within trial"
+    },
+    "acclimation_temp_c": {
+      "type": "number",
+      "description": "Cold acclimation temperature (degrees C)"
+    },
+    "acclimation_days": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Duration of cold acclimation (days)"
+    },
+    "acclimation_photoperiod_h": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 24,
+      "description": "Photoperiod during acclimation (hours light)"
+    },
+    "acclimation_method": {
+      "type": "string",
+      "enum": ["field_natural", "growth_chamber", "greenhouse"],
+      "description": "Acclimation method"
+    },
+    "lt50_su_c": {
+      "type": "number",
+      "maximum": 0,
+      "description": "LT50 from survival-based assessment (degrees C)"
+    },
+    "lt50_el_c": {
+      "type": "number",
+      "maximum": 0,
+      "description": "LT50 from electrolyte leakage (degrees C)"
+    },
+    "lt50_method": {
+      "type": "string",
+      "enum": ["survival_regrowth", "electrolyte_leakage", "chlorophyll_fluorescence"],
+      "description": "LT50 measurement method"
+    },
+    "lt50_tissue": {
+      "type": "string",
+      "enum": ["crown", "leaf", "whole_plant", "bud"],
+      "description": "Tissue used for LT50"
+    },
+    "freeze_test_min_temp_c": {
+      "type": "number",
+      "maximum": 0,
+      "description": "Lowest temperature applied in freeze test (degrees C)"
+    },
+    "freeze_test_duration_h": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Duration held at minimum temperature (hours)"
+    },
+    "freeze_rate_c_per_h": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Cooling rate (degrees C per hour)"
+    },
+    "ice_encasement_ld50_days": {
+      "type": "number",
+      "minimum": 0,
+      "description": "LD50 for ice encasement (days at ~-2 degrees C)"
+    },
+    "ice_encasement_temp_c": {
+      "type": "number",
+      "maximum": 0,
+      "description": "Temperature during ice encasement (degrees C)"
+    },
+    "ice_encasement_max_days": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Maximum encasement duration tested (days)"
+    },
+    "ice_encasement_survival_pct": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Survival % at a specified encasement duration"
+    },
+    "ice_encasement_duration_days": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Duration at which survival_pct was measured (days)"
+    },
+    "snow_mold_field_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Field visual rating (0=dead, 10=no disease)"
+    },
+    "snow_mold_field_score_scale": {
+      "type": "string",
+      "enum": ["0_10_field", "0_5_ARI", "pct_damage"],
+      "description": "Scale descriptor for snow mold score"
+    },
+    "snow_mold_ari": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 5,
+      "description": "Average Regrowth Index (0=healthy, 5=dead) from lab inoculation"
+    },
+    "snow_mold_pct_damage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Percent plant area damaged by snow mold"
+    },
+    "snow_mold_pathogen": {
+      "type": "string",
+      "enum": ["M_nivale", "M_majus", "T_ishikariensis", "T_incarnata", "M_borealis", "mixed", "unknown"],
+      "description": "Predominant snow mold pathogen"
+    },
+    "snow_mold_inoculated": {
+      "type": "string",
+      "enum": ["natural", "field_inoculated", "lab_inoculated"],
+      "description": "Inoculation method"
+    },
+    "snow_mold_assessment_timing": {
+      "type": "string",
+      "enum": ["snowmelt", "snowmelt_plus_30d", "inoculation_plus_60d"],
+      "description": "When snow mold was assessed"
+    },
+    "winter_survival_pct": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Percent plants surviving autumn to spring"
+    },
+    "winter_survival_score": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9,
+      "description": "Visual stand score (1=excellent, 9=complete kill)"
+    },
+    "winter_survival_score_scale": {
+      "type": "string",
+      "enum": ["1_9_visual", "1_10_visual", "pct"],
+      "description": "Scale descriptor for winter survival"
+    },
+    "autumn_stand_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Plant count per plot in late autumn"
+    },
+    "spring_stand_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Plant count per plot at spring greenup"
+    },
+    "autumn_stand_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of autumn stand assessment"
+    },
+    "spring_stand_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of spring stand assessment"
+    },
+    "crown_regrowth_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 5,
+      "description": "Post-freeze regrowth score (0=dead, 5=full recovery)"
+    },
+    "crown_regrowth_score_scale": {
+      "type": "string",
+      "enum": ["0_5_visual", "pct_survival"],
+      "description": "Scale descriptor for crown regrowth"
+    },
+    "crown_regrowth_pct": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Percent plants showing regrowth after freeze test"
+    },
+    "crown_regrowth_test_temp_c": {
+      "type": "number",
+      "maximum": 0,
+      "description": "Temperature applied in controlled freeze (degrees C)"
+    },
+    "crown_regrowth_eval_days": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Days of recovery before scoring"
+    },
+    "electrolyte_leakage_pct": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Relative conductivity at a given test temperature"
+    },
+    "electrolyte_leakage_temp_c": {
+      "type": "number",
+      "maximum": 0,
+      "description": "Temperature at which EL was measured (degrees C)"
+    },
+    "fv_fm_pre_freeze": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Fv/Fm before freeze stress (healthy ~0.83)"
+    },
+    "fv_fm_post_freeze": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Fv/Fm after freeze stress"
+    },
+    "fv_fm_test_temp_c": {
+      "type": "number",
+      "maximum": 0,
+      "description": "Freeze temperature applied before Fv/Fm measurement"
+    },
+    "vernalization_days": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Days of vernalization received"
+    },
+    "vernalization_satisfied": {
+      "type": "string",
+      "enum": ["yes", "no", "partial"],
+      "description": "Whether vernalization requirement is satisfied"
+    },
+    "final_leaf_number": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total leaves to flag leaf"
+    },
+    "days_to_heading": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Days from spring greenup to heading"
+    },
+    "hardening_capacity_delta_c": {
+      "type": "number",
+      "minimum": 0,
+      "description": "LT50 shift from non-acclimated to fully acclimated (degrees C)"
+    },
+    "dehardening_lt50_c": {
+      "type": "number",
+      "maximum": 0,
+      "description": "LT50 after dehardening treatment (degrees C)"
+    },
+    "dehardening_treatment_days": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Duration of warm exposure in dehardening test (days)"
+    },
+    "dehardening_treatment_temp_c": {
+      "type": "number",
+      "description": "Temperature during dehardening (degrees C)"
+    },
+    "crown_moisture_pct": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Crown tissue water content (% fresh weight)"
+    },
+    "dta_lte_c": {
+      "type": "number",
+      "maximum": 0,
+      "description": "Low-temperature exotherm from DTA (degrees C)"
+    },
+    "dta_hte_c": {
+      "type": "number",
+      "maximum": 0,
+      "description": "High-temperature exotherm from DTA (degrees C)"
+    },
+    "dta_tissue": {
+      "type": "string",
+      "enum": ["flower_bud", "vegetative_bud", "xylem", "cane"],
+      "description": "Tissue analyzed in DTA"
+    },
+    "dta_cooling_rate_c_per_h": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Cooling rate used in DTA (degrees C/hour)"
+    },
+    "tissue_browning_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 5,
+      "description": "Visual browning score (0=no browning, 5=complete)"
+    },
+    "tissue_browning_tissue": {
+      "type": "string",
+      "enum": ["phloem", "cambium", "xylem", "bud", "pith", "cane", "crown"],
+      "description": "Tissue scored for browning"
+    },
+    "tissue_browning_test_temp_c": {
+      "type": "number",
+      "maximum": 0,
+      "description": "Exposure temperature before browning assessment (degrees C)"
+    },
+    "scorer_id": {
+      "type": "string",
+      "description": "Person or instrument performing the scoring"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Free-text notes"
+    }
+  },
+  "additionalProperties": false
+}

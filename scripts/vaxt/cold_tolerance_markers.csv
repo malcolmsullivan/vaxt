@@ -1,0 +1,141 @@
+species,locus,chromosome,gene,marker,marker_type,frost_tolerance_pct,notes,source
+wheat,Fr-A1,5A,VRN1,,co-localized,,Co-localizes with VRN1 vernalization; homoeolog of Fr-B1/Fr-D1,Horticulture field guide
+wheat,Fr-B1,5B,VRN1,,co-localized,,Homoeolog of Fr-A1/Fr-D1,Horticulture field guide
+wheat,Fr-D1,5D,VRN1,,co-localized,,Homoeolog of Fr-A1/Fr-B1,Horticulture field guide
+wheat,Fr-A2,5A,TaCBF cluster,KASP,operational,20-40,CBF gene cluster; ~15 genes; CNV is functional marker,Horticulture field guide
+wheat,Fr-A2,5A,TaCBF-A14,SNP,operational,20-40,Extra copies associate with greater frost tolerance,Horticulture field guide
+wheat,Fr-A2,5A,TaCBF-A15,SNP,operational,20-40,Distinguishes frost-tolerant from frost-sensitive,Horticulture field guide
+wheat,Fr-A2,5A,,Xwmc48 (SSR),flanking,,Flanks Fr-A2 locus on 5A,Horticulture field guide
+wheat,Fr-A2,5A,,Xbarc74 (SSR),flanking,,Flanks Fr-A2 locus on 5A,Horticulture field guide
+wheat,,,WCS120,dehydrin,functional,,120 kDa dehydrin; accumulation correlates with LT50,Horticulture field guide
+wheat,,,WCOR410,dehydrin,functional,,Associates with plasma membrane lipid bilayer,Horticulture field guide
+barley,Fr-H1,5H,VRN-H1,Bmac0096,SSR,~30,Tags Fr-H1; co-localized with VRN-H1,Horticulture field guide
+barley,Fr-H1,5H,,HVM3,SSR,~30,Tags Fr-H1/H2,Horticulture field guide
+barley,Fr-H1,5H,,HVM20,SSR,~30,Tags Fr-H1/H2,Horticulture field guide
+barley,Fr-H2,,HvCBF cluster,HvCBF2,gene,~20,Strongest association with freezing survival,Horticulture field guide
+barley,Fr-H2,,HvCBF cluster,HvCBF4,gene,~20,Strongest association with freezing survival,Horticulture field guide
+barley,Fr-H1,near Fr-H1,Dhn1,dehydrin,,,K-segment cryoprotectant; clusters near Fr-H1,Horticulture field guide
+barley,Fr-H1,near Fr-H1,Dhn3,dehydrin,,,K-segment cryoprotectant,Horticulture field guide
+barley,Fr-H1,near Fr-H1,Dhn5,dehydrin,,,K-segment cryoprotectant,Horticulture field guide
+barley,Fr-H1,near Fr-H1,Dhn7,dehydrin,,,K-segment cryoprotectant,Horticulture field guide
+barley,Fr-H1,near Fr-H1,Dhn9,dehydrin,,,K-segment cryoprotectant,Horticulture field guide
+barley,,,HVA1,LEA Group III,,,Transgenic cold-tolerance studies,Horticulture field guide
+barley,,,VRN1,KASP,routine,,Winter vs spring habit; indirectly selects cold hardiness,Horticulture field guide
+apple,,LG1;LG3;LG7;LG9;LG16,MdDAM,,,,Regulates endodormancy and cold acclimation timing,Horticulture field guide
+apple,,LG1;LG3;LG7;LG9;LG16,MdDHN,,,,Linked to bud cold hardiness,Horticulture field guide
+grape,,15;2,VvCBF1-4,,candidate,,V. riparia and V. amurensis as cold-tolerant parents,Horticulture field guide
+peach,,,PpDhn1,dehydrin,,,Similar association to apple MdDHN,Horticulture field guide
+peach,,,PpDhn2,dehydrin,functional,,Induced by low temperature and water deficit but not short photoperiod,Bassett et al. Tree Physiology 29:405 2009
+peach,,,PpDhn3,dehydrin,functional,,Specifically upregulated by low temperature in bark tissue,Bassett et al. Tree Physiology 29:405 2009
+rye,Fr-R2,5R,ScCBF cluster,CBFIIId-19,candidate,,CBF gene at Fr-R2; significant for winter field survival; 5R:614-616 Mb,Erath et al. Scientific Reports 2022
+rye,Fr-R2,5R,ScCBF cluster,CBFIVa-2.2,candidate,,CBF gene at Fr-R2; significant for winter field survival,Erath et al. Scientific Reports 2022
+rye,Fr-R2,5R,ScCBF cluster,CBFIIIa-6.2,candidate,,CBF gene at Fr-R2; significant for winter field survival,Erath et al. Scientific Reports 2022
+rye,Fr-R2,5R,ScCBF12,SNP,association,,Non-synonymous SNP significantly associated with frost tolerance across 3 phenotyping platforms,Li et al. BMC Plant Biology 11:146 2011
+rye,Fr-R2,5R,ScCBF15,SNP,association,,Two non-synonymous SNPs associated with frost tolerance; amino acid replacements in CBF domain,Li et al. BMC Plant Biology 11:146 2011
+rye,,5R,ScDhn1,dehydrin,functional,,Single dominant haplotype; cryoprotective K-segment; frost-responsive,Li et al. BMC Plant Biology 11:6 2011
+rye,,5R,ScDhn3,dehydrin,functional,,Balanced haplotype distribution; cold-induced expression; 5R frost locus region,Li et al. BMC Plant Biology 11:6 2011
+rye,,,ScIce2,SNP,association,,ICE transcription factor; significant SNPs in frost tolerance association,Li et al. BMC Plant Biology 11:146 2011
+rye,Fr-R1,5R,ScVrn1,,co-localized,,Vernalization locus co-localized with Fr-R1; single dominant haplotype,Li et al. BMC Plant Biology 11:146 2011
+oat,QTL-FT-Mrg01,Mrg01,,,GWAS,,Robust QTL for frost tolerance; co-mapped with bi-parental QTL; 138 European accessions,Tumino et al. Theor Appl Genet 129:2413 2016
+oat,QTL-FT-Mrg11,Mrg11,,,GWAS,,Robust QTL for frost tolerance; also associated with plant height,Tumino et al. Theor Appl Genet 129:2413 2016
+oat,QTL-FT-Mrg12,Mrg12,,,GWAS,,QTL in AVEQ09 mapping population,Tumino et al. Theor Appl Genet 129:2413 2016
+oat,CFT-LG24_26_34,LG24_26_34,Vrn1-T4,SSR,QTL,,Crown freezing tolerance QTL; co-located with Vrn1 in Kanota x Ogle population,Santos et al. Crop Sci 46:2262 2006
+triticale,QTL-FT-5A,5A,CBF cluster,DArT+SSR,QTL,>10%,Major QTL on 5A; inherited from wheat parent; 647 DH lines,Alheit et al. PLOS ONE 9:e99848 2014
+triticale,QTL-FT-5R,5R,CBF cluster,DArT+SSR,QTL,>10%,Major QTL on 5R; inherited from rye parent; plant survival after freezing,Alheit et al. PLOS ONE 9:e99848 2014
+triticale,QTL-FT-1B,1B,,DArT+SSR,QTL,>10%,Major QTL on 1B; 22 linkage groups mapped,Alheit et al. PLOS ONE 9:e99848 2014
+triticale,QTL-FT-4R,4R,,DArT,QTL,,QTL for plant survival and membrane stability and PSII efficiency,Tyrka et al. J Appl Genet 62:331 2021
+sweet cherry,QTL-CR-LG1,LG1,PavDAM5,SNP/indel,QTL,8%,DAM5 not expressed under chilling; main gene underlying LG1 chilling requirement QTL,Castede et al. Tree Genet Genomes 11:77 2015
+sweet cherry,QTL-CR-LG1,LG1,PavDAM6,SNP/indel,QTL,8%,DAM6 activated by short photoperiods; tandem arrangement with DAM1-4 on LG1,Castede et al. Tree Genet Genomes 11:77 2015
+Prunus mume,,,PmLEA10,dehydrin,functional,,Overexpression in tobacco enhanced freezing tolerance; lipid bilayer modification,Bao et al. Front Plant Sci 8:151 2017
+Prunus mume,,,PmLEA20,dehydrin,functional,,Cold- and drought-induced; transgenic tobacco showed enhanced freezing tolerance,Bao et al. Front Plant Sci 8:151 2017
+haskap,,,LcICE-LcCBF-LcCOR,pathway,pathway,,ABA and ICE-CBF-COR signaling for freezing tolerance to -47C; first chromosome-scale genome,Chen et al. J Advanced Research 2024
+wheat,Fr-B2,5B,TaCBF cluster,,co-localized,,Homoeolog of Fr-A2; CBF cluster on 5B; less characterized than 5A,Vagujfalvi et al. Mol Genet Genomics 274:506 2005
+wheat,,2B,Cor14b,,functional,,14 kDa cold-regulated protein; transcript accumulates during cold acclimation; correlated with LT50,Crosatti et al. Plant Physiol 108:1601 1995
+wheat,,7A,TaDREB1,SNP,candidate,,AP2/ERF transcription factor; activates COR gene expression under cold stress,Dubouzet et al. Plant J 33:751 2003
+wheat,,3A,TaICE41,,candidate,,ICE transcription factor; activates CBF/DREB1 pathway; MYC-type bHLH,Badawi et al. J Exp Bot 59:3577 2008
+wheat,,3B,TaICE87,,candidate,,ICE transcription factor; interacts with TaCBFs; bHLH family,Badawi et al. J Exp Bot 59:3577 2008
+wheat,,6D,COR39,,functional,,Cold-responsive gene; accumulation correlates with frost tolerance in winter wheat,Tsvetanov et al. Euphytica 124:293 2002
+wheat,,6A,TaCOR410,,functional,,Acidic dehydrin; lipid membrane stabilization during freeze-thaw cycles,Danyluk et al. Plant Cell 10:623 1998
+barley,,2H,Cor14b,,functional,,14 kDa cold-regulated; accumulation is a reliable cold hardiness indicator in barley,Crosatti et al. Plant Physiol 108:1601 1995
+barley,,2H,BLT14,,functional,,Barley low temperature gene; 14 kDa; cold-induced transcript; co-regulated with Cor14b,Dunn et al. Plant Mol Biol 27:1073 1995
+barley,,5H,HvDREB1,,candidate,,Barley DREB/CBF homolog; AP2 domain; activates cold-responsive genes,Choi et al. Theor Appl Genet 105:1245 2002
+barley,,3H,HvICE2,,candidate,,ICE-like bHLH transcription factor; upstream regulator of HvCBF genes,Skinner et al. Plant Sci 176:383 2009
+barley,Fr-H2,5H,HvCBF6,SNP,gene,,CBF gene at Fr-H2; significant in Nure x Tremois population; correlated with field survival,Francia et al. Theor Appl Genet 108:670 2004
+barley,Fr-H2,5H,HvCBF9,SNP,gene,,Additional CBF at Fr-H2 cluster; expression regulated by photoperiod,Stockinger et al. Proc Natl Acad Sci 94:1035 1997
+rye,Fr-R2,5R,ScCBF14,SNP,candidate,,Additional CBF gene at 5R frost locus; associated with winter field survival,Erath et al. Scientific Reports 2022
+rye,Fr-R2,5R,ScCBF16,SNP,candidate,,CBF gene at Fr-R2; contributes to CBF cluster copy number variation,Erath et al. Scientific Reports 2022
+rye,,7R,ScDhn4,dehydrin,functional,,Dehydrin outside the 5R frost cluster; cold-responsive in crown tissue,Li et al. BMC Plant Biology 11:6 2011
+oat,QTL-FT-Mrg02,Mrg02,,,GWAS,,Additional frost tolerance QTL; significant in European oat panel,Tumino et al. Theor Appl Genet 129:2413 2016
+oat,QTL-FT-Mrg20,Mrg20,,,GWAS,,Frost tolerance QTL; linked to crown regrowth after freezing,Tumino et al. Theor Appl Genet 129:2413 2016
+oat,,Mrg12,AsCBF,,candidate,,Oat CBF homolog; linkage to Fr-A2 wheat syntenic region,Brautigam et al. BMC Plant Biology 5:6 2005
+triticale,QTL-FT-2A,2A,,DArT+SSR,QTL,,Minor QTL on 2A; smaller effect than 5A/5R; membrane stability trait,Alheit et al. PLOS ONE 9:e99848 2014
+triticale,QTL-FT-2B,2B,,DArT,QTL,,Minor QTL on 2B; PSII efficiency after freezing,Tyrka et al. J Appl Genet 62:331 2021
+apple,,9,MdCBF1,SNP,candidate,,Apple CBF gene family member; cold-induced in bark and bud tissue,Wisniewski et al. Physiol Plant 120:296 2004
+apple,,4,MdCBF2,SNP,candidate,,Constitutively expressed CBF; possible role in pre-acclimation readiness,Wisniewski et al. Physiol Plant 120:296 2004
+apple,,3,MdICE1,,candidate,,ICE transcription factor; activates MdCBF expression under cold; bHLH family,Feng et al. J Exp Bot 63:7449 2012
+grape,,15,VvCBF4,,candidate,,Cold-induced CBF; not responsive to drought; V. vinifera and V. riparia,Xiao et al. Plant Cell Reports 25:1150 2006
+grape,,4,VvDHN1a,dehydrin,functional,,Major grape dehydrin; accumulates in buds during cold acclimation; Y-segment type,Xiao & Bhatt BMC Plant Biology 8:174 2008
+grape,,7,VvICE1,,candidate,,ICE transcription factor; regulates CBF pathway in grapevine; overexpression enhances cold tolerance,Xu et al. Plant Sci 238:135 2015
+blueberry,,chr5,VcCBF1,,candidate,,Vaccinium corymbosum CBF; cold-induced in cold-hardy highbush cultivars,Oakley et al. BMC Plant Biology 7:40 2007
+blueberry,,chr5,VcCBF2,,candidate,,Second CBF homolog; differential expression between cold-hardy and sensitive cultivars,Oakley et al. BMC Plant Biology 7:40 2007
+blueberry,,,VcDHN1,dehydrin,functional,,Dehydrin gene; transcript accumulation correlates with mid-winter hardiness,Dhanaraj et al. Physiol Plant 119:1 2003
+blueberry,,,VcDREB1,,candidate,,DREB/CBF homolog; cold-responsive AP2 domain transcription factor,Die & Bhatt Mol Biol Rep 41:811 2014
+black currant,,,RnDhn1,dehydrin,functional,,Ribes nigrum dehydrin; accumulates in buds during autumn hardening; K-segment rich,Marian et al. Physiol Plant 116:468 2002
+black currant,,,RnDAM,,candidate,,Dormancy-associated MADS-box; regulates bud endodormancy and cold hardiness,Hedley et al. J Exp Bot 61:3499 2010
+strawberry,,6A,FvCBF1,,candidate,,Fragaria vesca CBF; woodland strawberry as cold-hardy wild relative; 3 CBF paralogs,Koehler et al. J Exp Bot 63:4959 2012
+strawberry,,6A,FaCBF1,,candidate,,F. x ananassa CBF; cold-responsive; constitutive overexpression enhances freezing tolerance,Owens et al. J Amer Soc Hort Sci 127:489 2002
+raspberry,,,RiDhn1,dehydrin,functional,,Rubus idaeus dehydrin; accumulates in canes during autumn cold acclimation,Marian et al. Physiol Plant 116:468 2002
+raspberry,,,RiCBF1,CBF,candidate,,Rubus idaeus CBF transcription factor; cold-induced in dormant canes,Mazzitelli et al. J Exp Bot 58:3507 2007
+raspberry,,,RiDAM1,MADS-box,candidate,,Dormancy-associated MADS-box; regulates endodormancy and cold acclimation,Mazzitelli et al. J Exp Bot 58:3507 2007
+raspberry,,,RiDhn2,dehydrin,functional,,Second Rubus dehydrin; YSK2-type; cold-responsive in crown tissue,Marian et al. Physiol Plant 116:468 2002
+raspberry,,,RiICE1,bHLH,candidate,,ICE transcription factor; upstream regulator of RiCBF pathway,Mazzitelli et al. J Exp Bot 58:3507 2007
+haskap,,,LcIRI1,IRI,functional,,Ice recrystallization inhibition protein; prevents ice crystal growth in xylem,Chen et al. J Advanced Research 2024
+haskap,,,LcDHN1,dehydrin,functional,,K-segment dehydrin; accumulates in buds during autumn to midwinter,Chen et al. J Advanced Research 2024
+haskap,,,LcDHN2,dehydrin,functional,,YSK2-type dehydrin; expressed in bark and cambium tissues under cold,Chen et al. J Advanced Research 2024
+haskap,,,LcCBF3,CBF,candidate,,Third CBF paralog in Lonicera caerulea; part of expanded CBF gene family,Chen et al. J Advanced Research 2024
+haskap,,,LcLEA1,LEA Group III,functional,,Late embryogenesis abundant protein; cryoprotective in dehydrated tissue,Chen et al. J Advanced Research 2024
+strawberry,,6A,FaCBF2,,candidate,,Second Fragaria CBF paralog; constitutive expression in cold-hardy genotypes,Owens et al. J Amer Soc Hort Sci 127:489 2002
+strawberry,,6A,FaCBF3,,candidate,,Third Fragaria CBF; cold-induced; maps to Fr-like region on chr 6A,Koehler et al. J Exp Bot 63:4959 2012
+strawberry,,2B,FaDHN1,dehydrin,functional,,Fragaria ananassa dehydrin; K-segment accumulation in crown during hardening,Koehler et al. J Exp Bot 63:4959 2012
+strawberry,,2B,FaDHN2,dehydrin,functional,,Second strawberry dehydrin; cold- and drought-induced; expressed in runner tissue,Koehler et al. J Exp Bot 63:4959 2012
+timothy,,,PpCBF1,CBF,candidate,,Phleum pratense CBF; cold acclimation regulator in Nordic forage grass,Hulke et al. Crop Sci 48:2033 2008
+timothy,,,PpCBF2,CBF,candidate,,Second Phleum pratense CBF paralog; differentially expressed in hardy ecotypes,Hulke et al. Crop Sci 48:2033 2008
+timothy,,,PpDHN1,dehydrin,functional,,Timothy dehydrin; accumulates in crowns during autumn hardening,Hulke et al. Crop Sci 48:2033 2008
+timothy,,,PpIRI1,IRI,functional,,Ice recrystallization inhibition protein; Phleum pratense; prevents intercellular ice damage,Sandve et al. Plant Physiol 144:171 2008
+perennial ryegrass,,,LpCBF1,CBF,candidate,,Lolium perenne CBF; major cold acclimation regulator in temperate grasses,Tamura & Yamada Plant Cell Physiol 48:536 2007
+perennial ryegrass,,,LpCBF2,CBF,candidate,,Second LpCBF paralog; co-expressed with LpCBF1 under cold stress,Tamura & Yamada Plant Cell Physiol 48:536 2007
+perennial ryegrass,,,LpIRI1,IRI,functional,,Lolium perenne IRI protein; antifreeze activity in apoplast; prevents ice crystal growth,Sandve et al. Plant Physiol 144:171 2008
+perennial ryegrass,,,LpIRI2,IRI,functional,,Second IRI paralog; NIP domain; expressed in leaves during cold acclimation,Sandve et al. Plant Physiol 144:171 2008
+perennial ryegrass,,,LpDHN1,dehydrin,functional,,Lolium perenne dehydrin; K-segment accumulation in crowns during freezing tolerance,Tamura & Yamada Plant Cell Physiol 48:536 2007
+meadow fescue,,,FpCBF1,CBF,candidate,,Festuca pratensis CBF; cold-responsive transcription factor; major forage grass,Tamura & Yamada Plant Cell Physiol 48:536 2007
+meadow fescue,,,FpCBF6,CBF,candidate,,Festuca pratensis CBF6; ortholog of wheat TaCBF14; linked to freezing tolerance,Alm et al. Theor Appl Genet 123:369 2011
+meadow fescue,,,FpIRI1,IRI,functional,,Festuca pratensis IRI; ice recrystallization inhibition; apoplastic antifreeze,Sandve et al. Plant Physiol 144:171 2008
+meadow fescue,,,FpDHN1,dehydrin,functional,,Festuca pratensis dehydrin; cold-induced; K2-type cryoprotectant,Alm et al. Theor Appl Genet 123:369 2011
+wheat,,,TaAFP,AFP,functional,,Triticum aestivum antifreeze protein; ice recrystallization inhibition in apoplast,Griffith et al. Plant Physiol 100:593 1992
+rye,,,ScAFP,AFP,functional,,Secale cereale antifreeze protein; thermal hysteresis activity; most active cereal AFP,Griffith et al. Plant Physiol 100:593 1992
+carrot,,,DcAFP,AFP,functional,,Daucus carota AFP; model AFP; ice-binding; studied for cold tolerance transfer to crops,Worrall et al. Science 282:115 1998
+perennial ryegrass,,,LpAFP,AFP,functional,,Lolium perenne AFP; antifreeze protein; NIP domain; ice crystal adsorption,Middleton et al. Plant Physiol 140:824 2006
+wheat,,,TaAFP-IRI,IRI,functional,,Wheat IRI protein with AFP domain; dual antifreeze function,Griffith & Yaish Trends Plant Sci 9:399 2004
+rye,,,ScIRI1,IRI,functional,,Rye ice recrystallization inhibition protein; strongest IRI activity among cereals,Griffith & Yaish Trends Plant Sci 9:399 2004
+wheat,,3A,TaICE1,bHLH,candidate,,ICE1 transcription factor; MYC-type; activates CBF regulon; phosphorylated by SIZ1,Badawi et al. J Exp Bot 59:3577 2008
+barley,,3H,HvICE1,bHLH,candidate,,Barley ICE1; upstream activator of HvCBF cluster; constitutively expressed,Skinner et al. Plant Sci 176:383 2009
+wheat,,5A,TaMYB73,MYB,candidate,,MYB transcription factor; enhances CBF expression under cold; overexpression improves LT50,Zhao et al. Plant Physiol Biochem 108:468 2016
+wheat,,2D,TaMYB80,MYB,candidate,,MYB transcription factor; cold-responsive; regulates downstream COR genes,Zhao et al. Plant Physiol Biochem 108:468 2016
+rye,,5R,ScICE1,bHLH,candidate,,Rye ICE1; activates ScCBF cluster; bHLH domain; upstream of Fr-R2 regulon,Li et al. BMC Plant Biology 11:146 2011
+apple,,3,MdICE1L,,candidate,,Apple ICE1-like factor; interacts with MdCBF promoters; cold-activated,Feng et al. J Exp Bot 63:7449 2012
+grape,,7,VvMYB44,,candidate,,Grapevine MYB factor; enhances VvCBF4 expression; improves freezing tolerance,Xu et al. Plant Sci 238:135 2015
+blueberry,,chr5,VcICE1,bHLH,candidate,,Vaccinium ICE transcription factor; activates VcCBF regulon; cold-induced,Die & Bhatt Mol Biol Rep 41:811 2014
+peach,,1,PpDAM1,MADS-box,candidate,,Prunus persica Dormancy-Associated MADS-box 1; regulates endodormancy depth,Bielenberg et al. Genetics 172:331 2006
+peach,,1,PpDAM2,MADS-box,candidate,,PpDAM2; tandem with DAM1; expression decreases during chilling accumulation,Bielenberg et al. Genetics 172:331 2006
+peach,,1,PpDAM4,MADS-box,candidate,,PpDAM4; interacts with DAM5/6; regulates dormancy release timing,Bielenberg et al. Genetics 172:331 2006
+sweet cherry,,LG1,PcCBF1,CBF,candidate,,Prunus cerasus CBF; cold-induced in bark tissue; orthologous to PpCBF,Wisniewski et al. Physiol Plant 120:296 2004
+sweet cherry,,LG1,PcCBF2,CBF,candidate,,Second sour cherry CBF; expressed in buds during early cold acclimation,Wisniewski et al. Physiol Plant 120:296 2004
+sweet cherry,,LG4,PcDHN1,dehydrin,functional,,Prunus cerasus dehydrin; accumulates in bark and bud during hardening,Wisniewski et al. Physiol Plant 120:296 2004
+lingonberry,,,VvICBF1,CBF,candidate,,Vaccinium vitis-idaea CBF; cold-responsive transcription factor; hardiest Vaccinium,Oakley et al. BMC Plant Biology 7:40 2007
+lingonberry,,,VvIDHN1,dehydrin,functional,,Vaccinium vitis-idaea dehydrin; bark accumulation during autumn acclimation,Dhanaraj et al. Physiol Plant 119:1 2003
+cloudberry,,,RcCBF1,CBF,candidate,,Rubus chamaemorus CBF; expressed in stolons and crowns during cold acclimation,Mazzitelli et al. J Exp Bot 58:3507 2007
+cloudberry,,,RcDHN1,dehydrin,functional,,Rubus chamaemorus dehydrin; K2-type; cryoprotective in subarctic conditions,Mazzitelli et al. J Exp Bot 58:3507 2007
+sea buckthorn,,,HrCBF1,CBF,candidate,,Hippophae rhamnoides CBF; cold-induced; nitrogen-fixing shrub cold tolerance,Swenson & Bartish Bot J Linn Soc 138:421 2002
+sea buckthorn,,,HrCBF2,CBF,candidate,,Second Hippophae CBF paralog; differentially expressed in Lapland ecotypes,Swenson & Bartish Bot J Linn Soc 138:421 2002
+sea buckthorn,,,HrLEA1,LEA Group III,functional,,Hippophae LEA protein; dehydration protection in bark and bud tissue,Swenson & Bartish Bot J Linn Soc 138:421 2002
+sea buckthorn,,,HrDHN1,dehydrin,functional,,Hippophae dehydrin; Y2K-type; accumulates during autumn in Scandinavian ecotypes,Swenson & Bartish Bot J Linn Soc 138:421 2002

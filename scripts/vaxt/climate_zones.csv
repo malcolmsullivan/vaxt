@@ -1,0 +1,17 @@
+zone,subzone,min_temp_f,max_temp_f,min_temp_c,max_temp_c,example_locations,growing_season_days,frost_free_days,relevance
+1,a,-60,-55,-51.1,-48.3,Fairbanks AK interior; Yellowknife NWT,60-90,50-70,Extreme: only wild species and select haskap/sea buckthorn
+1,b,-55,-50,-48.3,-45.6,Anchorage AK; Churchill MB; Tromsø Norway,75-100,60-80,Haskap wood survives; limited cereals
+2,a,-50,-45,-45.6,-42.8,International Falls MN; Winnipeg MB; Oulu Finland,90-110,70-90,Norstar wheat; Valiant grape; Boyne raspberry; Romance cherries
+2,b,-45,-40,-42.8,-40.0,Minneapolis MN; Saskatoon SK; Jokioinen Finland,100-120,80-100,Most cold-hardy cultivars thrive; haskap; blueberry half-high
+3,a,-40,-35,-40.0,-37.2,Duluth MN; Edmonton AB; Ås Norway,110-130,90-110,Nordic wheat/barley; Frontenac grape; Honeycrisp apple
+3,b,-35,-30,-37.2,-34.4,Madison WI; Oslo Norway; Stockholm Sweden,120-140,100-120,Most Nordic cereals; bush cherries; lingonberry
+4,a,-30,-25,-34.4,-31.7,Des Moines IA; Copenhagen Denmark; Helsinki Finland,130-150,110-130,Wide cereal selection; wine grapes; black currant
+4,b,-25,-20,-31.7,-28.9,St. Louis MO; Amsterdam Netherlands; Malmö Sweden,140-160,120-140,Most temperate fruit; good vine zone
+5,a,-20,-15,-28.9,-26.1,Boston MA; London UK; Paris France,150-170,130-150,All temperate crops; commercial viticulture
+5,b,-15,-10,-26.1,-23.3,Philadelphia PA; Brussels Belgium; Berlin Germany,160-180,140-160,Wide crop range; limited cold stress
+6,a,-10,-5,-23.3,-20.6,Portland OR; Milan Italy; Bordeaux France,170-200,150-170,Mediterranean transition; minimal winter kill
+6,b,-5,0,-20.6,-17.8,San Francisco CA; Lisbon Portugal,180-210,160-180,Mild winters; little cold tolerance needed
+7,a,0,5,-17.8,-15.0,Houston TX; Brisbane Australia,210-240,180-210,Subtropical transition
+7,b,5,10,-15.0,-12.2,Miami FL; Valencia Spain,240-270,210-240,Year-round growing
+8,a,10,15,-12.2,-9.4,Miami Beach FL; Athens Greece,270-300,240-270,Tropical/subtropical
+8,b,15,20,-9.4,-6.7,Key West FL; Naples Italy,300-330,270-300,Near-tropical

@@ -1,0 +1,27 @@
+# ── Secrets (NEVER commit) ──────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Python ──────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.venv/
+venv/
+.ruff_cache/
+
+# ── Local tooling ───────────────────────────────────────────────────────
+.claude/settings.local.json
+.DS_Store
+
+# ── Runtime data ────────────────────────────────────────────────────────
+# We COMMIT a prebuilt heritage-grain.duckdb (27 tables, ~9 MB) so CI runs the
+# tests offline and green. Everything else here (fetched ETL CSVs, the FAOSTAT
+# zip, the DuckDB WAL) is a runtime artifact and stays ignored.
+data/datasets/heritage-grain/*
+!data/datasets/heritage-grain/heritage-grain.duckdb
