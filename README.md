@@ -24,7 +24,7 @@ registry and a 69-field phenotype schema with no public equivalent).
   DATA SOURCES (9)                ETL (manifest-driven)          STORE            SURFACES
   ───────────────                ─────────────────────          ─────            ────────
   FAOSTAT  Eurostat  GHCN   ─┐    sources.toml registry      ┌─► DuckDB   ──┬──► MCP server (21 tools, Claude)
-  GrainGenes  T3/BrAPI      ─┤──► per-source validation      │   24 tables  ├──► Website (vaxt.bio)
+  GrainGenes  T3/BrAPI      ─┤──► per-source validation      │   27 tables  ├──► Website (vaxt.bio)
   GBIF  SoilGrids           ─┤    (row bounds, unique keys,   │              └──► Notion knowledge base
   + growing-season (derived) ┤     numeric ranges)            │
   + photoperiod (computed)  ─┘    dry-run / fetch / validate ─┘
@@ -108,7 +108,7 @@ All list calls page with `page`/`pageSize` and return the standard BrAPI envelop
 
 ## The data pipeline
 
-`vaxt_runner.py` orchestrates 9 sources into DuckDB (20 tables). All are public/open-licensed:
+`vaxt_runner.py` orchestrates 9 sources into DuckDB (27 tables). All are public/open-licensed:
 
 | Source | What | Cadence |
 |---|---|---|
