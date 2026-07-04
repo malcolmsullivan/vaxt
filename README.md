@@ -53,6 +53,31 @@ check fails — it cannot report success while checking nothing. `--mode live`
 judge (Opus 4.8). See [`CLAIMS.md`](CLAIMS.md) for how each claim maps to
 verified reality.
 
+### Run it as a service (chat UI + HTTP API)
+
+`packages/vaxt-agent/web.py` serves Ask VAXT over HTTP with a thin, no-build chat
+UI. It streams tool activity live and renders **citation chips that expand to the
+real warehouse row on click** — grounding you can see. The DuckDB is baked into
+the container, so it runs from a clean clone with zero setup:
+
+```bash
+docker compose run --rm eval    # the <2-min keyless proof: grounding holds, no API key
+docker compose up               # serve the chat UI + /health + /ready on http://localhost:8000
+```
+
+With no `ANTHROPIC_API_KEY`, the UI still serves the tools, health, and citation
+lookups and shows an honest "set the key to enable answers" state — **never a
+fabricated answer**. Set `ANTHROPIC_API_KEY` in the environment to enable live
+answers. Without Docker: `pip install -e "packages/vaxt" -e
+"packages/vaxt-agent[web]"` then `uvicorn vaxt_agent.web:app` (or `vaxt-web`).
+
+Endpoints: `POST /chat` (SSE — streams `status` events then the answer),
+`GET /health` (process + DB + `SELECT 1`), `GET /ready` (warehouse ≥ 27 tables,
+no model call), `GET /citation?table=&key=` (the row behind a citation). The BrAPI
+server has matching `/health` and `/ready`. See [`ARCHITECTURE.md`](ARCHITECTURE.md)
+for the data flow and failure model, and [`WALKTHROUGH.md`](WALKTHROUGH.md) for the
+end-to-end story.
+
 ---
 
 ## Architecture

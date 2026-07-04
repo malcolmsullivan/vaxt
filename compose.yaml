@@ -1,0 +1,28 @@
+# Ask VAXT — one file, two ways to run.
+#
+#   docker compose up            -> serve the chat UI + /health + /ready on :8000
+#   docker compose run --rm eval -> the <2-minute keyless proof (no API key)
+#
+# The DuckDB is baked into the image (see Dockerfile), so both work from a clean
+# clone with zero setup. ANTHROPIC_API_KEY is passed through from the host if set
+# (enables live answers); without it the UI degrades honestly to the "no key"
+# state and the eval still runs green.
+services:
+  agent:
+    build: .
+    image: vaxt-agent
+    ports:
+      - "8000:8000"
+    environment:
+      # Empty default so an unset host var doesn't fail the interpolation; the
+      # web service treats absent/empty as keyless.
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+
+  # Keyless deterministic eval — the reproducible proof that grounding holds,
+  # with no model call. Grades the 17 committed transcripts against the baked-in
+  # warehouse. `docker compose run --rm eval` exits non-zero on any failure.
+  eval:
+    build: .
+    image: vaxt-agent
+    profiles: ["eval"]
+    command: ["python", "eval/run_eval.py", "--mode", "replay"]
