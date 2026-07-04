@@ -179,3 +179,29 @@ def resolve_citation(con: duckdb.DuckDBPyConnection, table: str, key: str) -> bo
         return con.execute(sql, [str(key)]).fetchone() is not None
     except duckdb.Error:
         return False
+
+
+def fetch_citation_row(con: duckdb.DuckDBPyConnection, table: str, key: str) -> dict | None:
+    """The cited row itself, for display — same registry and match rule as
+    resolve_citation, so the two can never disagree about what a citation means.
+
+    Returns *a* matching row (LIMIT 1): the grounding invariant is >= 1 row, and
+    a few natural keys are legitimately non-unique. Unknown table, unknown key
+    column, or no match -> None. Uses a read-only connection from the caller.
+    """
+    keycol = TABLE_KEY.get(table)
+    if keycol is None:
+        return None
+    sql = (
+        f'SELECT * FROM "{table}" '  # table/keycol are from our own registry, never user input
+        f'WHERE LOWER(CAST("{keycol}" AS VARCHAR)) = LOWER(?) LIMIT 1'
+    )
+    try:
+        cur = con.execute(sql, [str(key)])
+        row = cur.fetchone()
+        if row is None:
+            return None
+        cols = [d[0] for d in cur.description]
+        return dict(zip(cols, row))
+    except duckdb.Error:
+        return None

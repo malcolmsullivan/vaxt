@@ -12,16 +12,65 @@ Run locally:
 """
 from __future__ import annotations
 
-from fastapi import FastAPI, HTTPException, Query
+import logging
+import time
 
-from vaxt_api import brapi
-from vaxt_api.db import query, scalar
+from fastapi import FastAPI, HTTPException, Query
+from fastapi.responses import JSONResponse
+
+from vaxt_api import brapi, obs
+from vaxt_api.db import db_path, query, scalar
+
+EXPECTED_TABLE_COUNT = 27
+
+obs.setup_json_logging()
+log = logging.getLogger("vaxt_api")
 
 app = FastAPI(
     title="VAXT BrAPI",
     version="2.1",
     description="Read-only BrAPI v2.1 over the VAXT heritage-grain DuckDB.",
 )
+
+
+@app.middleware("http")
+async def _log_requests(request, call_next):
+    t0 = time.perf_counter()
+    response = await call_next(request)
+    log.info(
+        "request", extra={
+            "event": "request", "method": request.method,
+            "path": request.url.path, "status": response.status_code,
+            "latency_ms": round((time.perf_counter() - t0) * 1000, 1),
+        },
+    )
+    return response
+
+
+# ── health / readiness ──────────────────────────────────────────────────────
+@app.get("/health")
+def health():
+    """Process up + DB path resolves + SELECT 1."""
+    try:
+        scalar("SELECT 1")
+    except Exception as e:
+        return JSONResponse(status_code=503, content={"status": "unhealthy", "error": str(e)})
+    return {"status": "ok", "db": db_path()}
+
+
+@app.get("/ready")
+def ready():
+    """Health + full warehouse present (>= 27 tables)."""
+    try:
+        tables = len(query("SHOW TABLES"))
+    except Exception as e:
+        return JSONResponse(status_code=503, content={"status": "not_ready", "error": str(e)})
+    if tables < EXPECTED_TABLE_COUNT:
+        return JSONResponse(
+            status_code=503,
+            content={"status": "not_ready", "tables": tables, "expected": EXPECTED_TABLE_COUNT},
+        )
+    return {"status": "ready", "tables": tables}
 
 _CALLS = [
     {"service": s, "methods": ["GET"], "versions": ["2.1"], "dataTypes": ["application/json"]}

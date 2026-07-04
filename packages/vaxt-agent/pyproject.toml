@@ -17,10 +17,14 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0"]
+# web is an extra, not a base dep: the keyless eval path (CI eval-replay and
+# the Docker eval profile) installs base only and must stay lean.
+web = ["fastapi>=0.110", "uvicorn[standard]>=0.29"]
+dev = ["pytest>=8.0", "httpx>=0.27", "vaxt-agent[web]"]
 
 [project.scripts]
 ask-vaxt = "vaxt_agent.cli:main"
+vaxt-web = "vaxt_agent.web:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
