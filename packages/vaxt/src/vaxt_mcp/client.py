@@ -155,14 +155,21 @@ class VaxtClient:
 
     def match_varieties(self, zone: str = "", lat: float | None = None,
                         lon: float | None = None, crop: str = "",
-                        limit: int = 10) -> list[dict]:
-        """Recommend varieties for a zone/location with planting windows."""
-        # If lat/lon provided but no zone, estimate zone from growing_season
+                        limit: int = 10) -> dict | list:
+        """Recommend varieties for a zone/location with planting windows.
+
+        Returns a dict {zone, varieties, planting_calendars} when a zone is given
+        or can be estimated from lat/lon; returns [] when there is nothing to
+        match on (no zone and no coordinates).
+        """
+        # If lat/lon provided but no zone, estimate zone from the nearest station's
+        # annual minimum temperature.
         if lat is not None and lon is not None and not zone:
             nearest = self._query_one("""
                 SELECT gs.station_name, gs.country_name,
-                       ROUND(AVG(gs.annual_min_tmin_c), 1) as avg_min
+                       ROUND(gs.annual_min_tmin_c, 1) as avg_min
                 FROM growing_season gs
+                WHERE gs.annual_min_tmin_c IS NOT NULL
                 ORDER BY ABS(gs.latitude - ?) + ABS(gs.longitude - ?)
                 LIMIT 1
             """, [lat, lon])
@@ -350,13 +357,13 @@ class VaxtClient:
             conditions.append("LOWER(species) LIKE '%' || ? || '%'")
             params.append(species.lower())
         if trait:
-            conditions.append("LOWER(trait_name) LIKE '%' || ? || '%'")
+            conditions.append("LOWER(trait) LIKE '%' || ? || '%'")
             params.append(trait.lower())
 
         where = " AND ".join(conditions) if conditions else "1=1"
         return self._query(f"""
             SELECT * FROM graingenes_qtl WHERE {where}
-            ORDER BY species, trait_name
+            ORDER BY species, trait
             LIMIT ?
         """, params + [limit])
 

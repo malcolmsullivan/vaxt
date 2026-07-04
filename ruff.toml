@@ -1,0 +1,16 @@
+# Ruff configuration for VAXT.
+#
+# The CI `lint` job is now blocking (it used to end in `|| true`). To make that
+# honest, the shipped library packages — packages/vaxt/src and
+# packages/vaxt-api/src — are held to Ruff's default rule set with zero
+# exceptions.
+#
+# The operational ETL / data-maintenance scripts under scripts/vaxt are linted
+# under the same rules with a single, deliberate exception: F541 ("f-string
+# without any placeholders"), a purely cosmetic finding that appears ~29 times
+# across a dozen one-off data scripts and gates nothing meaningful. Every rule
+# that can catch a real defect (unused imports, duplicate dict keys, undefined
+# names, multi-statement lines) still applies to those scripts.
+
+[lint.per-file-ignores]
+"scripts/vaxt/**" = ["F541"]

@@ -27,7 +27,6 @@ import sys
 import time
 from pathlib import Path
 from urllib.request import Request, urlopen
-from urllib.error import HTTPError
 
 SCRIPT_DIR = Path(__file__).parent
 WORKSPACE = SCRIPT_DIR.parent.parent

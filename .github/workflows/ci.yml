@@ -26,6 +26,9 @@ jobs:
       - name: Run tests
         env:
           VAXT_DUCKDB_PATH: data/datasets/heritage-grain/heritage-grain.duckdb
+          # Fail loud if the committed warehouse is missing instead of silently
+          # skipping the DB-backed tests (see tests/test_warehouse_guard.py).
+          VAXT_REQUIRE_DB: "1"
         run: pytest tests/ -v
 
   lint:
@@ -35,7 +38,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Ruff (non-blocking)
+      - name: Ruff
         run: |
           pip install ruff
-          ruff check packages/vaxt/src packages/vaxt-api/src scripts/vaxt || true
+          ruff check packages/vaxt/src packages/vaxt-api/src scripts/vaxt
