@@ -1,0 +1,134 @@
+{
+  "question": "What can you tell me about the wheat variety Norstar - its origin and cold tolerance?",
+  "answer": "**Norstar (winter wheat)**\n\n**Origin & Development:** Norstar is a winter wheat cultivar developed by the University of Alberta breeding program in Canada. GRIN records its origin as a Winalta × Alabaskaya cross, collected/registered from a site in Alberta (~51.05°N, 114.07°W). It is recommended for USDA zones 2–3, with a fall seeding window of roughly September 1–25 and a long maturation period of 280–310 days reflecting its winter-hardy growth habit.\n\n**Cold Tolerance:** Norstar is widely regarded as one of the hardiest winter wheats globally and serves as the reference cultivar for cold-hardiness research, with an LT50 (temperature at which 50% of plants are killed) of approximately -22°C. This extreme winterhardiness trait is also confirmed in its GRIN accession record, which lists it as suited to cold-hardiness zone 2.\n\n**Disease/Snow-Mold Tolerance (related to overwintering):** Because it survives long snow cover in cold regions, Norstar has been tested for resistance to snow-mold pathogens. It shows moderate-to-high tolerance to *Typhula ishikariensis*, surviving prolonged snow cover, moderate tolerance to *Typhula incarnata*, moderate tolerance with regrowth ability against *Microdochium nivale*, and moderate tolerance to *Sclerotinia borealis* — all pathogens relevant to overwintering winter cereals in Canada and Norway.\n\n**Practical notes:** Seed sources for Norstar include GRIN/NPGS and SeCan, and growers note it as \"the Canadian benchmark for winter hardiness,\" reliable in zones 2–3, though its bread quality is only moderate (11–12% protein) and considered better for blending than as a standalone bread flour.\n\nOn the genetic side, wheat cold tolerance in general (relevant to hardy cultivars like Norstar) is associated with the Fr-A2 locus on chromosome 5A, home to the TaCBF gene cluster, where copy-number variation is a functional marker for frost tolerance — though these marker records are general wheat cold-tolerance loci rather than Norstar-specific genotyping data in the warehouse.",
+  "citations": [
+    {
+      "table": "varieties",
+      "key": "Norstar"
+    },
+    {
+      "table": "grin_accessions",
+      "key": "PI 268210"
+    },
+    {
+      "table": "variety_growing_enrichment",
+      "key": "Norstar"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "Norstar"
+    },
+    {
+      "table": "markers",
+      "key": "KASP"
+    },
+    {
+      "table": "markers",
+      "key": "SNP"
+    }
+  ],
+  "claims": [
+    {
+      "text": "**Origin & Development:** Norstar is a winter wheat cultivar developed by the University of Alberta breeding program in Canada.",
+      "citations": [
+        {
+          "table": "varieties",
+          "key": "Norstar"
+        }
+      ]
+    },
+    {
+      "text": "GRIN records its origin as a Winalta × Alabaskaya cross, collected/registered from a site in Alberta (~51.05°N, 114.07°W).",
+      "citations": [
+        {
+          "table": "grin_accessions",
+          "key": "PI 268210"
+        }
+      ]
+    },
+    {
+      "text": "It is recommended for USDA zones 2–3, with a fall seeding window of roughly September 1–25 and a long maturation period of 280–310 days reflecting its winter-hardy growth habit.",
+      "citations": [
+        {
+          "table": "varieties",
+          "key": "Norstar"
+        },
+        {
+          "table": "variety_growing_enrichment",
+          "key": "Norstar"
+        }
+      ]
+    },
+    {
+      "text": "**Cold Tolerance:** Norstar is widely regarded as one of the hardiest winter wheats globally and serves as the reference cultivar for cold-hardiness research, with an LT50 (temperature at which 50% of plants are killed) of approximately -22°C.",
+      "citations": [
+        {
+          "table": "varieties",
+          "key": "Norstar"
+        },
+        {
+          "table": "grin_accessions",
+          "key": "PI 268210"
+        }
+      ]
+    },
+    {
+      "text": "This extreme winterhardiness trait is also confirmed in its GRIN accession record, which lists it as suited to cold-hardiness zone 2.",
+      "citations": [
+        {
+          "table": "grin_accessions",
+          "key": "PI 268210"
+        }
+      ]
+    },
+    {
+      "text": "It shows moderate-to-high tolerance to *Typhula ishikariensis*, surviving prolonged snow cover, moderate tolerance to *Typhula incarnata*, moderate tolerance with regrowth ability against *Microdochium nivale*, and moderate tolerance to *Sclerotinia borealis* — all pathogens relevant to overwintering winter cereals in Canada and Norway.",
+      "citations": [
+        {
+          "table": "disease_resistance",
+          "key": "Norstar"
+        }
+      ]
+    },
+    {
+      "text": "**Practical notes:** Seed sources for Norstar include GRIN/NPGS and SeCan, and growers note it as \"the Canadian benchmark for winter hardiness,\" reliable in zones 2–3, though its bread quality is only moderate (11–12% protein) and considered better for blending than as a standalone bread flour.",
+      "citations": [
+        {
+          "table": "variety_growing_enrichment",
+          "key": "Norstar"
+        }
+      ]
+    },
+    {
+      "text": "On the genetic side, wheat cold tolerance in general (relevant to hardy cultivars like Norstar) is associated with the Fr-A2 locus on chromosome 5A, home to the TaCBF gene cluster, where copy-number variation is a functional marker for frost tolerance — though these marker records are general wheat cold-tolerance loci rather than Norstar-specific genotyping data in the warehouse.",
+      "citations": [
+        {
+          "table": "markers",
+          "key": "KASP"
+        },
+        {
+          "table": "markers",
+          "key": "SNP"
+        }
+      ]
+    }
+  ],
+  "refused": false,
+  "refusal_reason": "",
+  "tool_calls": [
+    {
+      "tool": "vaxt_cross_reference",
+      "arguments": {
+        "variety": "Norstar"
+      },
+      "record_count": 29,
+      "error": null
+    }
+  ],
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 20437,
+    "output_tokens": 1298
+  },
+  "unstructured": false
+}

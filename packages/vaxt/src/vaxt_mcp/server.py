@@ -5,7 +5,6 @@ Register: claude mcp add vaxt -- python -m vaxt_mcp.server
 """
 
 import json
-import os
 from typing import Optional
 
 from mcp.server.fastmcp import FastMCP

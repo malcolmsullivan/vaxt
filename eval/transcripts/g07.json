@@ -1,0 +1,228 @@
+{
+  "question": "Which varieties or genes show resistance to Microdochium (pink snow mould)?",
+  "answer": "# Resistance to Microdochium nivale (Pink Snow Mould)\n\nThe VAXT warehouse holds 26 records spanning winter cereals, forage grasses, genes, and QTL for *Microdochium nivale* resistance. Here's a breakdown:\n\n## High-resistance rye varieties\nWinter rye shows the strongest constitutive resistance: **Petkus** (Germany/Finland) exhibits high resistance via constitutive resistance and thick cell walls, and **Elonkerjuu** (Finland) similarly shows high resistance through cell wall reinforcement and rapid tissue recovery.\n\n## Moderate-to-high winter wheats\nSeveral Nordic/North American wheats perform well: **Veli** (Finland) shows moderate-high resistance via tolerance and rapid spring regrowth; **Mironovskaya 808** (Ukraine/Finland) shows moderate-high resistance, described as \"excellent snow mold tolerance\"; and **AC Hazlet**, a Canadian prairie wheat, shows moderate-high field tolerance. **Norstar** shows moderate resistance with tolerance and regrowth capacity after infection, and **Magnifik** is noted as a good Norwegian wheat but less resistant than Norstar/Veli.\n\n## Genes and molecular markers (winter wheat)\n- **Fhn1** — linked to the Tsn1 locus, associated with cold-acclimation-enhanced resistance.\n- **TaCBF14/15 haplotype** — CBF gene copy number correlates with snow mold tolerance.\n- **WCS120** — dehydrin protein accumulation correlates with snow mold survival, used as a functional marker.\n- **PR-1.1 induction (TaPR-1.1)** — pathogenesis-related protein induced under snow cover as a defense response.\n\n## QTL loci (winter wheat)\nThree QTL have been mapped: a major QTL on chromosome 5A near the CBF cluster (**Qsm.crc-5A**), a minor homoeologous QTL on 5B (**Qsm.crc-5B**), and a minor QTL on 1A (**Qsm.crc-1A**).\n\n## Forage grasses and other crops\nResistance is more limited outside cereals: **timothy** cultivar **Engmo** (arctic-adapted, Norway 69°N) shows moderate-high resistance via rapid spring recovery, while **meadow fescue Vega** shows moderate resistance linked to IRI (ice-recrystallization-inhibition) protein expression. By contrast, **perennial ryegrass** (Figgjo, Trygve) and **winter barley** (Dicktoo) are noted as generally susceptible, with low resistance levels.\n\n**Practical takeaway:** rye (Petkus, Elonkerjuu) offers the strongest resistance overall, followed by Nordic/Finnish wheats (Veli, Mironovskaya 808), while the 5A CBF-linked QTL region appears to be a key genetic target for breeders working on wheat.",
+  "citations": [
+    {
+      "table": "disease_resistance",
+      "key": "Petkus"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "Elonkerjuu"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "Veli"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "Mironovskaya 808"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "AC Hazlet"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "Norstar"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "Magnifik"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "Fhn1"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "TaCBF14/15 haplotype"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "WCS120 expression"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "PR-1.1 induction"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "QTL-SM-5A"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "QTL-SM-5B"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "QTL-SM-1A"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "Engmo"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "Vega"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "Figgjo"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "Trygve"
+    },
+    {
+      "table": "disease_resistance",
+      "key": "Dicktoo"
+    }
+  ],
+  "claims": [
+    {
+      "text": "Winter rye shows the strongest constitutive resistance: **Petkus** (Germany/Finland) exhibits high resistance via constitutive resistance and thick cell walls, and **Elonkerjuu** (Finland) similarly shows high resistance through cell wall reinforcement and rapid tissue recovery.",
+      "citations": [
+        {
+          "table": "disease_resistance",
+          "key": "Petkus"
+        },
+        {
+          "table": "disease_resistance",
+          "key": "Elonkerjuu"
+        }
+      ]
+    },
+    {
+      "text": "Several Nordic/North American wheats perform well: **Veli** (Finland) shows moderate-high resistance via tolerance and rapid spring regrowth; **Mironovskaya 808** (Ukraine/Finland) shows moderate-high resistance, described as \"excellent snow mold tolerance\"; and **AC Hazlet**, a Canadian prairie wheat, shows moderate-high field tolerance.",
+      "citations": [
+        {
+          "table": "disease_resistance",
+          "key": "Veli"
+        },
+        {
+          "table": "disease_resistance",
+          "key": "Mironovskaya 808"
+        },
+        {
+          "table": "disease_resistance",
+          "key": "AC Hazlet"
+        }
+      ]
+    },
+    {
+      "text": "**Norstar** shows moderate resistance with tolerance and regrowth capacity after infection, and **Magnifik** is noted as a good Norwegian wheat but less resistant than Norstar/Veli.",
+      "citations": [
+        {
+          "table": "disease_resistance",
+          "key": "Norstar"
+        },
+        {
+          "table": "disease_resistance",
+          "key": "Magnifik"
+        }
+      ]
+    },
+    {
+      "text": "- **Fhn1** — linked to the Tsn1 locus, associated with cold-acclimation-enhanced resistance.",
+      "citations": [
+        {
+          "table": "disease_resistance",
+          "key": "Fhn1"
+        }
+      ]
+    },
+    {
+      "text": "- **TaCBF14/15 haplotype** — CBF gene copy number correlates with snow mold tolerance.",
+      "citations": [
+        {
+          "table": "disease_resistance",
+          "key": "TaCBF14/15 haplotype"
+        }
+      ]
+    },
+    {
+      "text": "- **WCS120** — dehydrin protein accumulation correlates with snow mold survival, used as a functional marker.",
+      "citations": [
+        {
+          "table": "disease_resistance",
+          "key": "WCS120 expression"
+        }
+      ]
+    },
+    {
+      "text": "- **PR-1.1 induction (TaPR-1.1)** — pathogenesis-related protein induced under snow cover as a defense response.",
+      "citations": [
+        {
+          "table": "disease_resistance",
+          "key": "PR-1.1 induction"
+        }
+      ]
+    },
+    {
+      "text": "Three QTL have been mapped: a major QTL on chromosome 5A near the CBF cluster (**Qsm.crc-5A**), a minor homoeologous QTL on 5B (**Qsm.crc-5B**), and a minor QTL on 1A (**Qsm.crc-1A**).",
+      "citations": [
+        {
+          "table": "disease_resistance",
+          "key": "QTL-SM-5A"
+        },
+        {
+          "table": "disease_resistance",
+          "key": "QTL-SM-5B"
+        },
+        {
+          "table": "disease_resistance",
+          "key": "QTL-SM-1A"
+        }
+      ]
+    },
+    {
+      "text": "Resistance is more limited outside cereals: **timothy** cultivar **Engmo** (arctic-adapted, Norway 69°N) shows moderate-high resistance via rapid spring recovery, while **meadow fescue Vega** shows moderate resistance linked to IRI (ice-recrystallization-inhibition) protein expression.",
+      "citations": [
+        {
+          "table": "disease_resistance",
+          "key": "Engmo"
+        },
+        {
+          "table": "disease_resistance",
+          "key": "Vega"
+        }
+      ]
+    },
+    {
+      "text": "By contrast, **perennial ryegrass** (Figgjo, Trygve) and **winter barley** (Dicktoo) are noted as generally susceptible, with low resistance levels.",
+      "citations": [
+        {
+          "table": "disease_resistance",
+          "key": "Figgjo"
+        },
+        {
+          "table": "disease_resistance",
+          "key": "Trygve"
+        },
+        {
+          "table": "disease_resistance",
+          "key": "Dicktoo"
+        }
+      ]
+    }
+  ],
+  "refused": false,
+  "refusal_reason": "",
+  "tool_calls": [
+    {
+      "tool": "vaxt_get_disease_resistance",
+      "arguments": {
+        "pathogen": "Microdochium nivale"
+      },
+      "record_count": 26,
+      "error": null
+    }
+  ],
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 20215,
+    "output_tokens": 1389
+  },
+  "unstructured": false
+}

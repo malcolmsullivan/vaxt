@@ -1,0 +1,57 @@
+{
+  "question": "Which institution runs breeding program BP001, and what does it work on?",
+  "answer": "Breeding program BP001 is run by the **International Rice Research Institute (IRRI)**, based in Los Baños, Philippines, and established in 1960. Its focus is on rice, with work centered on disease resistance and yield improvement. Notable releases from this program include IR64 and IR8.",
+  "citations": [
+    {
+      "table": "breeding_programs",
+      "key": "BP001"
+    }
+  ],
+  "claims": [
+    {
+      "text": "Breeding program BP001 is run by the **International Rice Research Institute (IRRI)**, based in Los Baños, Philippines, and established in 1960.",
+      "citations": [
+        {
+          "table": "breeding_programs",
+          "key": "BP001"
+        }
+      ]
+    },
+    {
+      "text": "Its focus is on rice, with work centered on disease resistance and yield improvement.",
+      "citations": [
+        {
+          "table": "breeding_programs",
+          "key": "BP001"
+        }
+      ]
+    },
+    {
+      "text": "Notable releases from this program include IR64 and IR8.",
+      "citations": [
+        {
+          "table": "breeding_programs",
+          "key": "BP001"
+        }
+      ]
+    }
+  ],
+  "refused": false,
+  "refusal_reason": "",
+  "tool_calls": [
+    {
+      "tool": "vaxt_get_breeding_program",
+      "arguments": {
+        "program_id": "BP001"
+      },
+      "record_count": 1,
+      "error": null
+    }
+  ],
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 15453,
+    "output_tokens": 194
+  },
+  "unstructured": false
+}

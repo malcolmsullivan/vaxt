@@ -1,12 +1,19 @@
 """Unit tests for VAXT DuckDB client."""
 
 import os
+
 import pytest
 
-# Skip all tests if DuckDB not available
+from vaxt_mcp.client import _resolve_db_path
+
+# Skip all tests only if the warehouse the client would actually open is absent.
+# Resolve via the client's own logic (honors VAXT_DUCKDB_PATH / WORKSPACE_ROOT / cwd)
+# rather than a hardcoded relative path — a hardcoded path silently skipped the whole
+# suite whenever pytest ran from a different cwd, so CI could be green while testing
+# nothing. See tests/test_warehouse_guard.py for the CI fail-loud counterpart.
 pytestmark = pytest.mark.skipif(
-    not os.path.exists("data/datasets/heritage-grain/heritage-grain.duckdb"),
-    reason="DuckDB not available",
+    not os.path.exists(_resolve_db_path()),
+    reason=f"DuckDB not available at {_resolve_db_path()}",
 )
 
 
@@ -311,3 +318,115 @@ class TestCrossReference:
         result = client.cross_reference("DoesNotExist12345")
         assert result["variety"] == "DoesNotExist12345"
         assert result["profile"] is None
+
+
+class TestMatchVarieties:
+    def test_by_zone_returns_recommendation_bundle(self, client):
+        # usda_zone is matched exactly; "3" hits the exact-"3" rows.
+        result = client.match_varieties(zone="3")
+        assert isinstance(result, dict)
+        assert result["zone"] == "3"
+        assert isinstance(result["varieties"], list)
+        assert len(result["varieties"]) > 0
+        assert isinstance(result["planting_calendars"], list)
+        for v in result["varieties"]:
+            assert v["usda_zone"] == "3"
+
+    def test_no_zone_and_no_coords_returns_empty(self, client):
+        # Documented edge: with nothing to match on, match_varieties returns [].
+        result = client.match_varieties()
+        assert result == []
+
+    def test_by_coords_estimates_zone(self, client):
+        # Stockholm-ish; zone is estimated from nearest growing_season station.
+        result = client.match_varieties(lat=59.3, lon=18.0)
+        assert isinstance(result, dict)
+        assert result["zone"]  # a non-empty estimated zone string
+        assert isinstance(result["varieties"], list)
+
+    def test_crop_filter(self, client):
+        result = client.match_varieties(zone="3", crop="apple")
+        assert isinstance(result, dict)
+        for v in result["varieties"]:
+            assert "apple" in v["crop"].lower()
+
+
+class TestCompareVarieties:
+    def test_two_varieties(self, client):
+        results = client.compare_varieties(["Norstar", "Goodland"])
+        assert isinstance(results, list)
+        assert len(results) == 2
+        names = {r["variety"] for r in results}
+        assert names == {"Norstar", "Goodland"}
+
+    def test_too_few_returns_empty(self, client):
+        assert client.compare_varieties(["Norstar"]) == []
+
+    def test_too_many_returns_empty(self, client):
+        assert client.compare_varieties(["a", "b", "c", "d", "e", "f"]) == []
+
+
+class TestGetGrowingSeason:
+    def test_by_country(self, client):
+        results = client.get_growing_season(country="Sweden")
+        assert len(results) > 0
+        for r in results:
+            assert "sweden" in r["country_name"].lower()
+
+    def test_by_station(self, client):
+        results = client.get_growing_season(station="ABISKO")
+        assert len(results) > 0
+        for r in results:
+            assert "abisko" in r["station_name"].lower()
+
+    def test_limit_works(self, client):
+        results = client.get_growing_season(limit=5)
+        assert len(results) <= 5
+
+
+class TestGetClimateProfile:
+    def test_by_zone(self, client):
+        result = client.get_climate_profile(zone="3")
+        assert isinstance(result, dict)
+        assert len(result["climate_zones"]) > 0
+        for z in result["climate_zones"]:
+            assert str(z["zone"]) == "3"
+
+    def test_by_coords_adds_photoperiod_soil_sites(self, client):
+        result = client.get_climate_profile(lat=59.3, lon=18.0)
+        assert isinstance(result, dict)
+        assert len(result["photoperiod_zones"]) > 0
+        assert len(result["soil_profiles"]) > 0
+        assert len(result["nearest_trial_sites"]) > 0
+
+    def test_empty_when_no_args(self, client):
+        assert client.get_climate_profile() == {}
+
+
+class TestSearchQtl:
+    def test_by_species_binomial(self, client):
+        # graingenes_qtl.species holds binomials ("Hordeum vulgare"), not common
+        # names — so "Hordeum" matches but "barley" would not.
+        results = client.search_qtl(species="Hordeum")
+        assert len(results) > 0
+        for r in results:
+            assert "hordeum" in r["species"].lower()
+
+    def test_limit_works(self, client):
+        results = client.search_qtl(limit=5)
+        assert len(results) <= 5
+
+
+class TestGetBreedingProgram:
+    def test_by_program_id(self, client):
+        result = client.get_breeding_program(program_id="BP001")
+        assert result is not None
+        assert result["program_id"] == "BP001"
+
+    def test_by_institution(self, client):
+        result = client.get_breeding_program(institution="CIMMYT")
+        assert result is not None
+        assert "cimmyt" in result["institution"].lower()
+
+    def test_nonexistent(self, client):
+        assert client.get_breeding_program(program_id="ZZZ999") is None

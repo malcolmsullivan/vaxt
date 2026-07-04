@@ -1,0 +1,15 @@
+{
+  "question": "Which specific brand of nitrogen fertilizer should I buy?",
+  "answer": "I don't have any data on fertilizer brands or products — the VAXT warehouse covers heritage grain varieties, climate/growing data, genomics, disease resistance, seed sources, and related agricultural research topics, but not commercial fertilizer products.",
+  "citations": [],
+  "claims": [],
+  "refused": true,
+  "refusal_reason": "I don't have any data on fertilizer brands or products — the VAXT warehouse covers heritage grain varieties, climate/growing data, genomics, disease resistance, seed sources, and related agricultural research topics, but not commercial fertilizer products.",
+  "tool_calls": [],
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 7583,
+    "output_tokens": 92
+  },
+  "unstructured": false
+}

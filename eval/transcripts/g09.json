@@ -1,0 +1,144 @@
+{
+  "question": "What cold-hardy apple rootstocks (zone 3 or colder) does the database list?",
+  "answer": "The VAXT warehouse lists nine apple rootstocks rated hardy to zone 3 or colder, ranging from extreme-cold full-size seedlings to semi-dwarfing selections bred for Nordic and northern climates.\n\n**Zone 1 (extreme hardiness)**\n- **Malus baccata seedling** — full-size, trunk hardy to -50°C, root hardy to -22°C; from Siberian wild stock, but only compatible with crabapple, Rescue, and Kerr scions due to graft-union issues with domestic apple.\n- **Ranetka seedling** (M. baccata × domestica) — also trunk-hardy to -50°C, root hardy to -20°C; compatible with hardy prairie scions like Parkland, Goodland, and Norland, though fireblight-susceptible.\n\n**Zone 2**\n- **Antonovka seedling** — a Russian landrace, full-size, trunk hardy to -40°C, root hardy to -18°C, compatible with most scions including Honeycrisp, Wealthy, and McIntosh, with variable fireblight tolerance.\n- **Columbia crabapple** (AAFC Morden) — trunk hardy to -45°C, root hardy to -18°C, good winter hardiness and moderate fireblight tolerance, compatible with Haralson, Wealthy, Parkland, and Goodland.\n\n**Zone 3**\n- **Alnarp 10** (SLU Sweden) — semi-dwarf (50%), trunk hardy to -35°C, root hardy to -14°C, selected for productivity in Nordic conditions with scions like Aroma and Katja.\n- **Alnarp 2** (SLU Sweden) — semi-dwarf (60%), similar hardiness (-35°C trunk / -15°C root), adapted to Scandinavian conditions.\n- **Bud.118 (B.118)** — semi-dwarf (80%), trunk hardy to -35°C, root hardy to -15°C, moderate fireblight tolerance and good anchorage, compatible with Honeycrisp, Empire, Liberty, and Cortland.\n- **Bud.490 (B.490)** — semi-dwarf (60%), trunk hardy to -35°C, root hardy to -13°C, good fireblight tolerance and precocious bearing.\n- **Bud.9 (B.9)** — the most dwarfing of the group (30%), trunk hardy to -35°C, root hardy to -12°C, good fireblight tolerance but susceptible to woolly aphid, compatible with Honeycrisp, Zestar!, Haralson, Cortland, and McIntosh.\n\nFor growers in the very coldest zones (1–2), the Siberian-derived seedlings (Malus baccata, Ranetka, Antonovka, Columbia crabapple) offer the greatest root/trunk hardiness but are full-size trees; the Budagovsky and Alnarp series provide zone-3 hardiness with dwarfing/semi-dwarfing habit for more manageable orchard scale.",
+  "citations": [
+    {
+      "table": "rootstock_compatibility",
+      "key": "Malus baccata seedling"
+    },
+    {
+      "table": "rootstock_compatibility",
+      "key": "Ranetka seedling"
+    },
+    {
+      "table": "rootstock_compatibility",
+      "key": "Antonovka seedling"
+    },
+    {
+      "table": "rootstock_compatibility",
+      "key": "Columbia crabapple"
+    },
+    {
+      "table": "rootstock_compatibility",
+      "key": "Alnarp 10"
+    },
+    {
+      "table": "rootstock_compatibility",
+      "key": "Alnarp 2"
+    },
+    {
+      "table": "rootstock_compatibility",
+      "key": "Bud.118 (B.118)"
+    },
+    {
+      "table": "rootstock_compatibility",
+      "key": "Bud.490 (B.490)"
+    },
+    {
+      "table": "rootstock_compatibility",
+      "key": "Bud.9 (B.9)"
+    }
+  ],
+  "claims": [
+    {
+      "text": "- **Malus baccata seedling** — full-size, trunk hardy to -50°C, root hardy to -22°C; from Siberian wild stock, but only compatible with crabapple, Rescue, and Kerr scions due to graft-union issues with domestic apple.",
+      "citations": [
+        {
+          "table": "rootstock_compatibility",
+          "key": "Malus baccata seedling"
+        }
+      ]
+    },
+    {
+      "text": "baccata × domestica) — also trunk-hardy to -50°C, root hardy to -20°C; compatible with hardy prairie scions like Parkland, Goodland, and Norland, though fireblight-susceptible.",
+      "citations": [
+        {
+          "table": "rootstock_compatibility",
+          "key": "Ranetka seedling"
+        }
+      ]
+    },
+    {
+      "text": "- **Antonovka seedling** — a Russian landrace, full-size, trunk hardy to -40°C, root hardy to -18°C, compatible with most scions including Honeycrisp, Wealthy, and McIntosh, with variable fireblight tolerance.",
+      "citations": [
+        {
+          "table": "rootstock_compatibility",
+          "key": "Antonovka seedling"
+        }
+      ]
+    },
+    {
+      "text": "- **Columbia crabapple** (AAFC Morden) — trunk hardy to -45°C, root hardy to -18°C, good winter hardiness and moderate fireblight tolerance, compatible with Haralson, Wealthy, Parkland, and Goodland.",
+      "citations": [
+        {
+          "table": "rootstock_compatibility",
+          "key": "Columbia crabapple"
+        }
+      ]
+    },
+    {
+      "text": "- **Alnarp 10** (SLU Sweden) — semi-dwarf (50%), trunk hardy to -35°C, root hardy to -14°C, selected for productivity in Nordic conditions with scions like Aroma and Katja.",
+      "citations": [
+        {
+          "table": "rootstock_compatibility",
+          "key": "Alnarp 10"
+        }
+      ]
+    },
+    {
+      "text": "- **Alnarp 2** (SLU Sweden) — semi-dwarf (60%), similar hardiness (-35°C trunk / -15°C root), adapted to Scandinavian conditions.",
+      "citations": [
+        {
+          "table": "rootstock_compatibility",
+          "key": "Alnarp 2"
+        }
+      ]
+    },
+    {
+      "text": "- **Bud.118 (B.118)** — semi-dwarf (80%), trunk hardy to -35°C, root hardy to -15°C, moderate fireblight tolerance and good anchorage, compatible with Honeycrisp, Empire, Liberty, and Cortland.",
+      "citations": [
+        {
+          "table": "rootstock_compatibility",
+          "key": "Bud.118 (B.118)"
+        }
+      ]
+    },
+    {
+      "text": "- **Bud.490 (B.490)** — semi-dwarf (60%), trunk hardy to -35°C, root hardy to -13°C, good fireblight tolerance and precocious bearing.",
+      "citations": [
+        {
+          "table": "rootstock_compatibility",
+          "key": "Bud.490 (B.490)"
+        }
+      ]
+    },
+    {
+      "text": "- **Bud.9 (B.9)** — the most dwarfing of the group (30%), trunk hardy to -35°C, root hardy to -12°C, good fireblight tolerance but susceptible to woolly aphid, compatible with Honeycrisp, Zestar!, Haralson, Cortland, and McIntosh.",
+      "citations": [
+        {
+          "table": "rootstock_compatibility",
+          "key": "Bud.9 (B.9)"
+        }
+      ]
+    }
+  ],
+  "refused": false,
+  "refusal_reason": "",
+  "tool_calls": [
+    {
+      "tool": "vaxt_get_rootstock_compatibility",
+      "arguments": {
+        "crop_group": "apple",
+        "max_zone": 3
+      },
+      "record_count": 9,
+      "error": null
+    }
+  ],
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 17557,
+    "output_tokens": 1320
+  },
+  "unstructured": false
+}

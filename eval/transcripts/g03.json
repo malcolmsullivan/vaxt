@@ -1,0 +1,75 @@
+{
+  "question": "Do you have frost dates or growing-season data for the Abisko weather station in Sweden?",
+  "answer": "Yes — the warehouse has multi-year growing-season records for the Abisko station in Sweden (latitude 68.36, longitude 18.82).\n\nFor 2025, the last spring frost was May 23 and the first fall frost was September 20, giving 120 frost-free days, with an annual minimum temperature of -25.9°C. Looking across recent years, frost-free days have ranged from as low as 86 days in 2021 (last spring frost June 17, first fall frost Sept 11) up to 125 days in 2024 (last spring frost May 21, first fall frost Sept 23). The coldest annual minimum recorded in this span was -35.2°C in 2024, while hard-freeze day counts have varied from 3 (2020) to 26 (2021).\n\nOverall, Abisko shows a short, highly variable growing season typical of a high-latitude Arctic site, with frost-free periods generally in the 86–125 day range over 2020–2025.",
+  "citations": [
+    {
+      "table": "growing_season",
+      "key": "ABISKO"
+    }
+  ],
+  "claims": [
+    {
+      "text": "Yes — the warehouse has multi-year growing-season records for the Abisko station in Sweden (latitude 68.36, longitude 18.82).",
+      "citations": [
+        {
+          "table": "growing_season",
+          "key": "ABISKO"
+        }
+      ]
+    },
+    {
+      "text": "For 2025, the last spring frost was May 23 and the first fall frost was September 20, giving 120 frost-free days, with an annual minimum temperature of -25.9°C.",
+      "citations": [
+        {
+          "table": "growing_season",
+          "key": "ABISKO"
+        }
+      ]
+    },
+    {
+      "text": "Looking across recent years, frost-free days have ranged from as low as 86 days in 2021 (last spring frost June 17, first fall frost Sept 11) up to 125 days in 2024 (last spring frost May 21, first fall frost Sept 23).",
+      "citations": [
+        {
+          "table": "growing_season",
+          "key": "ABISKO"
+        }
+      ]
+    },
+    {
+      "text": "The coldest annual minimum recorded in this span was -35.2°C in 2024, while hard-freeze day counts have varied from 3 (2020) to 26 (2021).",
+      "citations": [
+        {
+          "table": "growing_season",
+          "key": "ABISKO"
+        }
+      ]
+    },
+    {
+      "text": "Overall, Abisko shows a short, highly variable growing season typical of a high-latitude Arctic site, with frost-free periods generally in the 86–125 day range over 2020–2025.",
+      "citations": [
+        {
+          "table": "growing_season",
+          "key": "ABISKO"
+        }
+      ]
+    }
+  ],
+  "refused": false,
+  "refusal_reason": "",
+  "tool_calls": [
+    {
+      "tool": "vaxt_get_growing_season",
+      "arguments": {
+        "station": "Abisko"
+      },
+      "record_count": 6,
+      "error": null
+    }
+  ],
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 16244,
+    "output_tokens": 428
+  },
+  "unstructured": false
+}

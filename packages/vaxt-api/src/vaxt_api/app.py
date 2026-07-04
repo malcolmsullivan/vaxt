@@ -72,9 +72,11 @@ def germplasm(
 ) -> dict:
     where, params = [], []
     if germplasmName:
-        where.append("germplasm_name ILIKE ?"); params.append(f"%{germplasmName}%")
+        where.append("germplasm_name ILIKE ?")
+        params.append(f"%{germplasmName}%")
     if commonCropName:
-        where.append("crop ILIKE ?"); params.append(f"%{commonCropName}%")
+        where.append("crop ILIKE ?")
+        params.append(f"%{commonCropName}%")
     clause = (" WHERE " + " AND ".join(where)) if where else ""
     total = scalar(f"SELECT count(*) FROM t3_germplasm{clause}", params) or 0
     rows = query(
@@ -108,7 +110,8 @@ def studies(
 ) -> dict:
     where, params = ["study_db_id IS NOT NULL"], []
     if studyName:
-        where.append("study_name ILIKE ?"); params.append(f"%{studyName}%")
+        where.append("study_name ILIKE ?")
+        params.append(f"%{studyName}%")
     clause = " WHERE " + " AND ".join(where)
     total = scalar(f"SELECT count(DISTINCT study_db_id) FROM t3_observations{clause}", params) or 0
     rows = query(
@@ -176,9 +179,11 @@ def observationunits(
 ) -> dict:
     where, params = ["observation_unit_name IS NOT NULL"], []
     if studyDbId:
-        where.append("CAST(study_db_id AS VARCHAR) = ?"); params.append(studyDbId)
+        where.append("CAST(study_db_id AS VARCHAR) = ?")
+        params.append(studyDbId)
     if germplasmName:
-        where.append("germplasm_name ILIKE ?"); params.append(f"%{germplasmName}%")
+        where.append("germplasm_name ILIKE ?")
+        params.append(f"%{germplasmName}%")
     clause = " WHERE " + " AND ".join(where)
     total = scalar(f"SELECT count(DISTINCT observation_unit_name) FROM t3_observations{clause}", params) or 0
     rows = query(
@@ -216,9 +221,11 @@ def observations(
 ) -> dict:
     where, params = ["1 = 1"], []
     if studyDbId:
-        where.append("CAST(study_db_id AS VARCHAR) = ?"); params.append(studyDbId)
+        where.append("CAST(study_db_id AS VARCHAR) = ?")
+        params.append(studyDbId)
     if germplasmName:
-        where.append("germplasm_name ILIKE ?"); params.append(f"%{germplasmName}%")
+        where.append("germplasm_name ILIKE ?")
+        params.append(f"%{germplasmName}%")
     clause = " WHERE " + " AND ".join(where)
     total = scalar(f"SELECT count(*) FROM t3_observations{clause}", params) or 0
     rows = query(

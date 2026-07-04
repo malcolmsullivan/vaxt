@@ -54,7 +54,7 @@ CROP_MAP = {
     "grape (table/wine)": "grape", "grape (table)": "grape",
     "grape (table/juice)": "grape", "grape (seedless table)": "grape",
     "haskap": "haskap", "sea buckthorn": "sea buckthorn",
-    "lingonberry": "lingonberry", "arctic bramble": "arctic bramble",
+    "arctic bramble": "arctic bramble",
     "spelt": "spelt", "emmer": "emmer", "einkorn": "einkorn",
     # Forage grasses
     "timothy": "forage grass", "meadow fescue": "forage grass",

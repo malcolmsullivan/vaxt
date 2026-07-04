@@ -24,7 +24,6 @@ License: NOAA public domain, attribution appreciated.
 import argparse
 import csv
 import gzip
-import io
 import sys
 import time
 from pathlib import Path

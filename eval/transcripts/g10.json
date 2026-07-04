@@ -1,0 +1,235 @@
+{
+  "question": "What EPPO-listed plant pathogens affect wheat?",
+  "answer": "The VAXT warehouse lists 22 EPPO pathogens affecting wheat, spanning several categories:\n\n**Fungal foliar/rust diseases** — Wheat stem rust (*Puccinia graminis f.sp. tritici*), described as very high severity and threatened by the Ug99 lineage in cultivars lacking Sr31/Sr38 resistance; stripe/yellow rust (*Puccinia striiformis*), also very high severity and increasing in Scandinavia with climate change; leaf rust (*Puccinia triticina*), high severity, noting heritage wheats often lack Lr resistance genes; Septoria tritici blotch (*Zymoseptoria tritici*), the dominant foliar disease in NW Europe; Septoria nodorum blotch (*Parastagonospora nodorum*), more common in Nordic spring wheat; and powdery mildew (*Blumeria graminis f.sp. tritici*), where heritage wheats often carry Pm resistance genes from wild emmer.\n\n**Fusarium/head blight and mycotoxins** — Fusarium head blight (*Fusarium graminearum*) is rated very high severity as the primary DON mycotoxin producer, with a related record on DON/ZEA grain-quality contamination under EU limits; Fusarium foot rot/head blight (*Fusarium culmorum*), noted as often more prevalent than F. graminearum in Scandinavia; and *Fusarium avenaceum*, dominant in Nordic pea/cereal rotations producing moniliformin and enniatins.\n\n**Smuts and bunt** — Common bunt (*Tilletia caries*), a concern in organic heritage grain production lacking chemical seed treatment, and loose smut (*Ustilago tritici*), where heritage seed lots may carry higher inoculum.\n\n**Cold-climate and snow-related pathogens** — Pink snow mould (*Microdochium nivale*), called the most important winter-kill pathogen in Scandinavia; grey/speckled snow mould (*Typhula incarnata*), major in Finland and northern Sweden under prolonged snow cover; and snow scald (*Sclerotinia borealis*), restricted to areas with over 100 days of snow cover, serious in northern Scandinavia and Iceland.\n\n**Storage and quality pathogens** — Ochratoxin A-producing *Penicillium verrucosum*, a major food safety concern for Scandinavian stored cereals; black point/grain discoloration from *Alternaria alternata*; and *Aspergillus flavus*, though aflatoxin risk is noted as negligible in Nordic field conditions.\n\n**Others** — Take-all (*Gaeumannomyces tritici*), a soil-borne root disease worse under continuous wheat; ergot (*Claviceps purpurea*), critical for both toxicity and rye/wheat spirits and bread; and barley yellow dwarf virus, aphid-vectored and rated high severity.\n\nNone of these are listed as EU quarantine organisms in the retrieved records.",
+  "citations": [
+    {
+      "table": "eppo_pathogens",
+      "key": "PUCCGT"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "PUCCST"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "PUCCRT"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "ZYMTR1"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "LEPTNO"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "ERYSGT"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "GIBBZE"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "FUSACU"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "FUSAVE"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "TILLCA"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "USTINT"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "MONONI"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "TYPHIC"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "SCLEBO"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "PENIVE"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "ALTEAM"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "ASFLA"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "GAEUGT"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "CLAVPU"
+    },
+    {
+      "table": "eppo_pathogens",
+      "key": "BYDV00"
+    }
+  ],
+  "claims": [
+    {
+      "text": "tritici*), described as very high severity and threatened by the Ug99 lineage in cultivars lacking Sr31/Sr38 resistance; stripe/yellow rust (*Puccinia striiformis*), also very high severity and increasing in Scandinavia with climate change; leaf rust (*Puccinia triticina*), high severity, noting heritage wheats often lack Lr resistance genes; Septoria tritici blotch (*Zymoseptoria tritici*), the dominant foliar disease in NW Europe; Septoria nodorum blotch (*Parastagonospora nodorum*), more common in Nordic spring wheat; and powdery mildew (*Blumeria graminis f.sp.",
+      "citations": [
+        {
+          "table": "eppo_pathogens",
+          "key": "PUCCGT"
+        },
+        {
+          "table": "eppo_pathogens",
+          "key": "PUCCST"
+        },
+        {
+          "table": "eppo_pathogens",
+          "key": "PUCCRT"
+        },
+        {
+          "table": "eppo_pathogens",
+          "key": "ZYMTR1"
+        },
+        {
+          "table": "eppo_pathogens",
+          "key": "LEPTNO"
+        }
+      ]
+    },
+    {
+      "text": "tritici*), where heritage wheats often carry Pm resistance genes from wild emmer.",
+      "citations": [
+        {
+          "table": "eppo_pathogens",
+          "key": "ERYSGT"
+        }
+      ]
+    },
+    {
+      "text": "**Fusarium/head blight and mycotoxins** — Fusarium head blight (*Fusarium graminearum*) is rated very high severity as the primary DON mycotoxin producer, with a related record on DON/ZEA grain-quality contamination under EU limits; Fusarium foot rot/head blight (*Fusarium culmorum*), noted as often more prevalent than F.",
+      "citations": [
+        {
+          "table": "eppo_pathogens",
+          "key": "GIBBZE"
+        }
+      ]
+    },
+    {
+      "text": "graminearum in Scandinavia; and *Fusarium avenaceum*, dominant in Nordic pea/cereal rotations producing moniliformin and enniatins.",
+      "citations": [
+        {
+          "table": "eppo_pathogens",
+          "key": "FUSACU"
+        },
+        {
+          "table": "eppo_pathogens",
+          "key": "FUSAVE"
+        }
+      ]
+    },
+    {
+      "text": "**Smuts and bunt** — Common bunt (*Tilletia caries*), a concern in organic heritage grain production lacking chemical seed treatment, and loose smut (*Ustilago tritici*), where heritage seed lots may carry higher inoculum.",
+      "citations": [
+        {
+          "table": "eppo_pathogens",
+          "key": "TILLCA"
+        },
+        {
+          "table": "eppo_pathogens",
+          "key": "USTINT"
+        }
+      ]
+    },
+    {
+      "text": "**Cold-climate and snow-related pathogens** — Pink snow mould (*Microdochium nivale*), called the most important winter-kill pathogen in Scandinavia; grey/speckled snow mould (*Typhula incarnata*), major in Finland and northern Sweden under prolonged snow cover; and snow scald (*Sclerotinia borealis*), restricted to areas with over 100 days of snow cover, serious in northern Scandinavia and Iceland.",
+      "citations": [
+        {
+          "table": "eppo_pathogens",
+          "key": "MONONI"
+        },
+        {
+          "table": "eppo_pathogens",
+          "key": "TYPHIC"
+        },
+        {
+          "table": "eppo_pathogens",
+          "key": "SCLEBO"
+        }
+      ]
+    },
+    {
+      "text": "**Storage and quality pathogens** — Ochratoxin A-producing *Penicillium verrucosum*, a major food safety concern for Scandinavian stored cereals; black point/grain discoloration from *Alternaria alternata*; and *Aspergillus flavus*, though aflatoxin risk is noted as negligible in Nordic field conditions.",
+      "citations": [
+        {
+          "table": "eppo_pathogens",
+          "key": "PENIVE"
+        },
+        {
+          "table": "eppo_pathogens",
+          "key": "ALTEAM"
+        },
+        {
+          "table": "eppo_pathogens",
+          "key": "ASFLA"
+        }
+      ]
+    },
+    {
+      "text": "**Others** — Take-all (*Gaeumannomyces tritici*), a soil-borne root disease worse under continuous wheat; ergot (*Claviceps purpurea*), critical for both toxicity and rye/wheat spirits and bread; and barley yellow dwarf virus, aphid-vectored and rated high severity.",
+      "citations": [
+        {
+          "table": "eppo_pathogens",
+          "key": "GAEUGT"
+        },
+        {
+          "table": "eppo_pathogens",
+          "key": "CLAVPU"
+        },
+        {
+          "table": "eppo_pathogens",
+          "key": "BYDV00"
+        }
+      ]
+    },
+    {
+      "text": "None of these are listed as EU quarantine organisms in the retrieved records.",
+      "citations": [
+        {
+          "table": "eppo_pathogens",
+          "key": "PUCCGT"
+        }
+      ]
+    }
+  ],
+  "refused": false,
+  "refusal_reason": "",
+  "tool_calls": [
+    {
+      "tool": "vaxt_search_eppo_pathogens",
+      "arguments": {
+        "host_crop": "wheat"
+      },
+      "record_count": 22,
+      "error": null
+    }
+  ],
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 21433,
+    "output_tokens": 1472
+  },
+  "unstructured": false
+}

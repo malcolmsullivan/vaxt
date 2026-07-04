@@ -1,0 +1,101 @@
+{
+  "question": "Compare the heritage varieties Norstar and Goodland side by side.",
+  "answer": "## Norstar vs. Goodland\n\nThese two varieties belong to entirely different crop categories, so the comparison highlights contrasting breeding purposes rather than direct competition.\n\n**Norstar** is a winter wheat, bred by the University of Alberta program in Canada. It is prized for extreme winterhardiness, with an LT50 (temperature at which 50% of plants die) of -22°C, and is considered a reference cultivar for cold hardiness research — one of the hardiest wheats globally. It's rated for USDA zones 2–3, sown in a winter window of Sep 01–Sep 25, at a seeding rate of 100–130 kg/ha and depth of 3–5 cm, with 280–310 days to maturity.\n\n**Goodland** is instead an apple variety, developed by the University of Manitoba fruit breeding program. It's described as Delicious-type, productive, and suited to zone 3, noted as a very reliable Canadian prairie apple in cold climates. It's planted as dormant nursery stock in Oct–Nov, one tree per 4–6 m, with the graft union set at soil level, and takes 3–5 years to reach first fruit.\n\n**Common ground:** both originate from Canadian breeding programs and are adapted to cold USDA zones (2–3 for Norstar, zone 3 for Goodland), reflecting a shared emphasis on winter survival — though achieved through very different physiological strategies (annual grain cold-hardiness vs. perennial tree hardiness).",
+  "citations": [
+    {
+      "table": "varieties",
+      "key": "Norstar"
+    },
+    {
+      "table": "varieties",
+      "key": "Goodland"
+    }
+  ],
+  "claims": [
+    {
+      "text": "**Norstar** is a winter wheat, bred by the University of Alberta program in Canada.",
+      "citations": [
+        {
+          "table": "varieties",
+          "key": "Norstar"
+        }
+      ]
+    },
+    {
+      "text": "It is prized for extreme winterhardiness, with an LT50 (temperature at which 50% of plants die) of -22°C, and is considered a reference cultivar for cold hardiness research — one of the hardiest wheats globally.",
+      "citations": [
+        {
+          "table": "varieties",
+          "key": "Norstar"
+        }
+      ]
+    },
+    {
+      "text": "It's rated for USDA zones 2–3, sown in a winter window of Sep 01–Sep 25, at a seeding rate of 100–130 kg/ha and depth of 3–5 cm, with 280–310 days to maturity.",
+      "citations": [
+        {
+          "table": "varieties",
+          "key": "Norstar"
+        }
+      ]
+    },
+    {
+      "text": "**Goodland** is instead an apple variety, developed by the University of Manitoba fruit breeding program.",
+      "citations": [
+        {
+          "table": "varieties",
+          "key": "Goodland"
+        }
+      ]
+    },
+    {
+      "text": "It's described as Delicious-type, productive, and suited to zone 3, noted as a very reliable Canadian prairie apple in cold climates.",
+      "citations": [
+        {
+          "table": "varieties",
+          "key": "Goodland"
+        }
+      ]
+    },
+    {
+      "text": "It's planted as dormant nursery stock in Oct–Nov, one tree per 4–6 m, with the graft union set at soil level, and takes 3–5 years to reach first fruit.",
+      "citations": [
+        {
+          "table": "varieties",
+          "key": "Goodland"
+        }
+      ]
+    },
+    {
+      "text": "**Common ground:** both originate from Canadian breeding programs and are adapted to cold USDA zones (2–3 for Norstar, zone 3 for Goodland), reflecting a shared emphasis on winter survival — though achieved through very different physiological strategies (annual grain cold-hardiness vs.",
+      "citations": [
+        {
+          "table": "varieties",
+          "key": "Norstar"
+        },
+        {
+          "table": "varieties",
+          "key": "Goodland"
+        }
+      ]
+    }
+  ],
+  "refused": false,
+  "refusal_reason": "",
+  "tool_calls": [
+    {
+      "tool": "vaxt_compare_varieties",
+      "arguments": {
+        "names": "Norstar,Goodland"
+      },
+      "record_count": 2,
+      "error": null
+    }
+  ],
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 15783,
+    "output_tokens": 727
+  },
+  "unstructured": false
+}

@@ -1,0 +1,208 @@
+{
+  "question": "Show me rye-based sourdough starters in the database.",
+  "answer": "Here are the rye-based sourdough starters in the VAXT warehouse — 14 total, spanning a wide arc of Northern and Central European rye-bread traditions:\n\n**Nordic/Scandinavian:**\n- **Finnish Ruis Juuri** (Helsinki, ~150 yrs) — whole rye, \"sour/earthy/malty,\" foundation of *ruisleipä* \n- **Swedish Surdeig** (Stockholm, ~120 yrs) — light rye, base for Swedish limpa and vörtbröd \n- **Norwegian Surdeig** (Trondheim, ~100 yrs) — rye/barley blend, used for flatbrød and lefse \n- **Icelandic Rúgbrauð** (Reykjavik, ~200 yrs) — dark rye, uniquely baked underground in geothermal hot springs \n- **Faroese Rúgbrey​ð** (Tórshavn, ~200 yrs) — dark rye, sub-arctic adapted lactobacilli with maritime salt tolerance \n- **Danish Rugbrød Surdej** (Copenhagen, ~130 yrs) — coarse rye, 48-hour ferment tradition for dense rugbrød \n- **Svalbard Seed Vault Culture** (Longyearbyen, ~10 yrs) — experimental, lyophilized/cryopreserved reference culture near the Global Seed Vault \n\n**Baltic/Eastern European:**\n- **Estonian Leivajuur** (Tallinn, ~140 yrs) — whole rye + barley malt, related to Baltic sour traditions \n- **Latvian Rupjmaize** (Riga, ~150 yrs) — coarse dark rye, caraway-friendly ferment \n- **Polish Zakwas** (Kraków, ~200 yrs) — whole rye, foundation of chleb żytni and żurek soup \n- **Russian Zakvasca** (Moscow, ~200 yrs) — whole rye, cold-cellar culture behind Borodinsky black bread \n\n**Central European/Alpine:**\n- **German Sauerteig Anstellgut** (Berlin, ~180 yrs) — whole rye, tied to the Detmold three-stage process for Bauernbrot \n- **Swiss Bergbauer** (Graubünden, ~250 yrs) — rye-spelt blend, alpine farmhouse culture above 1500m \n\n**Arctic mixed-grain:**\n- **Greenlandic Kaviak Bread** (Nuuk, ~100 yrs) — rye-wheat blend with dried lichen flour, psychrotolerant LAB, naturally cold-preserved \n\nMost are true \"rye sour\" culture types, with a couple of mixed-grain exceptions (Norwegian barley-rye, Swiss rye-spelt, Greenlandic rye-wheat). Let me know if you'd like the full recipe/fermentation details for any of these.",
+  "citations": [
+    {
+      "table": "sourdough_starters",
+      "key": "SS-003"
+    },
+    {
+      "table": "sourdough_starters",
+      "key": "SS-004"
+    },
+    {
+      "table": "sourdough_starters",
+      "key": "SS-010"
+    },
+    {
+      "table": "sourdough_starters",
+      "key": "SS-007"
+    },
+    {
+      "table": "sourdough_starters",
+      "key": "SS-027"
+    },
+    {
+      "table": "sourdough_starters",
+      "key": "SS-005"
+    },
+    {
+      "table": "sourdough_starters",
+      "key": "SS-029"
+    },
+    {
+      "table": "sourdough_starters",
+      "key": "SS-024"
+    },
+    {
+      "table": "sourdough_starters",
+      "key": "SS-023"
+    },
+    {
+      "table": "sourdough_starters",
+      "key": "SS-017"
+    },
+    {
+      "table": "sourdough_starters",
+      "key": "SS-011"
+    },
+    {
+      "table": "sourdough_starters",
+      "key": "SS-009"
+    },
+    {
+      "table": "sourdough_starters",
+      "key": "SS-014"
+    },
+    {
+      "table": "sourdough_starters",
+      "key": "SS-028"
+    }
+  ],
+  "claims": [
+    {
+      "text": "- **Finnish Ruis Juuri** (Helsinki, ~150 yrs) — whole rye, \"sour/earthy/malty,\" foundation of *ruisleipä*",
+      "citations": [
+        {
+          "table": "sourdough_starters",
+          "key": "SS-003"
+        }
+      ]
+    },
+    {
+      "text": "- **Swedish Surdeig** (Stockholm, ~120 yrs) — light rye, base for Swedish limpa and vörtbröd",
+      "citations": [
+        {
+          "table": "sourdough_starters",
+          "key": "SS-004"
+        }
+      ]
+    },
+    {
+      "text": "- **Norwegian Surdeig** (Trondheim, ~100 yrs) — rye/barley blend, used for flatbrød and lefse",
+      "citations": [
+        {
+          "table": "sourdough_starters",
+          "key": "SS-010"
+        }
+      ]
+    },
+    {
+      "text": "- **Icelandic Rúgbrauð** (Reykjavik, ~200 yrs) — dark rye, uniquely baked underground in geothermal hot springs",
+      "citations": [
+        {
+          "table": "sourdough_starters",
+          "key": "SS-007"
+        }
+      ]
+    },
+    {
+      "text": "- **Faroese Rúgbrey​ð** (Tórshavn, ~200 yrs) — dark rye, sub-arctic adapted lactobacilli with maritime salt tolerance",
+      "citations": [
+        {
+          "table": "sourdough_starters",
+          "key": "SS-027"
+        }
+      ]
+    },
+    {
+      "text": "- **Danish Rugbrød Surdej** (Copenhagen, ~130 yrs) — coarse rye, 48-hour ferment tradition for dense rugbrød",
+      "citations": [
+        {
+          "table": "sourdough_starters",
+          "key": "SS-005"
+        }
+      ]
+    },
+    {
+      "text": "- **Svalbard Seed Vault Culture** (Longyearbyen, ~10 yrs) — experimental, lyophilized/cryopreserved reference culture near the Global Seed Vault",
+      "citations": [
+        {
+          "table": "sourdough_starters",
+          "key": "SS-029"
+        }
+      ]
+    },
+    {
+      "text": "- **Estonian Leivajuur** (Tallinn, ~140 yrs) — whole rye + barley malt, related to Baltic sour traditions",
+      "citations": [
+        {
+          "table": "sourdough_starters",
+          "key": "SS-024"
+        }
+      ]
+    },
+    {
+      "text": "- **Latvian Rupjmaize** (Riga, ~150 yrs) — coarse dark rye, caraway-friendly ferment",
+      "citations": [
+        {
+          "table": "sourdough_starters",
+          "key": "SS-023"
+        }
+      ]
+    },
+    {
+      "text": "- **Polish Zakwas** (Kraków, ~200 yrs) — whole rye, foundation of chleb żytni and żurek soup",
+      "citations": [
+        {
+          "table": "sourdough_starters",
+          "key": "SS-017"
+        }
+      ]
+    },
+    {
+      "text": "- **Russian Zakvasca** (Moscow, ~200 yrs) — whole rye, cold-cellar culture behind Borodinsky black bread",
+      "citations": [
+        {
+          "table": "sourdough_starters",
+          "key": "SS-011"
+        }
+      ]
+    },
+    {
+      "text": "- **German Sauerteig Anstellgut** (Berlin, ~180 yrs) — whole rye, tied to the Detmold three-stage process for Bauernbrot",
+      "citations": [
+        {
+          "table": "sourdough_starters",
+          "key": "SS-009"
+        }
+      ]
+    },
+    {
+      "text": "- **Swiss Bergbauer** (Graubünden, ~250 yrs) — rye-spelt blend, alpine farmhouse culture above 1500m",
+      "citations": [
+        {
+          "table": "sourdough_starters",
+          "key": "SS-014"
+        }
+      ]
+    },
+    {
+      "text": "- **Greenlandic Kaviak Bread** (Nuuk, ~100 yrs) — rye-wheat blend with dried lichen flour, psychrotolerant LAB, naturally cold-preserved",
+      "citations": [
+        {
+          "table": "sourdough_starters",
+          "key": "SS-028"
+        }
+      ]
+    }
+  ],
+  "refused": false,
+  "refusal_reason": "",
+  "tool_calls": [
+    {
+      "tool": "vaxt_search_sourdough",
+      "arguments": {
+        "grain_base": "rye"
+      },
+      "record_count": 14,
+      "error": null
+    }
+  ],
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 20743,
+    "output_tokens": 1243
+  },
+  "unstructured": false
+}

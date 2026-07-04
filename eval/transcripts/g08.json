@@ -1,0 +1,100 @@
+{
+  "question": "List heritage-grain distilleries in Sweden.",
+  "answer": "Sweden hosts four heritage-grain-focused distilleries in the VAXT warehouse:\n\n1. **Mackmyra Svensk Whisky** — founded 1999 in Gävle, single malt, using mixed-source Swedish barley and Swedish oak casks; noted as the first Swedish whisky distillery.\n\n2. **High Coast (formerly Box)** — founded 2010 in Ådalen, single malt, sourcing Swedish barley from Norrland fields, malted externally; located sub-Arctic at 63°N where extreme temperature swings accelerate maturation.\n\n3. **Smögen Whisky** — founded 2010 in Hunnebostrand on the west coast, single malt, using heavily peated Swedish barley with a floor-malted heritage approach.\n\n4. **Spirit of Hven** — founded 2008 on the island of Ven, producing single malt and gin; an organic estate distillery that grows its own heritage barley varieties on-site.\n\nAll four are flagged with heritage_focus = true in the warehouse.",
+  "citations": [
+    {
+      "table": "distillery_profiles",
+      "key": "DIST-001"
+    },
+    {
+      "table": "distillery_profiles",
+      "key": "DIST-002"
+    },
+    {
+      "table": "distillery_profiles",
+      "key": "DIST-003"
+    },
+    {
+      "table": "distillery_profiles",
+      "key": "DIST-004"
+    }
+  ],
+  "claims": [
+    {
+      "text": "**Mackmyra Svensk Whisky** — founded 1999 in Gävle, single malt, using mixed-source Swedish barley and Swedish oak casks; noted as the first Swedish whisky distillery.",
+      "citations": [
+        {
+          "table": "distillery_profiles",
+          "key": "DIST-001"
+        }
+      ]
+    },
+    {
+      "text": "**High Coast (formerly Box)** — founded 2010 in Ådalen, single malt, sourcing Swedish barley from Norrland fields, malted externally; located sub-Arctic at 63°N where extreme temperature swings accelerate maturation.",
+      "citations": [
+        {
+          "table": "distillery_profiles",
+          "key": "DIST-002"
+        }
+      ]
+    },
+    {
+      "text": "**Smögen Whisky** — founded 2010 in Hunnebostrand on the west coast, single malt, using heavily peated Swedish barley with a floor-malted heritage approach.",
+      "citations": [
+        {
+          "table": "distillery_profiles",
+          "key": "DIST-003"
+        }
+      ]
+    },
+    {
+      "text": "**Spirit of Hven** — founded 2008 on the island of Ven, producing single malt and gin; an organic estate distillery that grows its own heritage barley varieties on-site.",
+      "citations": [
+        {
+          "table": "distillery_profiles",
+          "key": "DIST-004"
+        }
+      ]
+    },
+    {
+      "text": "All four are flagged with heritage_focus = true in the warehouse.",
+      "citations": [
+        {
+          "table": "distillery_profiles",
+          "key": "DIST-001"
+        },
+        {
+          "table": "distillery_profiles",
+          "key": "DIST-002"
+        },
+        {
+          "table": "distillery_profiles",
+          "key": "DIST-003"
+        },
+        {
+          "table": "distillery_profiles",
+          "key": "DIST-004"
+        }
+      ]
+    }
+  ],
+  "refused": false,
+  "refusal_reason": "",
+  "tool_calls": [
+    {
+      "tool": "vaxt_get_distillery_grain_sources",
+      "arguments": {
+        "country": "Sweden",
+        "heritage_only": true
+      },
+      "record_count": 4,
+      "error": null
+    }
+  ],
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 16256,
+    "output_tokens": 544
+  },
+  "unstructured": false
+}
