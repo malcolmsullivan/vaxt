@@ -18,6 +18,43 @@ registry and a 69-field phenotype schema with no public equivalent).
 
 ---
 
+## Ask VAXT — a grounded, cited agent
+
+`packages/vaxt-agent/` is a production Claude agent that answers breeder/grower
+questions over the 21 tools and the 27-table warehouse, with a hard grounding
+contract: **every factual sentence must cite the warehouse row it came from, and
+if the warehouse can't answer, the agent refuses instead of guessing.**
+
+```bash
+pip install -e "packages/vaxt" -e "packages/vaxt-agent[dev]"
+export ANTHROPIC_API_KEY=...        # or: ant auth login
+export VAXT_DUCKDB_PATH=data/datasets/heritage-grain/heritage-grain.duckdb
+
+ask-vaxt "What can you tell me about the wheat variety Norstar?"
+ask-vaxt "What is the current price of wheat futures?"   # -> refuses; out of scope
+ask-vaxt --transport mcp "Compare Norstar and Goodland"  # route via the live MCP tool layer
+```
+
+A citation is a `(table, key)` pair, so it is **checkable against DuckDB with no
+model call** — a fabricated key resolves to zero rows and fails. That turns
+hallucination into a deterministic, testable event, which is what the eval gate
+is built on:
+
+```bash
+python eval/run_eval.py --mode replay     # no API key needed; runs in CI on every PR
+```
+
+`--mode replay` grades committed transcripts (`eval/transcripts/`) against a
+citation-anchored golden set (`eval/golden.jsonl`): every citation must resolve,
+every answer must be anchored to the known-correct row, and out-of-scope
+questions must be refused. It **fails loudly** if a transcript is missing or a
+check fails — it cannot report success while checking nothing. `--mode live`
+(re)generates the transcripts against the model and adds an independent semantic
+judge (Opus 4.8). See [`CLAIMS.md`](CLAIMS.md) for how each claim maps to
+verified reality.
+
+---
+
 ## Architecture
 
 ```

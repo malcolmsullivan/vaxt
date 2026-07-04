@@ -41,4 +41,4 @@ jobs:
       - name: Ruff
         run: |
           pip install ruff
-          ruff check packages/vaxt/src packages/vaxt-api/src scripts/vaxt
+          ruff check packages/vaxt/src packages/vaxt-api/src packages/vaxt-agent/src scripts/vaxt eval
