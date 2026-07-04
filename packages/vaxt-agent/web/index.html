@@ -134,24 +134,42 @@ function addTool(ev) {
 }
 
 // ---- citation chip expansion via /citation ----
+// Build the row view with textContent (never innerHTML) so warehouse values,
+// table/key/column names are inserted as text, not markup — same safe path the
+// answer body uses. Trusted warehouse today; correct regardless.
+function setCaption(view, text, isErr) {
+  view.replaceChildren();
+  const cap = document.createElement("div");
+  cap.className = "cap" + (isErr ? " err-msg" : "");
+  cap.textContent = text;
+  view.appendChild(cap);
+}
+
 async function toggleCite(chip, table, key, holder) {
   const view = holder.__view;
   if (chip.classList.contains("open")) {
     chip.classList.remove("open"); view.classList.remove("show"); return;
   }
   chip.classList.add("open");
-  view.innerHTML = `<div class="cap">loading ${table}:${key}…</div>`;
+  setCaption(view, `loading ${table}:${key}…`);
   view.classList.add("show");
   try {
     const r = await fetch(`/citation?table=${encodeURIComponent(table)}&key=${encodeURIComponent(key)}`);
-    if (!r.ok) { view.innerHTML = `<div class="cap err-msg">could not resolve ${table}:${key} (${r.status})</div>`; return; }
+    if (!r.ok) { setCaption(view, `could not resolve ${table}:${key} (${r.status})`, true); return; }
     const b = await r.json();
-    const rows = Object.entries(b.row).map(([k, v]) =>
-      `<tr><td class="k">${k}</td><td class="v">${v === null ? "—" : String(v)}</td></tr>`).join("");
     // >=1-row invariant: this is *a* matching row, not necessarily the only one.
-    view.innerHTML = `<div class="cap">a matching row in ${table} where ${b.key_column} = ${key}</div><table>${rows}</table>`;
+    setCaption(view, `a matching row in ${table} where ${b.key_column} = ${key}`);
+    const tbl = document.createElement("table");
+    for (const [k, v] of Object.entries(b.row)) {
+      const tr = document.createElement("tr");
+      const tdK = document.createElement("td"); tdK.className = "k"; tdK.textContent = k;
+      const tdV = document.createElement("td"); tdV.className = "v"; tdV.textContent = v === null ? "—" : String(v);
+      tr.append(tdK, tdV);
+      tbl.appendChild(tr);
+    }
+    view.appendChild(tbl);
   } catch {
-    view.innerHTML = `<div class="cap err-msg">network error resolving ${table}:${key}</div>`;
+    setCaption(view, `network error resolving ${table}:${key}`, true);
   }
 }
 

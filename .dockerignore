@@ -12,7 +12,7 @@ venv
 docs
 tests
 .playwright-mcp
-# Runtime ETL artifacts — the committed heritage-grain.duckdb is NOT ignored
-# (the leading data/ rule would catch it), so re-include it explicitly.
+# Runtime ETL artifacts under the warehouse dir are ignored, but the committed
+# heritage-grain.duckdb is re-included so it bakes into the image.
 data/datasets/heritage-grain/*
 !data/datasets/heritage-grain/heritage-grain.duckdb
