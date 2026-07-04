@@ -1,0 +1,299 @@
+{
+  "question": "What seed sources or gene banks does the database list for sourcing heritage grain?",
+  "answer": "The VAXT warehouse lists a wide range of seed sources and gene banks for heritage grain, spanning national/international gene banks, Nordic breeding companies, and heritage seed companies/community networks.\n\n**Major international gene banks:**\n- **NordGen** (Sweden) — the Nordic Gene Resource Centre, holding 33,000+ accessions of Nordic crop diversity, accessible via research-justified request.\n- **GRIN/NPGS** (USA) — the USDA National Plant Germplasm System, with 600,000+ accessions across all crops, wild relatives, and landraces, free for research and education worldwide.\n- **IPK Gatersleben** (Germany) — a Leibniz Institute collection of 150,000+ accessions focused on cereals, barley, wheat, and rye.\n- **ICARDA** (Lebanon) — dryland-focused wheat, barley, lentil, faba bean, and chickpea collection, rebuilt after the Syrian conflict.\n- **Estonian Crop Research Institute (ECRI)** — Nordic-adapted germplasm for spring cereals, winter rye, potato, and legumes, part of the NordGen network.\n- **Latvian State Stende Cereal Breeding Institute** — a Baltic gene bank with 4,000+ accessions focused on winter-hardy cereals for maritime-continental climates.\n\n**Nordic/regional commercial breeding programs:**\n- **Graminor** (Norway) — winter wheat and spring barley breeding, including the Magnifik winter wheat, for maritime climates.\n- **Boreal Plant Breeding** (Finland) — winter wheat and spring cereals bred for extreme cold hardiness (zones 2–5), including Veli winter wheat.\n- **Lantmännen** (Sweden) — a major Nordic cereal breeding cooperative for winter wheat, spring barley, oat, and rye.\n- **Nordic Seed** (Denmark) — barley, wheat, triticale, and rapeseed breeding with a strong malting barley program.\n\n**Heritage seed companies and community networks:**\n- **Heritage Grain Conservancy** (USA) — Eli Rogosa's landrace wheat preservation project.\n- **Adaptive Seeds** (USA) — Pacific Northwest–adapted open-pollinated wheat, rye, emmer, and einkorn.\n- **Fedco Seeds** (USA) — worker-owned cooperative with strong Northeast cold-hardy grain selection.\n- **Heritage Wheat (UK)** — John Letts' collection of pre-1900 British landrace wheat varieties.\n- **Heritage Grain Trust** (UK) — a network connecting farmers, bakers, and millers around heritage/population wheats.\n- **Heritage Seed Library (Garden Organic, UK)** — 800+ endangered varieties, member-to-member distribution.\n- **Arche Noah** (Austria) — Austrian seed preservation society maintaining 5,500+ varieties.\n- **Association Kokopelli** (France) — French seed-freedom NGO with 2,000+ heritage cereal and ancient grain varieties.\n- **Gotland Grain** (Sweden) — preserves ancient Gotland barley and heritage rye, unique island genetics.\n- **Organic Seed Alliance** (USA) — participatory breeding and seed sovereignty programs for organic cereals.\n\nThere are additional records beyond this selection (e.g., Hokkaido Research Organization in Japan for cold-climate cereals ), so let me know if you'd like the source list filtered by crop, country, or access type for a more targeted list.",
+  "citations": [
+    {
+      "table": "seed_sources",
+      "key": "SRC-001"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-002"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-003"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-005"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-033"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-032"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-013"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-012"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-011"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-025"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-009"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-006"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-008"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-022"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-035"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-028"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-017"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-030"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-023"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-018"
+    },
+    {
+      "table": "seed_sources",
+      "key": "SRC-034"
+    }
+  ],
+  "claims": [
+    {
+      "text": "- **NordGen** (Sweden) — the Nordic Gene Resource Centre, holding 33,000+ accessions of Nordic crop diversity, accessible via research-justified request.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-001"
+        }
+      ]
+    },
+    {
+      "text": "- **GRIN/NPGS** (USA) — the USDA National Plant Germplasm System, with 600,000+ accessions across all crops, wild relatives, and landraces, free for research and education worldwide.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-002"
+        }
+      ]
+    },
+    {
+      "text": "- **IPK Gatersleben** (Germany) — a Leibniz Institute collection of 150,000+ accessions focused on cereals, barley, wheat, and rye.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-003"
+        }
+      ]
+    },
+    {
+      "text": "- **ICARDA** (Lebanon) — dryland-focused wheat, barley, lentil, faba bean, and chickpea collection, rebuilt after the Syrian conflict.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-005"
+        }
+      ]
+    },
+    {
+      "text": "- **Estonian Crop Research Institute (ECRI)** — Nordic-adapted germplasm for spring cereals, winter rye, potato, and legumes, part of the NordGen network.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-033"
+        }
+      ]
+    },
+    {
+      "text": "- **Latvian State Stende Cereal Breeding Institute** — a Baltic gene bank with 4,000+ accessions focused on winter-hardy cereals for maritime-continental climates.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-032"
+        }
+      ]
+    },
+    {
+      "text": "- **Graminor** (Norway) — winter wheat and spring barley breeding, including the Magnifik winter wheat, for maritime climates.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-013"
+        }
+      ]
+    },
+    {
+      "text": "- **Boreal Plant Breeding** (Finland) — winter wheat and spring cereals bred for extreme cold hardiness (zones 2–5), including Veli winter wheat.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-012"
+        }
+      ]
+    },
+    {
+      "text": "- **Lantmännen** (Sweden) — a major Nordic cereal breeding cooperative for winter wheat, spring barley, oat, and rye.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-011"
+        }
+      ]
+    },
+    {
+      "text": "- **Nordic Seed** (Denmark) — barley, wheat, triticale, and rapeseed breeding with a strong malting barley program.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-025"
+        }
+      ]
+    },
+    {
+      "text": "- **Heritage Grain Conservancy** (USA) — Eli Rogosa's landrace wheat preservation project.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-009"
+        }
+      ]
+    },
+    {
+      "text": "- **Adaptive Seeds** (USA) — Pacific Northwest–adapted open-pollinated wheat, rye, emmer, and einkorn.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-006"
+        }
+      ]
+    },
+    {
+      "text": "- **Fedco Seeds** (USA) — worker-owned cooperative with strong Northeast cold-hardy grain selection.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-008"
+        }
+      ]
+    },
+    {
+      "text": "- **Heritage Wheat (UK)** — John Letts' collection of pre-1900 British landrace wheat varieties.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-022"
+        }
+      ]
+    },
+    {
+      "text": "- **Heritage Grain Trust** (UK) — a network connecting farmers, bakers, and millers around heritage/population wheats.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-035"
+        }
+      ]
+    },
+    {
+      "text": "- **Heritage Seed Library (Garden Organic, UK)** — 800+ endangered varieties, member-to-member distribution.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-028"
+        }
+      ]
+    },
+    {
+      "text": "- **Arche Noah** (Austria) — Austrian seed preservation society maintaining 5,500+ varieties.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-017"
+        }
+      ]
+    },
+    {
+      "text": "- **Association Kokopelli** (France) — French seed-freedom NGO with 2,000+ heritage cereal and ancient grain varieties.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-030"
+        }
+      ]
+    },
+    {
+      "text": "- **Gotland Grain** (Sweden) — preserves ancient Gotland barley and heritage rye, unique island genetics.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-023"
+        }
+      ]
+    },
+    {
+      "text": "- **Organic Seed Alliance** (USA) — participatory breeding and seed sovereignty programs for organic cereals.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-018"
+        }
+      ]
+    },
+    {
+      "text": "There are additional records beyond this selection (e.g., Hokkaido Research Organization in Japan for cold-climate cereals ), so let me know if you'd like the source list filtered by crop, country, or access type for a more targeted list.",
+      "citations": [
+        {
+          "table": "seed_sources",
+          "key": "SRC-034"
+        }
+      ]
+    }
+  ],
+  "refused": false,
+  "refusal_reason": "",
+  "tool_calls": [
+    {
+      "tool": "vaxt_search_seed_sources",
+      "arguments": {
+        "limit": 25
+      },
+      "record_count": 25,
+      "error": null
+    }
+  ],
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 20074,
+    "output_tokens": 1606
+  },
+  "unstructured": false
+}

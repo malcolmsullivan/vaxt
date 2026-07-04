@@ -33,14 +33,17 @@ class ToolCall(BaseModel):
 class Transcript(BaseModel):
     question: str
     answer: str = ""
+    # Authoritative flat list of citations parsed from the answer.
+    citations: list[Citation] = Field(default_factory=list)
+    # Cited sentences, for display/structure (each carries its own citations).
     claims: list[Claim] = Field(default_factory=list)
     refused: bool = False
     refusal_reason: str = ""
     tool_calls: list[ToolCall] = Field(default_factory=list)
     model: str = ""
     usage: dict = Field(default_factory=dict)
-    # True when the model ended without the structured submit_answer contract.
+    # True when the model produced no usable answer at all.
     unstructured: bool = False
 
     def all_citations(self) -> list[Citation]:
-        return [c for claim in self.claims for c in claim.citations]
+        return list(self.citations)

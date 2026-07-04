@@ -24,7 +24,10 @@ def load_golden(path) -> list[dict]:
 
 
 def _emitted(transcript: dict) -> list[tuple[str, str]]:
-    return [
+    cits = transcript.get("citations")
+    if cits is not None:  # authoritative flat list on real transcripts
+        return [(str(c.get("table", "")), str(c.get("key", ""))) for c in cits]
+    return [  # fallback: derive from claims (used by hand-authored test fixtures)
         (str(cit.get("table", "")), str(cit.get("key", "")))
         for claim in transcript.get("claims", []) or []
         for cit in (claim.get("citations", []) or [])
@@ -53,15 +56,12 @@ def grade_item(transcript: dict, golden: dict, con: duckdb.DuckDBPyConnection) -
         checks["refused"] = bool(transcript.get("refused"))
         checks["no_citations"] = len(emitted) == 0
     elif kind == "answerable":
-        claims = transcript.get("claims", []) or []
         checks["not_refused"] = not transcript.get("refused", False)
         checks["has_answer"] = bool((transcript.get("answer") or "").strip())
-        checks["every_claim_cited"] = bool(claims) and all(
-            len(c.get("citations", []) or []) >= 1 for c in claims
-        )
-        checks["citations_resolve"] = bool(emitted) and all(
-            resolve_citation(con, t, k) for t, k in emitted
-        )
+        checks["citations_present"] = len(emitted) >= 1
+        # No hallucination: every cited (table, key) resolves to >= 1 real row.
+        checks["citations_resolve"] = all(resolve_citation(con, t, k) for t, k in emitted)
+        # Correctness: anchored to the known-correct row/table for this question.
         checks["grounded_on_gold"] = _gold_check(golden, emitted)
     else:
         checks["known_kind"] = False

@@ -32,10 +32,12 @@ def _transcript_path(item_id: str) -> pathlib.Path:
     return TRANSCRIPTS / f"{item_id}.json"
 
 
-def _generate_live(golden, model):
+def _generate_live(golden, model, only=None):
     from vaxt_agent.agent import run_agent
     TRANSCRIPTS.mkdir(exist_ok=True)
     for item in golden:
+        if only and item["id"] not in only:
+            continue
         print(f"  running {item['id']}: {item['question'][:60]}...", file=sys.stderr)
         t = run_agent(item["question"], model=model)
         _transcript_path(item["id"]).write_text(t.model_dump_json(indent=2), encoding="utf-8")
@@ -53,7 +55,10 @@ def main(argv=None) -> int:
     ap.add_argument("--mode", choices=["replay", "live"], default="replay")
     ap.add_argument("--model", default=None, help="Agent model for live mode.")
     ap.add_argument("--semantic", action="store_true", help="Also run the API-gated semantic judge (live only).")
+    ap.add_argument("--only", default=None,
+                    help="Comma-separated golden ids to (re)generate in live mode; others are kept.")
     args = ap.parse_args(argv)
+    only = {s.strip() for s in args.only.split(",")} if args.only else None
 
     golden = load_golden(GOLDEN)
     if not golden:
@@ -66,8 +71,9 @@ def main(argv=None) -> int:
         return 2
 
     if args.mode == "live":
-        print(f"Generating {len(golden)} transcripts (live)...", file=sys.stderr)
-        _generate_live(golden, args.model)
+        n = len(only) if only else len(golden)
+        print(f"Generating {n} transcript(s) (live)...", file=sys.stderr)
+        _generate_live(golden, args.model, only=only)
 
     con = duckdb.connect(db_path, read_only=True)
     results, missing = [], []

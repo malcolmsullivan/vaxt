@@ -1,0 +1,15 @@
+{
+  "question": "What is Bayer's current stock price?",
+  "answer": "I don't have market or financial pricing data in the VAXT warehouse — it only covers heritage grain varieties, climate/growing data, genomics, breeding programs, disease resistance, and related agricultural sources, not stock prices.",
+  "citations": [],
+  "claims": [],
+  "refused": true,
+  "refusal_reason": "I don't have market or financial pricing data in the VAXT warehouse — it only covers heritage grain varieties, climate/growing data, genomics, breeding programs, disease resistance, and related agricultural sources, not stock prices.",
+  "tool_calls": [],
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 7573,
+    "output_tokens": 85
+  },
+  "unstructured": false
+}

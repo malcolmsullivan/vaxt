@@ -1,0 +1,15 @@
+{
+  "question": "What is the weather forecast for Oslo this weekend?",
+  "answer": "I don't have access to weather forecast data — the VAXT warehouse only contains historical growing-season and climate statistics for heritage grain research, not forward-looking weather forecasts.",
+  "citations": [],
+  "claims": [],
+  "refused": true,
+  "refusal_reason": "I don't have access to weather forecast data — the VAXT warehouse only contains historical growing-season and climate statistics for heritage grain research, not forward-looking weather forecasts.",
+  "tool_calls": [],
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 7579,
+    "output_tokens": 69
+  },
+  "unstructured": false
+}

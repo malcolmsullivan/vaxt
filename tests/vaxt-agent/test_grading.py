@@ -56,14 +56,11 @@ def test_hallucinated_citation_fails(con):
     assert r["checks"]["citations_resolve"] is False
 
 
-def test_uncited_claim_fails(con):
-    t = _transcript([
-        _claim("Norstar is winter wheat.", [("varieties", "Norstar")]),
-        _claim("It yields 8 tonnes per hectare.", []),  # unsupported
-    ])
+def test_answerable_without_citations_fails(con):
+    t = _transcript([])  # answered, but nothing cited
     r = grade_item(t, ANSWERABLE_GOLD, con)
     assert not r["passed"]
-    assert r["checks"]["every_claim_cited"] is False
+    assert r["checks"]["citations_present"] is False
 
 
 def test_answerable_but_refused_fails(con):

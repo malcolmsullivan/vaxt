@@ -1,0 +1,15 @@
+{
+  "question": "What is the current market price of milling-wheat futures?",
+  "answer": "I do not have market or commodity price data in the VAXT warehouse — it covers variety traits, genomics, climate, disease resistance, and related agricultural research data, not futures or market pricing.",
+  "citations": [],
+  "claims": [],
+  "refused": true,
+  "refusal_reason": "I do not have market or commodity price data in the VAXT warehouse — it covers variety traits, genomics, climate, disease resistance, and related agricultural research data, not futures or market pricing.",
+  "tool_calls": [],
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 7577,
+    "output_tokens": 72
+  },
+  "unstructured": false
+}

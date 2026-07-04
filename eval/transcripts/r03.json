@@ -1,0 +1,15 @@
+{
+  "question": "Who won the Nobel Prize in Literature in 2021?",
+  "answer": "I don't have that information — the VAXT warehouse only covers heritage grain varieties, climate/growing data, genomics, breeding programs, and related agricultural topics, not literary awards.",
+  "citations": [],
+  "claims": [],
+  "refused": true,
+  "refusal_reason": "I don't have that information — the VAXT warehouse only covers heritage grain varieties, climate/growing data, genomics, breeding programs, and related agricultural topics, not literary awards.",
+  "tool_calls": [],
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 7581,
+    "output_tokens": 71
+  },
+  "unstructured": false
+}

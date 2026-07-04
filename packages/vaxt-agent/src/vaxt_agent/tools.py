@@ -17,53 +17,6 @@ from vaxt_agent import provenance
 
 _TOOL_PREFIX = "vaxt_"
 
-# The final-answer tool. Making the answer a tool call with a strict schema means
-# "every claim carries a citation" is enforced structurally, not hoped for.
-SUBMIT_ANSWER_TOOL = {
-    "name": "submit_answer",
-    "description": (
-        "Submit your final answer. Call this exactly once, at the end. Every "
-        "factual sentence must be a claim with at least one citation drawn from a "
-        "record you actually retrieved. If the warehouse cannot answer the "
-        "question, set refused=true, give a short refusal_reason, and provide no "
-        "citations and no invented facts."
-    ),
-    "input_schema": {
-        "type": "object",
-        "properties": {
-            "answer": {
-                "type": "string",
-                "description": "The prose answer for the user.",
-            },
-            "claims": {
-                "type": "array",
-                "description": "One entry per factual sentence in the answer.",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "text": {"type": "string"},
-                        "citations": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "table": {"type": "string"},
-                                    "key": {"type": "string"},
-                                },
-                                "required": ["table", "key"],
-                            },
-                        },
-                    },
-                    "required": ["text", "citations"],
-                },
-            },
-            "refused": {"type": "boolean"},
-            "refusal_reason": {"type": "string"},
-        },
-        "required": ["answer", "claims", "refused"],
-    },
-}
-
 
 @functools.lru_cache(maxsize=1)
 def data_tool_schemas() -> tuple:
@@ -80,8 +33,8 @@ def data_tool_schemas() -> tuple:
 
 
 def all_tool_schemas() -> list:
-    """Data tools + the submit_answer contract tool."""
-    return [dict(s) for s in data_tool_schemas()] + [SUBMIT_ANSWER_TOOL]
+    """The 21 VAXT data tools (the agent answers in prose with inline citations)."""
+    return [dict(s) for s in data_tool_schemas()]
 
 
 class ToolCore:

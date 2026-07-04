@@ -2,20 +2,21 @@
 
 A manual tool-use loop (not the SDK's beta tool_runner) so every tool call and
 token count is observable, and so the loop can be driven by a stub client in
-tests with no API. The model runs data tools until it calls `submit_answer`,
-whose validated input becomes the Transcript.
+tests with no API. The model calls data tools until it answers in prose; the
+answer's inline [table:key] citations are then parsed and verified.
 """
 
 import json
 import logging
 import os
 
+from vaxt_agent import citations as C
 from vaxt_agent.prompt import SYSTEM_PROMPT
-from vaxt_agent.schemas import Citation, Claim, ToolCall, Transcript
+from vaxt_agent.schemas import ToolCall, Transcript
 from vaxt_agent.tools import ToolCore, all_tool_schemas
 
 DEFAULT_MODEL = "claude-sonnet-5"
-MAX_TOKENS = 4096
+MAX_TOKENS = 8192
 MAX_ITERS = 8
 
 log = logging.getLogger("vaxt_agent")
@@ -59,16 +60,8 @@ def run_agent(
 
             tool_uses = [b for b in blocks if getattr(b, "type", None) == "tool_use"]
             if not tool_uses:
-                text = _text_of(blocks)
-                log.info("agent finished without submit_answer (unstructured)")
-                return Transcript(
-                    question=question, answer=text, unstructured=True,
-                    tool_calls=tool_calls, model=model, usage=usage,
-                )
-
-            submit = next((b for b in tool_uses if b.name == "submit_answer"), None)
-            if submit is not None:
-                return _finalize(question, submit.input, tool_calls, model, usage)
+                # The model answered in prose. Parse and verify its citations.
+                return _finalize(question, _text_of(blocks), tool_calls, model, usage)
 
             results = []
             for b in tool_uses:
@@ -89,7 +82,7 @@ def run_agent(
                 })
             messages.append({"role": "user", "content": results})
 
-        log.warning("agent hit max_iters=%d without submit_answer", max_iters)
+        log.warning("agent hit max_iters=%d without a final answer", max_iters)
         return Transcript(
             question=question, answer="(agent did not converge on an answer)",
             unstructured=True, tool_calls=tool_calls, model=model, usage=usage,
@@ -99,25 +92,22 @@ def run_agent(
             core.close()
 
 
-def _finalize(question, submit_input, tool_calls, model, usage) -> Transcript:
-    data = submit_input if isinstance(submit_input, dict) else {}
-    claims = []
-    for c in data.get("claims", []) or []:
-        cites = [
-            Citation(table=str(cit.get("table", "")), key=str(cit.get("key", "")))
-            for cit in (c.get("citations") or [])
-            if isinstance(cit, dict)
-        ]
-        claims.append(Claim(text=str(c.get("text", "")), citations=cites))
+def _finalize(question, answer_text, tool_calls, model, usage) -> Transcript:
+    refused = C.is_refusal(answer_text)
+    cites = [] if refused else C.parse_citations(answer_text)
+    claims = [] if refused else C.build_claims(answer_text)
+    display = C.strip_tags(answer_text)
     return Transcript(
         question=question,
-        answer=str(data.get("answer", "")),
+        answer=display,
+        citations=cites,
         claims=claims,
-        refused=bool(data.get("refused", False)),
-        refusal_reason=str(data.get("refusal_reason", "")),
+        refused=refused,
+        refusal_reason=display if refused else "",
         tool_calls=tool_calls,
         model=model,
         usage=usage,
+        unstructured=bool(answer_text.strip()) is False,
     )
 
 

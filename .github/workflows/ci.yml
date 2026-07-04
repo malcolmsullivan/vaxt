@@ -18,7 +18,7 @@ jobs:
           cache: pip
 
       - name: Install packages + dev deps
-        run: pip install -e "packages/vaxt[dev]" -e "packages/vaxt-api[dev]"
+        run: pip install -e "packages/vaxt[dev]" -e "packages/vaxt-api[dev]" -e "packages/vaxt-agent[dev]"
 
       # The prebuilt heritage-grain.duckdb is committed (see .gitignore), so both
       # the MCP client tests and the BrAPI tests run against real data — 27 tables,
@@ -42,3 +42,45 @@ jobs:
         run: |
           pip install ruff
           ruff check packages/vaxt/src packages/vaxt-api/src packages/vaxt-agent/src scripts/vaxt eval
+
+  # Deterministic Ask VAXT eval — NO API key. Grades the committed transcripts
+  # against DuckDB on every PR: every citation must resolve, every answer must be
+  # anchored to the known-correct row, refusals must refuse. Fails loud on missing
+  # coverage, so it can never be green while checking nothing.
+  eval-replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install packages
+        run: pip install -e packages/vaxt -e packages/vaxt-agent
+      - name: Eval (replay, keyless)
+        env:
+          VAXT_DUCKDB_PATH: data/datasets/heritage-grain/heritage-grain.duckdb
+        run: python eval/run_eval.py --mode replay
+
+  # Live Ask VAXT eval — API-gated, manual only (workflow_dispatch). Re-runs the
+  # agent against the model and grades fresh output (deterministic + semantic
+  # judge). Requires the ANTHROPIC_API_KEY repo secret; asserts it is present so
+  # the job fails loud rather than skipping. Manual to bound spend and avoid
+  # model-variance failures on every push.
+  eval-live:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install packages
+        run: pip install -e packages/vaxt -e packages/vaxt-agent
+      - name: Eval (live + semantic judge)
+        env:
+          VAXT_DUCKDB_PATH: data/datasets/heritage-grain/heritage-grain.duckdb
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          test -n "$ANTHROPIC_API_KEY" || { echo "ANTHROPIC_API_KEY secret not set"; exit 1; }
+          python eval/run_eval.py --mode live --semantic

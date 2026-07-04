@@ -1,7 +1,7 @@
 """Agent-loop tests driven by a stub model — no API key, no warehouse.
 
-These pin the loop's behavior (tool execution, submit_answer finalization,
-refusal, unstructured fallback, usage accounting) deterministically.
+These pin the loop: run data tools, then parse inline [table:key] citations and
+the [[REFUSED]] token out of the model's prose answer.
 """
 
 from vaxt_agent.agent import run_agent
@@ -45,8 +45,8 @@ class StubClient:
 
 
 class FakeCore:
-    def __init__(self, env):
-        self.env = env
+    def __init__(self, env=None):
+        self.env = env or {"records": [], "count": 0}
         self.calls = []
         self.closed = False
 
@@ -58,55 +58,49 @@ class FakeCore:
         self.closed = True
 
 
-def test_tool_then_submit_builds_grounded_transcript():
-    env = {"tool": "vaxt_search_varieties", "count": 1,
-           "records": [{"table": "varieties", "key": "Norstar", "key_column": "variety", "fields": {}}]}
-    core = FakeCore(env)
+def test_tool_then_prose_answer_is_parsed():
+    core = FakeCore()
     client = StubClient([
-        _Resp([_tool_use("vaxt_search_varieties", "t1", {"crop": "wheat"})]),
-        _Resp([_tool_use("submit_answer", "t2", {
-            "answer": "Norstar is a winter wheat.",
-            "claims": [{"text": "Norstar is a winter wheat.",
-                        "citations": [{"table": "varieties", "key": "Norstar"}]}],
-            "refused": False,
-        })]),
+        _Resp([_tool_use("vaxt_get_variety", "t1", {"name": "Norstar"})]),
+        _Resp([_text("Norstar is a winter wheat [varieties:Norstar]. "
+                     "It tolerates pink snow mould [disease_resistance:Norstar].")]),
     ])
-
-    t = run_agent("tell me about Norstar", anthropic_client=client, toolcore=core)
+    t = run_agent("about Norstar", anthropic_client=client, toolcore=core)
 
     assert t.refused is False
-    assert t.answer == "Norstar is a winter wheat."
-    assert len(t.claims) == 1
-    assert t.all_citations()[0].table == "varieties"
-    assert t.all_citations()[0].key == "Norstar"
-    assert [tc.tool for tc in t.tool_calls] == ["vaxt_search_varieties"]
-    assert t.tool_calls[0].record_count == 1
-    # usage accumulates across both model turns
-    assert t.usage["input_tokens"] == 20
-    assert t.usage["output_tokens"] == 10
-    assert core.calls == [("vaxt_search_varieties", {"crop": "wheat"})]
+    assert {(c.table, c.key) for c in t.all_citations()} == {
+        ("varieties", "Norstar"), ("disease_resistance", "Norstar")
+    }
+    assert [tc.tool for tc in t.tool_calls] == ["vaxt_get_variety"]
+    assert len(t.claims) == 2                      # two cited sentences
+    assert "[varieties:Norstar]" not in t.answer   # tags stripped for display
+    assert core.calls == [("vaxt_get_variety", {"name": "Norstar"})]
 
 
-def test_refusal_carries_no_citations():
-    core = FakeCore({"records": [], "count": 0})
-    client = StubClient([
-        _Resp([_tool_use("submit_answer", "t1", {
-            "answer": "I don't have market-price data.",
-            "claims": [],
-            "refused": True,
-            "refusal_reason": "Out of scope: no price data in the warehouse.",
-        })]),
-    ])
+def test_refusal_token_is_detected():
+    core = FakeCore()
+    client = StubClient([_Resp([_text("I don't have market-price data. [[REFUSED]]")])])
     t = run_agent("price of wheat futures?", anthropic_client=client, toolcore=core)
     assert t.refused is True
     assert t.all_citations() == []
-    assert "scope" in t.refusal_reason.lower()
+    assert "REFUSED" not in t.answer               # token stripped from display
+    assert "market-price" in t.refusal_reason
 
 
-def test_unstructured_finish_is_flagged():
-    core = FakeCore({"records": [], "count": 0})
-    client = StubClient([_Resp([_text("Here is a plain answer with no submit_answer call.")])])
+def test_answerable_without_citations_yields_none():
+    core = FakeCore()
+    client = StubClient([_Resp([_text("Some prose with no citations at all.")])])
     t = run_agent("hi", anthropic_client=client, toolcore=core)
-    assert t.unstructured is True
-    assert "plain answer" in t.answer
-    assert t.claims == []
+    assert t.refused is False
+    assert t.all_citations() == []                 # grader fails this (no citations)
+
+
+def test_usage_accumulates_across_turns():
+    core = FakeCore()
+    client = StubClient([
+        _Resp([_tool_use("vaxt_search_varieties", "t1", {"crop": "wheat"})]),
+        _Resp([_text("Wheat varieties are present [varieties:Norstar].")]),
+    ])
+    t = run_agent("q", anthropic_client=client, toolcore=core)
+    assert t.usage["input_tokens"] == 20
+    assert t.usage["output_tokens"] == 10

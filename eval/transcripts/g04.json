@@ -1,0 +1,63 @@
+{
+  "question": "What are some example locations in USDA hardiness zone 3?",
+  "answer": "Based on the climate_zones table, USDA hardiness zone 3 covers two subzones with the following example locations:\n\n- **Zone 3a** (-40°F to -35°F): Duluth, MN; Edmonton, AB; Ås, Norway \n- **Zone 3b** (-35°F to -30°F): Madison, WI; Oslo, Norway; Stockholm, Sweden \n\nZone 3 overall has a growing season of about 110–140 days and 90–120 frost-free days, and is noted as relevant for Nordic wheat/barley, Frontenac grape, Honeycrisp apple, bush cherries, and lingonberry.",
+  "citations": [
+    {
+      "table": "climate_zones",
+      "key": "3"
+    }
+  ],
+  "claims": [
+    {
+      "text": "- **Zone 3a** (-40°F to -35°F): Duluth, MN; Edmonton, AB; Ås, Norway",
+      "citations": [
+        {
+          "table": "climate_zones",
+          "key": "3"
+        }
+      ]
+    },
+    {
+      "text": "- **Zone 3b** (-35°F to -30°F): Madison, WI; Oslo, Norway; Stockholm, Sweden",
+      "citations": [
+        {
+          "table": "climate_zones",
+          "key": "3"
+        }
+      ]
+    },
+    {
+      "text": "Zone 3 overall has a growing season of about 110–140 days and 90–120 frost-free days, and is noted as relevant for Nordic wheat/barley, Frontenac grape, Honeycrisp apple, bush cherries, and lingonberry.",
+      "citations": [
+        {
+          "table": "climate_zones",
+          "key": "3"
+        }
+      ]
+    }
+  ],
+  "refused": false,
+  "refusal_reason": "",
+  "tool_calls": [
+    {
+      "tool": "vaxt_get_climate_profile",
+      "arguments": {
+        "zone": "3"
+      },
+      "record_count": 2,
+      "error": null
+    },
+    {
+      "tool": "vaxt_get_growing_season",
+      "arguments": {},
+      "record_count": 20,
+      "error": null
+    }
+  ],
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 19346,
+    "output_tokens": 548
+  },
+  "unstructured": false
+}
