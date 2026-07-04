@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vaxt-agent"
+version = "0.1.0"
+description = "Ask VAXT — a grounded, cited Claude agent over the VAXT heritage-grain warehouse."
+requires-python = ">=3.11"
+# vaxt-mcp is a sibling package in this monorepo (imported at runtime for
+# VaxtClient). Install it editable alongside this one:
+#   pip install -e packages/vaxt -e "packages/vaxt-agent[dev]"
+dependencies = [
+    "anthropic[mcp]>=0.40",
+    "pydantic>=2.0",
+    "duckdb>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+ask-vaxt = "vaxt_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
