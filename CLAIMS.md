@@ -84,9 +84,24 @@ in the README, so there is nothing to retract:
 
 ---
 
-## 7. What comes next (not yet claimed)
+## 7. Ask VAXT (agent + eval)
 
-The "Ask VAXT" agent, its grounded-and-cited answer contract, and the eval
-harness (milestones M1–M2) are **in progress on `feat/ask-vaxt`** and are not
-described as done anywhere until they are green in CI. This file will gain an
-"Ask VAXT" row set when those land.
+| Claim | Verified reality | Status |
+|---|---|---|
+| Ask VAXT is a real Claude agent over the 21 tools | `packages/vaxt-agent/` runs a manual tool-use loop (Anthropic SDK) over the 21 tools, default model `claude-sonnet-5` (env `VAXT_AGENT_MODEL`). Validated live: grounded answers + refusals. | ✅ |
+| Answers are grounded and cited | The agent answers in prose with inline `[table:key]` citations; each is a real warehouse row. | ✅ |
+| Every citation is checkable | A citation is `(table, key)`, resolved against DuckDB with **no model call** — a fabricated key returns 0 rows and fails. Resolution = ≥1 matching row (see §5 on non-unique keys). | ✅ |
+| It refuses when it can't answer | Out-of-scope questions get an explicit `[[REFUSED]]` with zero citations (5/5 refusal cases pass). | ✅ |
+| Two transports agree | The agent's tools run either in-process (`ToolCore`) or through the live MCP server (`mcp.call_tool`); a conformance test asserts both emit identical provenance. | ✅ |
+| The eval gate is real and keyless | `eval/run_eval.py --mode replay` grades **17 committed transcripts** (12 answerable + 5 refusal) against the warehouse with **no API key**; it fails loud on any missing transcript or failed check. Runs in CI (`eval-replay`) on every PR. Currently **17/17**. | ✅ |
+| Live eval | `--mode live` re-runs the agent and adds a semantic judge on `claude-opus-4-8` (a different model than the agent). CI job `eval-live` is manual (`workflow_dispatch`), API-gated, and asserts the key is present. | ✅ |
+
+**Honest caveat:** the committed transcripts are verified, passing reference
+outputs. The *live* agent is not 100% contract-perfect run to run (normal model
+variance — e.g. occasionally answering in prose without a citation); `eval-replay`
+is the deterministic gate over frozen outputs, and `eval-live` measures the live
+agent when you choose to run it.
+
+**Full-stack is still NOT claimed:** there is no web front-end, HTTP endpoint, or
+container in this repo (milestones M3–M5). "Ask VAXT" is a CLI + library + eval —
+a frontier-model, grounded, tested system, not a full-stack app.
