@@ -102,6 +102,36 @@ def _fingerprint_beside(db_path: str) -> dict | None:
     return None
 
 
+def _zone_overlap_sql(column: str, zone: str) -> tuple[str, list]:
+    """Build a range-overlap WHERE fragment for a USDA-zone column.
+
+    Zone columns (``varieties.usda_zone``, ``planting_calendars.zone``) store either
+    a single zone like ``'3'`` or an inclusive range like ``'2-3'``/``'3-7'``. A
+    grower in zone Z should match a row when Z falls inside ``[lo, hi]`` — so exact
+    equality (``usda_zone = '3'``) wrongly drops every ranged row (Norstar ``2-3``,
+    Bezostaya 1 ``3-5`` …). This returns ``(fragment, params)`` implementing the
+    overlap test, binding Z twice.
+
+    ``split_part`` yields ``lo`` for both ``'N'`` and ``'lo-hi'``; the hi side is the
+    empty string for a bare ``'N'``, so we fall back to ``lo`` there. ``TRY_CAST``
+    keeps a future non-numeric value from raising — it just fails to match. If
+    ``zone`` is not a plain integer (e.g. a legacy caller passing ``'2-3'``), fall
+    back to exact equality so behavior is never worse than before.
+    """
+    try:
+        z = int(str(zone).strip())
+    except (TypeError, ValueError):
+        return f"{column} = ?", [zone]
+    fragment = (
+        f"({column} IS NOT NULL "
+        f"AND TRY_CAST(split_part({column}, '-', 1) AS INTEGER) <= ? "
+        f"AND COALESCE("
+        f"TRY_CAST(NULLIF(split_part({column}, '-', 2), '') AS INTEGER), "
+        f"TRY_CAST(split_part({column}, '-', 1) AS INTEGER)) >= ?)"
+    )
+    return fragment, [z, z]
+
+
 class VaxtClient:
     """Read-only DuckDB client for VAXT heritage grain data."""
 
@@ -183,8 +213,9 @@ class VaxtClient:
             conditions.append("LOWER(crop) LIKE '%' || ? || '%'")
             params.append(crop.lower())
         if zone:
-            conditions.append("usda_zone = ?")
-            params.append(zone)
+            frag, zparams = _zone_overlap_sql("usda_zone", zone)
+            conditions.append(frag)
+            params.extend(zparams)
         if country:
             conditions.append("LOWER(country) LIKE '%' || ? || '%'")
             params.append(country.lower())
@@ -287,8 +318,8 @@ class VaxtClient:
         if not zone:
             return []
 
-        conditions = ["usda_zone = ?"]
-        params: list = [zone]
+        zone_frag, params = _zone_overlap_sql("usda_zone", zone)
+        conditions = [zone_frag]
 
         if crop:
             conditions.append("LOWER(crop) LIKE '%' || ? || '%'")
@@ -308,9 +339,11 @@ class VaxtClient:
             LIMIT ?
         """, params + [limit])
 
-        # Add planting calendar data for the zone
+        # Add planting calendar data for the zone. The zone column is also
+        # range-encoded ('2-3', '3-4', …), so match by overlap, not equality.
+        cal_frag, cal_params = _zone_overlap_sql("CAST(zone AS VARCHAR)", zone)
         calendars = self._query(
-            "SELECT * FROM planting_calendars WHERE zone = ?", [zone]
+            f"SELECT * FROM planting_calendars WHERE {cal_frag}", cal_params
         )
 
         return {

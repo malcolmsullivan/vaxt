@@ -48,8 +48,15 @@ class TestSearchVarieties:
             assert "wheat" in v["crop"].lower()
 
     def test_search_by_zone(self, client):
+        # Zones are range-encoded; a zone-3 query must return every variety whose
+        # range contains 3 (e.g. "2-3", "3-5"), not only the bare-"3" rows.
         results = client.search_varieties(zone="3")
         assert len(results) > 0
+        for v in results:
+            lo, _, hi = v["usda_zone"].partition("-")
+            assert int(lo) <= 3 <= (int(hi) if hi else int(lo))
+        # Regression guard against a relapse to exact-string matching.
+        assert any("-" in v["usda_zone"] for v in results)
 
     def test_search_by_country(self, client):
         results = client.search_varieties(country="Norway")
@@ -322,7 +329,8 @@ class TestCrossReference:
 
 class TestMatchVarieties:
     def test_by_zone_returns_recommendation_bundle(self, client):
-        # usda_zone is matched exactly; "3" hits the exact-"3" rows.
+        # usda_zone is range-encoded ('2-3', '3-5', …); a zone-3 grower should match
+        # every variety whose range CONTAINS 3, not only the bare-"3" rows.
         result = client.match_varieties(zone="3")
         assert isinstance(result, dict)
         assert result["zone"] == "3"
@@ -330,7 +338,13 @@ class TestMatchVarieties:
         assert len(result["varieties"]) > 0
         assert isinstance(result["planting_calendars"], list)
         for v in result["varieties"]:
-            assert v["usda_zone"] == "3"
+            lo, _, hi = v["usda_zone"].partition("-")
+            assert int(lo) <= 3 <= (int(hi) if hi else int(lo)), \
+                f"{v['variety']} zone {v['usda_zone']} does not contain 3"
+        # Regression guard: the fix must surface ranged rows, not just bare "3".
+        assert any("-" in v["usda_zone"] for v in result["varieties"])
+        # And range-encoded planting calendars ('2-3', '3-4') must resolve too.
+        assert len(result["planting_calendars"]) > 0
 
     def test_no_zone_and_no_coords_returns_empty(self, client):
         # Documented edge: with nothing to match on, match_varieties returns [].
