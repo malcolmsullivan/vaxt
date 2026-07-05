@@ -11,7 +11,7 @@ import duckdb
 import pytest
 
 from vaxt_mcp.client import _resolve_db_path
-from vaxt_agent import provenance
+from vaxt_mcp import provenance
 from vaxt_agent.mcp_transport import MCPTransport
 from vaxt_agent.tools import ToolCore
 

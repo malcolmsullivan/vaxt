@@ -19,7 +19,10 @@ pytestmark = pytest.mark.skipif(
     reason=f"DuckDB not available at {_resolve_db_path()}",
 )
 
-EXPECTED_TOOL_COUNT = 21
+# 21 read-only data tools + 1 grounding tool (vaxt_verify_citation).
+EXPECTED_DATA_TOOL_COUNT = 21
+EXPECTED_TOOL_COUNT = 22
+_NON_DATA_TOOLS = {"vaxt_verify_citation"}
 
 
 def _call_tool(name: str, args: dict) -> str:
@@ -34,6 +37,9 @@ def test_all_tools_registered():
     assert len(tools) == EXPECTED_TOOL_COUNT
     names = {t.name for t in tools}
     assert all(n.startswith("vaxt_") for n in names)
+    # Exactly 21 data-read tools; the verifier is the one non-data tool.
+    assert len(names - _NON_DATA_TOOLS) == EXPECTED_DATA_TOOL_COUNT
+    assert "vaxt_verify_citation" in names
     # A representative slice, including the two tools whose latent crashes the
     # client tests surfaced.
     assert {"vaxt_health_check", "vaxt_search_varieties", "vaxt_search_qtl",
@@ -65,3 +71,27 @@ def test_missing_variety_returns_error_envelope():
     payload = json.loads(_call_tool("vaxt_get_variety", {"name": "DoesNotExist12345"}))
     assert payload.get("error") is True
     assert "message" in payload
+
+
+def test_data_tool_emits_provenance_records():
+    # The server attaches machine-checkable (table, key) records so a plain MCP
+    # client can cite [table:key] without inferring it.
+    payload = json.loads(_call_tool("vaxt_search_varieties", {"crop": "wheat", "limit": 5}))
+    assert "records" in payload
+    assert payload["records"], "expected at least one provenance record"
+    for rec in payload["records"]:
+        assert rec["table"] == "varieties"
+        assert set(rec) >= {"table", "key", "key_column", "fields"}
+
+
+def test_verify_citation_resolves_real_and_rejects_fabricated():
+    real = json.loads(_call_tool("vaxt_verify_citation", {"table": "varieties", "key": "Norstar"}))
+    assert real["resolved"] is True
+    assert real["row"] is not None
+
+    fake = json.loads(_call_tool("vaxt_verify_citation", {"table": "varieties", "key": "NoSuchVariety_XYZ"}))
+    assert fake["resolved"] is False
+    assert fake["row"] is None
+
+    untracked = json.loads(_call_tool("vaxt_verify_citation", {"table": "not_a_table", "key": "x"}))
+    assert untracked["resolved"] is False

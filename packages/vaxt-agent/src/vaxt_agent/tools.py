@@ -10,17 +10,26 @@ can never diverge in what a tool returns.
 import asyncio
 import functools
 
+from vaxt_mcp import provenance
 from vaxt_mcp.client import VaxtClient
 from vaxt_mcp.server import mcp
 
-from vaxt_agent import provenance
-
 _TOOL_PREFIX = "vaxt_"
+
+# Tools registered on the MCP server that are NOT part of the agent's data-read
+# surface. `vaxt_verify_citation` is a grounding primitive for plain MCP/plugin
+# sessions (self-checking a [table:key]); the agent's answers are graded by the
+# deterministic grader instead, so it keeps its unchanged 21 data tools.
+_NON_DATA_TOOLS = frozenset({"vaxt_verify_citation"})
 
 
 @functools.lru_cache(maxsize=1)
 def data_tool_schemas() -> tuple:
-    """The 21 VAXT tool schemas, lifted from the FastMCP server (cached)."""
+    """The 21 VAXT data-tool schemas, lifted from the FastMCP server (cached).
+
+    Excludes non-data tools (see _NON_DATA_TOOLS) so the agent's surface stays the
+    documented 21 read tools.
+    """
     tools = asyncio.run(mcp.list_tools())
     return tuple(
         {
@@ -29,6 +38,7 @@ def data_tool_schemas() -> tuple:
             "input_schema": t.inputSchema,
         }
         for t in tools
+        if t.name not in _NON_DATA_TOOLS
     )
 
 

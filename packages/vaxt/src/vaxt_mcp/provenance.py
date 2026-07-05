@@ -1,11 +1,16 @@
-"""Provenance enrichment — the layer VaxtClient does not provide.
+"""Provenance enrichment — the grounding layer, owned by the data tier.
 
 VaxtClient returns bare row dicts (its `source` column is real-world data lineage,
 not a citation key). Grounding needs a machine-checkable `(table, key)` per row, so
 this module wraps each tool result into records tagged with their table and key
 value. `enrich()` is the single place that decides provenance; `resolve_citation()`
-is the single place that checks it against the warehouse. Both the agent and the
-eval grader go through these functions, so the two can never disagree.
+is the single place that checks it against the warehouse.
+
+This lives in `vaxt_mcp` (the data/MCP tier), not in the agent, so that EVERY
+consumer — the MCP server's tools, the agent, the eval grader, the web `/citation`
+endpoint, and the plugin's Stop hook — shares one provenance definition and can
+never disagree about what a citation means. The server enriches its tool results
+here, so a plain MCP client sees the same `(table, key)` the agent does.
 
 Citation resolution is defined as "**>= 1 row** in `table` where the key column
 matches (case-insensitively)". Exactly-one would be nicer, but the real data has a

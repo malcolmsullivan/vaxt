@@ -9,6 +9,7 @@ from typing import Optional
 
 from mcp.server.fastmcp import FastMCP
 
+from vaxt_mcp import provenance
 from vaxt_mcp.client import VaxtClient
 
 mcp = FastMCP("VAXT")
@@ -28,6 +29,33 @@ def _json(data) -> str:
 
 def _error(e: Exception) -> str:
     return json.dumps({"error": True, "message": str(e)}, indent=2)
+
+
+def _respond_list(method: str, rows: list, key: str) -> str:
+    """Envelope for a list-returning tool + its provenance `records`.
+
+    The domain rows stay under `key` (e.g. "varieties") for readability; `records`
+    carries the machine-checkable `(table, key)` per row so a plain MCP client can
+    cite `[table:key]` exactly as the agent does. Enrichment happens HERE, at the
+    data tier, so every consumer shares one provenance definition.
+    """
+    return _json({
+        "count": len(rows),
+        key: rows,
+        "records": provenance.enrich(method, rows),
+    })
+
+
+def _respond_dict(method: str, result) -> str:
+    """Envelope for a whole-dict tool + its provenance `records`.
+
+    `result` is spread into the envelope so existing shape is preserved; a non-dict
+    result (e.g. match_varieties returns [] when there is nothing to match) is
+    wrapped so the output is always a dict carrying `records`.
+    """
+    envelope = dict(result) if isinstance(result, dict) else {"result": result}
+    envelope["records"] = provenance.enrich(method, result)
+    return _json(envelope)
 
 
 # ---------------------------------------------------------------------------
@@ -67,7 +95,7 @@ async def vaxt_search_varieties(
         results = _get_client().search_varieties(
             crop=crop, zone=zone, country=country, traits=trait_list, limit=limit
         )
-        return _json({"count": len(results), "varieties": results})
+        return _respond_list("search_varieties", results, "varieties")
     except Exception as e:
         return _error(e)
 
@@ -83,7 +111,7 @@ async def vaxt_get_variety(name: str) -> str:
         result = _get_client().get_variety(name)
         if result is None:
             return _json({"error": True, "message": f"Variety '{name}' not found"})
-        return _json(result)
+        return _respond_dict("get_variety", result)
     except Exception as e:
         return _error(e)
 
@@ -109,7 +137,7 @@ async def vaxt_match_varieties(
         result = _get_client().match_varieties(
             zone=zone, lat=lat, lon=lon, crop=crop, limit=limit
         )
-        return _json(result)
+        return _respond_dict("match_varieties", result)
     except Exception as e:
         return _error(e)
 
@@ -126,7 +154,7 @@ async def vaxt_compare_varieties(names: str) -> str:
         if len(name_list) < 2 or len(name_list) > 5:
             return _json({"error": True, "message": "Provide 2-5 variety names"})
         results = _get_client().compare_varieties(name_list)
-        return _json({"count": len(results), "varieties": results})
+        return _respond_list("compare_varieties", results, "varieties")
     except Exception as e:
         return _error(e)
 
@@ -151,7 +179,7 @@ async def vaxt_get_growing_season(
         results = _get_client().get_growing_season(
             station=station, country=country, limit=limit
         )
-        return _json({"count": len(results), "stations": results})
+        return _respond_list("get_growing_season", results, "stations")
     except Exception as e:
         return _error(e)
 
@@ -171,7 +199,7 @@ async def vaxt_get_climate_profile(
     """
     try:
         result = _get_client().get_climate_profile(zone=zone, lat=lat, lon=lon)
-        return _json(result)
+        return _respond_dict("get_climate_profile", result)
     except Exception as e:
         return _error(e)
 
@@ -186,7 +214,7 @@ async def vaxt_get_planting_calendar(zone: str = "", crop: str = "") -> str:
     """
     try:
         results = _get_client().get_planting_calendar(zone=zone, crop=crop)
-        return _json({"count": len(results), "calendars": results})
+        return _respond_list("get_planting_calendar", results, "calendars")
     except Exception as e:
         return _error(e)
 
@@ -213,7 +241,7 @@ async def vaxt_search_markers(
         results = _get_client().search_markers(
             species=species, chromosome=chromosome, gene=gene, limit=limit
         )
-        return _json({"count": len(results), "markers": results})
+        return _respond_list("search_markers", results, "markers")
     except Exception as e:
         return _error(e)
 
@@ -233,7 +261,7 @@ async def vaxt_search_qtl(
     """
     try:
         results = _get_client().search_qtl(species=species, trait=trait, limit=limit)
-        return _json({"count": len(results), "qtl": results})
+        return _respond_list("search_qtl", results, "qtl")
     except Exception as e:
         return _error(e)
 
@@ -255,7 +283,7 @@ async def vaxt_get_breeding_program(
         )
         if result is None:
             return _json({"error": True, "message": "Breeding program not found"})
-        return _json(result)
+        return _respond_dict("get_breeding_program", result)
     except Exception as e:
         return _error(e)
 
@@ -282,7 +310,7 @@ async def vaxt_search_sourdough(
         results = _get_client().search_sourdough(
             grain_base=grain_base, origin=origin, culture_type=culture_type, limit=limit
         )
-        return _json({"count": len(results), "starters": results})
+        return _respond_list("search_sourdough", results, "starters")
     except Exception as e:
         return _error(e)
 
@@ -306,7 +334,7 @@ async def vaxt_search_seed_sources(
         results = _get_client().search_seed_sources(
             crop=crop, country=country, access_type=access_type, limit=limit
         )
-        return _json({"count": len(results), "sources": results})
+        return _respond_list("search_seed_sources", results, "sources")
     except Exception as e:
         return _error(e)
 
@@ -336,7 +364,9 @@ async def vaxt_get_disease_resistance(
             variety=variety, pathogen=pathogen, crop=crop,
             resistance_level=resistance_level, limit=limit,
         )
-        return _json({"count": len(results), "records": results})
+        # Domain rows under "resistance" (was "records"); "records" is now the
+        # canonical provenance array attached by _respond_list.
+        return _respond_list("get_disease_resistance", results, "resistance")
     except Exception as e:
         return _error(e)
 
@@ -364,7 +394,7 @@ async def vaxt_get_distillery_grain_sources(
             country=country, spirit_type=spirit_type,
             heritage_only=heritage_only, limit=limit,
         )
-        return _json({"count": len(results), "distilleries": results})
+        return _respond_list("get_distillery_grain_sources", results, "distilleries")
     except Exception as e:
         return _error(e)
 
@@ -392,7 +422,7 @@ async def vaxt_get_rootstock_compatibility(
             crop_group=crop_group, scion=scion,
             max_zone=max_zone, limit=limit,
         )
-        return _json({"count": len(results), "rootstocks": results})
+        return _respond_list("get_rootstock_compatibility", results, "rootstocks")
     except Exception as e:
         return _error(e)
 
@@ -422,7 +452,7 @@ async def vaxt_get_crop_wild_relatives(
             crop_group=crop_group, family=family,
             max_zone=max_zone, grin_only=grin_only, limit=limit,
         )
-        return _json({"count": len(results), "species": results})
+        return _respond_list("get_crop_wild_relatives", results, "species")
     except Exception as e:
         return _error(e)
 
@@ -452,7 +482,7 @@ async def vaxt_search_community_projects(
             country=country, crop=crop, model=model,
             min_members=min_members, limit=limit,
         )
-        return _json({"count": len(results), "projects": results})
+        return _respond_list("search_community_projects", results, "projects")
     except Exception as e:
         return _error(e)
 
@@ -482,7 +512,7 @@ async def vaxt_search_eppo_pathogens(
             host_crop=host_crop, pathogen_type=pathogen_type,
             severity=severity, quarantine_eu=quarantine_eu, limit=limit,
         )
-        return _json({"count": len(results), "pathogens": results})
+        return _respond_list("search_eppo_pathogens", results, "pathogens")
     except Exception as e:
         return _error(e)
 
@@ -515,9 +545,10 @@ async def vaxt_get_journal_entries(
             return _json({
                 "count": 0,
                 "entries": [],
+                "records": [],
                 "note": "No entries found. Journal may not be synced yet — run: python3 scripts/vaxt/sync_grower_journal.py",
             })
-        return _json({"count": len(results), "entries": results})
+        return _respond_list("get_journal_entries", results, "entries")
     except Exception as e:
         return _error(e)
 
@@ -534,7 +565,38 @@ async def vaxt_cross_reference(variety: str) -> str:
     """
     try:
         result = _get_client().cross_reference(variety)
-        return _json(result)
+        return _respond_dict("cross_reference", result)
+    except Exception as e:
+        return _error(e)
+
+
+# ---------------------------------------------------------------------------
+# Grounding — verify a citation against the warehouse (no model call)
+# ---------------------------------------------------------------------------
+@mcp.tool()
+async def vaxt_verify_citation(table: str, key: str) -> str:
+    """Deterministically verify a citation against the VAXT warehouse — NO model call.
+
+    Given a `[table:key]` citation, checks whether it resolves to >= 1 real row and
+    returns the matching row when it does. A fabricated or hallucinated citation
+    resolves to zero rows and returns resolved=false. This is the grounding
+    primitive: use it to self-check any `[table:key]` before relying on it.
+
+    Args:
+        table: The record's table (e.g. "varieties", "markers", "breeding_programs")
+        key: The record's key value (e.g. "Norstar", "BP001")
+    """
+    try:
+        conn = _get_client()._get_conn()
+        resolved = provenance.resolve_citation(conn, table, key)
+        row = provenance.fetch_citation_row(conn, table, key) if resolved else None
+        return _json({
+            "table": table,
+            "key": key,
+            "resolved": resolved,
+            "key_column": provenance.TABLE_KEY.get(table),
+            "row": row,
+        })
     except Exception as e:
         return _error(e)
 
@@ -544,3 +606,7 @@ async def vaxt_cross_reference(variety: str) -> str:
 # ---------------------------------------------------------------------------
 def main():
     mcp.run()
+
+
+if __name__ == "__main__":
+    main()

@@ -35,7 +35,7 @@ from pydantic import BaseModel
 
 from vaxt_agent import obs
 from vaxt_agent.agent import DEFAULT_MODEL, run_agent
-from vaxt_agent.provenance import TABLE_KEY, fetch_citation_row
+from vaxt_mcp.provenance import TABLE_KEY, fetch_citation_row
 from vaxt_agent.tools import ToolCore
 
 log = logging.getLogger("vaxt_agent.web")
