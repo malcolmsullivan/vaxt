@@ -1,0 +1,18 @@
+# Keep the build context small and the image clean.
+.git
+.github
+.claude
+**/__pycache__
+**/*.pyc
+**/*.egg-info
+.pytest_cache
+.ruff_cache
+.venv
+venv
+docs
+tests
+.playwright-mcp
+# Runtime ETL artifacts under the warehouse dir are ignored, but the committed
+# heritage-grain.duckdb is re-included so it bakes into the image.
+data/datasets/heritage-grain/*
+!data/datasets/heritage-grain/heritage-grain.duckdb

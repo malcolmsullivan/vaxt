@@ -8,7 +8,10 @@ zero gap between what is said and what is true.
 **Verification method (2026-07-04):** read the source directly; ran read-only
 DuckDB queries against the committed warehouse
 (`data/datasets/heritage-grain/heritage-grain.duckdb`); ran the full test suite
-(`pytest tests/` → **86 passed** with the warehouse present). Figures below are
+(`pytest tests/` → **123 passed** with the warehouse present, after M3–M5); ran
+the keyless eval (`eval/run_eval.py --mode replay` → **17/17**); and drove the
+live web service in a browser (health, keyless state, citation-chip expansion) and
+in a container (`docker compose run eval` green with no API key). Figures below are
 from that snapshot.
 
 Legend: ✅ true · ➖ true but imprecise / worth restating · 🔧 was wrong, fixed in this pass.
@@ -21,7 +24,7 @@ Legend: ✅ true · ➖ true but imprecise / worth restating · 🔧 was wrong, 
 |---|---|---|
 | MCP server exposes **21 tools** | `packages/vaxt/src/vaxt_mcp/server.py` registers exactly 21 `@mcp.tool()` functions; `mcp.list_tools()` returns 21. | ✅ |
 | Warehouse has **27 tables** | `information_schema.tables` (main schema, base tables) = **27**. | ✅ |
-| **62 tests** | Was 62 before this pass. Now **86** (added 18 tests for 6 previously-untested tools, 5 MCP-server smoke tests, 1 warehouse guard). | ✅ (superseded upward) |
+| **62 tests** | Was 62 originally. **86** after the M0 truth pass, **93** after M1 (agent + provenance), **123** after M3 (11 web-service tests: health/ready/citation on both servers + the keyless-503 and `/chat` SSE shape via an injected fake runner, no tokens). | ✅ (superseded upward) |
 | **3 validation gates** in the ETL | `scripts/vaxt/vaxt_runner.py`: (1) required columns, (2) external validator subprocess, (3) inline `min/max_rows` + `unique_key` + `numeric_bounds` + `required_values`. | ✅ |
 | CI runs against a **real** DuckDB | `.github/workflows/ci.yml` runs `pytest` against the **committed** warehouse. It does **not** build the DB in CI (and does not claim to). | ✅ |
 | BrAPI: **200 germplasm / 82 studies / 6202 observations** | `t3_germplasm` = 200; distinct `study_db_id` in `t3_observations` = 82; `t3_observations` = 6202. Asserted in `tests/vaxt-api/test_brapi.py`. | ✅ |
@@ -58,12 +61,13 @@ had no test.
 
 ---
 
-## 4. Over-claims the code does NOT make (verified absent — a positive)
+## 4. Claim discipline (what is and isn't claimed)
 
-An earlier audit flagged these as things to check for. They are **not present**
-in the README, so there is nothing to retract:
-
-- No "full-stack" claim (there is no front-end in this repo — and none is claimed).
+- **"Full-stack" — now claimed truthfully, as of M3–M5.** Through M2 there was no
+  front-end, so the README made no full-stack claim. M3–M5 add an HTTP `/chat`
+  service, a thin web UI, and a container (see §8) — so a front-end, an endpoint,
+  and a deployment artifact now exist. The claim is made only because all three
+  are real and verified, not as aspiration.
 - No "9-API" claim (the ETL touches 7 external APIs/downloads + 2 derived sources).
 - No "CI builds a real database" claim — the README states the DB is *committed*.
 
@@ -102,6 +106,25 @@ variance — e.g. occasionally answering in prose without a citation); `eval-rep
 is the deterministic gate over frozen outputs, and `eval-live` measures the live
 agent when you choose to run it.
 
-**Full-stack is still NOT claimed:** there is no web front-end, HTTP endpoint, or
-container in this repo (milestones M3–M5). "Ask VAXT" is a CLI + library + eval —
-a frontier-model, grounded, tested system, not a full-stack app.
+---
+
+## 8. Ask VAXT web service (M3–M5)
+
+| Claim | Verified reality | Status |
+|---|---|---|
+| There is an HTTP `/chat` service | `packages/vaxt-agent/src/vaxt_agent/web.py` (FastAPI). `POST /chat` streams SSE — `status` events per tool call (from the agent's `on_event` hook, run in a worker thread) then a final `answer` event carrying the serialized `Transcript`. Reuses the M1–M2 `run_agent` core unchanged. | ✅ |
+| There is a web front-end | `packages/vaxt-agent/web/index.html` — one self-contained file (vanilla JS, inline CSS/JS, no build step, no external assets), served by `web.py`. Streams `/chat` and renders the answer with citation chips. Verified in a browser. | ✅ |
+| Citation chips resolve to real rows | Clicking a chip calls `GET /citation?table=&key=`, which uses `provenance.fetch_citation_row` (same `TABLE_KEY` registry and `≥1-row` match as `resolve_citation`) and renders the row. Verified live against `varieties:Norstar`. | ✅ |
+| Keyless state is honest, never fabricated | With no `ANTHROPIC_API_KEY`, `/chat` returns a pre-stream **503 `{"code":"no_key"}`** and the UI shows tools/health/citations live plus a "set the key" message. No path emits a fabricated answer (an `answer` event only carries a real `Transcript`). Verified in browser and via `curl`. | ✅ |
+| Model failure degrades honestly | Model API failure after SDK retries → a terminal SSE `error` event (`upstream_unavailable`), never an answer. Covered by `test_chat_model_failure_becomes_error_event`. | ✅ |
+| `/health` and `/ready` exist on both servers | `web.py` and `vaxt-api/app.py` both expose `/health` (process + DB + `SELECT 1`) and `/ready` (`SHOW TABLES` ≥ 27, no model call). Covered by `test_web.py` and `test_health.py`. | ✅ |
+| Observability | `obs.py`: JSON logging, per-request `trace_id`, tool-call logs with location-bearing args (`lat`/`lon`/`location`/`station`) redacted, model-call logs with token counts and an **estimated** `est_cost_usd` (static price table; unknown model → `null` + warning). The question is logged by length only, never as text. | ✅ |
+| Container + keyless proof | `Dockerfile` (python:3.11-slim, DuckDB baked in read-only) + `compose.yaml`. `docker compose run --rm eval` runs the keyless replay eval (17/17) with no API key; `docker compose up` serves the UI + health. | ✅ |
+
+**Honest caveats:** `est_cost_usd` is an estimate from a static list-price table
+(currently sonnet-5's introductory rate, which reverts 2026-09-01), explicitly
+labeled as an estimate — not billing truth. The service is a single-user demo:
+each `/chat` stream holds one thread, so concurrency is bounded by the ASGI
+threadpool (documented in `ARCHITECTURE.md`, not hidden). The live agent still has
+normal run-to-run model variance; the deterministic keyless eval, not the live
+answer, is the reproducible proof.
