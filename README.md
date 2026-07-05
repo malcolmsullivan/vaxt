@@ -1,6 +1,7 @@
 # VAXT — Heritage Grain Genomics Data Platform
 
 [![CI](https://github.com/malcolmsullivan/vaxt/actions/workflows/ci.yml/badge.svg)](https://github.com/malcolmsullivan/vaxt/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/vaxt-mcp.svg)](https://pypi.org/project/vaxt-mcp/)
 [![Code: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](LICENSE)
 [![Data: CC BY 4.0](https://img.shields.io/badge/Data-CC%20BY%204.0-green.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Python: 3.11+](https://img.shields.io/badge/Python-3.11%2B-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/)
@@ -128,11 +129,17 @@ a `WAREHOUSE.json` fingerprint), so the server resolves its data with **zero set
 on any machine that has Python 3.11+ and [`uv`](https://docs.astral.sh/uv/):
 
 ```bash
-# From the public repo, pinned to a tag (drift-proof: the installed server is
-# byte-identical to the warehouse CLAIMS.md is verified against):
+# Simplest — from PyPI:
+uvx vaxt-mcp                                   # or: pip install vaxt-mcp && python -m vaxt_mcp
+
+# Or pinned to a git tag (drift-proof: the installed server is byte-identical to
+# the warehouse CLAIMS.md is verified against):
 uvx --from "git+https://github.com/malcolmsullivan/vaxt@v0.1.0#subdirectory=packages/vaxt" vaxt-mcp
-#   or:  pip install "git+https://github.com/malcolmsullivan/vaxt@v0.1.0#subdirectory=packages/vaxt" && python -m vaxt_mcp
 ```
+
+The published wheel freezes a snapshot of the warehouse (identified by the
+`WAREHOUSE.json` sha256); the PyPI version is bumped in lockstep with the git tag
+whenever the data changes, so a published `vaxt-mcp` never drifts from its `CLAIMS.md`.
 
 `_resolve_db_path()` falls back env → workspace → cwd → **bundled package copy**,
 logging which source it used; `VAXT_REQUIRE_DB=1` refuses the bundled snapshot so a
