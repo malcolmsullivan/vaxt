@@ -7,10 +7,11 @@
 [![Live: vaxt.bio](https://img.shields.io/badge/Live-vaxt.bio-FF6B35.svg)](https://vaxt.bio)
 
 VAXT turns fragmented public agricultural, climate, and genomics data into a single, queryable
-knowledge base for **cold-climate heritage grain breeding** — and exposes it three ways: a public
-website, a **Claude-callable MCP server**, and a Notion knowledge base. It pairs a manifest-driven ETL
-pipeline (9 public data sources → DuckDB) with a curated, original data layer (a cold-tolerance marker
-registry and a 69-field phenotype schema with no public equivalent).
+knowledge base for **cold-climate heritage grain breeding** — and exposes it through many surfaces: a
+public website, a **Claude-callable MCP server**, a grounded/cited agent + chat service, a BrAPI v2.1
+endpoint, a Notion knowledge base, and an **[installable Claude Code plugin](#install-as-a-claude-code-plugin)**.
+It pairs a manifest-driven ETL pipeline (9 public data sources → DuckDB) with a curated, original data
+layer (a cold-tolerance marker registry and a 69-field phenotype schema with no public equivalent).
 
 > **Why it exists:** the data needed to breed cold-hardy grain is scattered across a dozen
 > incompatible public sources (FAO, Eurostat, USDA, GBIF, ISRIC, GrainGenes, T3/BrAPI…). VAXT unifies
@@ -85,10 +86,10 @@ end-to-end story.
 ```
   DATA SOURCES (9)                ETL (manifest-driven)          STORE            SURFACES
   ───────────────                ─────────────────────          ─────            ────────
-  FAOSTAT  Eurostat  GHCN   ─┐    sources.toml registry      ┌─► DuckDB   ──┬──► MCP server (21 tools, Claude)
-  GrainGenes  T3/BrAPI      ─┤──► per-source validation      │   27 tables  ├──► Website (vaxt.bio)
-  GBIF  SoilGrids           ─┤    (row bounds, unique keys,   │              └──► Notion knowledge base
-  + growing-season (derived) ┤     numeric ranges)            │
+  FAOSTAT  Eurostat  GHCN   ─┐    sources.toml registry      ┌─► DuckDB   ──┬──► MCP server (21 tools + verify_citation)
+  GrainGenes  T3/BrAPI      ─┤──► per-source validation      │   27 tables  ├──► Claude Code plugin (grounded, hook-verified)
+  GBIF  SoilGrids           ─┤    (row bounds, unique keys,   │              ├──► BrAPI v2.1 endpoint · Website (vaxt.bio)
+  + growing-season (derived) ┤     numeric ranges)            │              └──► Agent + chat service · Notion KB
   + photoperiod (computed)  ─┘    dry-run / fetch / validate ─┘
                                   via vaxt_runner.py
 ```
@@ -120,9 +121,55 @@ claude mcp add vaxt -- python -m vaxt_mcp.server    # register with Claude Code
 Then ask Claude things like *"search VAXT for zone-3 winter wheat with snow-mold resistance"* or
 *"cross-reference Norstar across markers, disease resistance, and seed sources."*
 
+### Off-repo install (turnkey — the warehouse ships in the wheel)
+
+The 8.76 MiB DuckDB is bundled inside the `vaxt-mcp` wheel (a build hook stages it +
+a `WAREHOUSE.json` fingerprint), so the server resolves its data with **zero setup**
+on any machine that has Python 3.11+ and [`uv`](https://docs.astral.sh/uv/):
+
+```bash
+# From the public repo, pinned to a tag (drift-proof: the installed server is
+# byte-identical to the warehouse CLAIMS.md is verified against):
+uvx --from "git+https://github.com/malcolmsullivan/vaxt@v0.1.0#subdirectory=packages/vaxt" vaxt-mcp
+#   or:  pip install "git+https://github.com/malcolmsullivan/vaxt@v0.1.0#subdirectory=packages/vaxt" && python -m vaxt_mcp
+```
+
+`_resolve_db_path()` falls back env → workspace → cwd → **bundled package copy**,
+logging which source it used; `VAXT_REQUIRE_DB=1` refuses the bundled snapshot so a
+stale wheel can never silently answer in place of a live warehouse.
+
 ---
 
-## MCP tools (21, read-only over DuckDB)
+## Install as a Claude Code plugin
+
+The sixth surface — a **distribution/install surface over the existing MCP capability**,
+with grounding **enforced by the plugin's own Stop hook** (not a new data capability).
+In a fresh Claude Code session:
+
+```bash
+/plugin marketplace add malcolmsullivan/vaxt
+/plugin install vaxt@vaxt
+# then, in the session:
+/vaxt Which heritage varieties suit a USDA zone 3 winter-wheat grower?
+```
+
+You get a grounded, cited answer — and a **machine-verified** one: a `Stop` hook
+(`hooks/verify_citations.py`) resolves every `[table:key]` in the answer against
+DuckDB with no model call and surfaces a verdict (`VAXT grounding ✓ 3/3 citations
+resolve`), flagging any fabricated citation. The plugin bundles:
+
+- the **MCP server** (21 read-only tools) + **`vaxt_verify_citation`**, a
+  deterministic citation-check tool;
+- the **`vaxt-grounding` skill** — the answer-in-prose, cite-`[table:key]`,
+  refuse-with-`[[REFUSED]]` contract (derived from the agent's canonical prompt);
+- the **`/vaxt`** command and the enforcing **Stop hook** above.
+
+Requires `uv` on PATH (Claude Code does not bootstrap it). See
+[`INTERVIEW-DEMO.md`](INTERVIEW-DEMO.md) for the pre-warmed live-demo runbook.
+
+---
+
+## MCP tools (21 read-only + a citation verifier)
 
 | Group | Tools |
 |---|---|
@@ -137,9 +184,14 @@ Then ask Claude things like *"search VAXT for zone-3 winter wheat with snow-mold
 | Community | `vaxt_search_community_projects` |
 | Grower's journal | `vaxt_get_journal_entries` |
 | Cross-reference | `vaxt_cross_reference` |
+| Grounding | `vaxt_verify_citation` *(the 22nd registered tool; not counted among the 21 data-read tools)* |
 
-Each tool returns structured JSON and degrades gracefully (clear `{"error": ...}` payloads, empty-result
-notes that tell you which pipeline to run).
+Each data tool returns structured JSON with a **`records`** array — every record
+tagged with its `(table, key)` — so a plain MCP client can cite `[table:key]` and
+check it. Tools degrade gracefully (clear `{"error": ...}` payloads, empty-result
+notes that tell you which pipeline to run). `vaxt_verify_citation(table, key)`
+resolves a citation against DuckDB with no model call — the grounding primitive the
+plugin's Stop hook and any self-checking session use.
 
 ---
 

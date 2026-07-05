@@ -1,11 +1,12 @@
 """Live-MCP transport — the agent's tools routed through the real MCP server.
 
 This calls the actual registered `@mcp.tool()` wrappers via `mcp.call_tool`
-(arg handling, JSON envelope, and graceful error envelope all exercised), then
-feeds the result through the SAME `provenance.enrich` that ToolCore uses. So the
-"the agent calls the real MCP server" story is faithful, and the demo path and
-the direct/eval path emit identical provenance — asserted by the conformance
-test in tests/vaxt-agent/.
+(arg handling, JSON envelope, and graceful error envelope all exercised) and reads
+the `records` provenance array the SERVER now attaches (via vaxt_mcp.provenance).
+So the "the agent calls the real MCP server" story is faithful, and the demo path
+and the direct/eval path emit identical provenance — asserted by the conformance
+test in tests/vaxt-agent/. Provenance is enriched once, at the data tier; this
+transport no longer re-enriches (the server and ToolCore share one definition).
 
 It runs the server in-process (`mcp.call_tool`), which exercises the true tool
 layer with no subprocess/stdio flakiness. For the literal over-stdio deployment,
@@ -15,32 +16,8 @@ the server is registered with `claude mcp add vaxt -- python -m vaxt_mcp.server`
 import asyncio
 import json
 
+
 from vaxt_mcp.server import mcp
-
-from vaxt_agent import provenance
-
-_TOOL_PREFIX = "vaxt_"
-
-# The key under which each list-returning wrapper nests its rows (mirrors
-# server.py). Tools not listed here return a whole dict that already matches the
-# VaxtClient result shape.
-_ENVELOPE_KEY = {
-    "vaxt_search_varieties": "varieties",
-    "vaxt_compare_varieties": "varieties",
-    "vaxt_get_growing_season": "stations",
-    "vaxt_get_planting_calendar": "calendars",
-    "vaxt_search_markers": "markers",
-    "vaxt_search_qtl": "qtl",
-    "vaxt_search_sourdough": "starters",
-    "vaxt_search_seed_sources": "sources",
-    "vaxt_get_disease_resistance": "records",
-    "vaxt_get_distillery_grain_sources": "distilleries",
-    "vaxt_get_rootstock_compatibility": "rootstocks",
-    "vaxt_get_crop_wild_relatives": "species",
-    "vaxt_search_community_projects": "projects",
-    "vaxt_search_eppo_pathogens": "pathogens",
-    "vaxt_get_journal_entries": "entries",
-}
 
 
 class MCPTransport:
@@ -67,16 +44,6 @@ class MCPTransport:
         if tool_name == "vaxt_health_check":
             return {"tool": tool_name, "info": parsed, "records": [], "count": 0}
 
-        method = tool_name[len(_TOOL_PREFIX):] if tool_name.startswith(_TOOL_PREFIX) else tool_name
-        raw = self._raw_from_envelope(tool_name, parsed)
-        records = provenance.enrich(method, raw)
+        # The server attaches provenance at the data tier; read it, don't re-derive.
+        records = parsed.get("records", []) if isinstance(parsed, dict) else []
         return {"tool": tool_name, "count": len(records), "records": records}
-
-    @staticmethod
-    def _raw_from_envelope(tool_name: str, parsed):
-        key = _ENVELOPE_KEY.get(tool_name)
-        if key is None:
-            return parsed  # whole-dict tools already match the client shape
-        if isinstance(parsed, dict):
-            return parsed.get(key, [])
-        return parsed  # e.g. match_varieties returned [] when nothing to match

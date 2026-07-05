@@ -1,34 +1,115 @@
 """VAXT DuckDB client — read-only queries over the heritage grain database."""
 
+import importlib.resources
+import json
+import logging
 import os
 from pathlib import Path
 
 import duckdb
 
+log = logging.getLogger("vaxt_mcp.client")
+
 _DEFAULT_DB_PATH = "data/datasets/heritage-grain/heritage-grain.duckdb"
+# Where the build hook stages the DB inside the installed package (see hatch_build.py).
+_BUNDLED_REL = ("data", "heritage-grain.duckdb")
 
 
-def _resolve_db_path() -> str:
-    """Resolve DuckDB path from env or default."""
+def _require_db() -> bool:
+    """Whether the fail-loud warehouse gate is active (VAXT_REQUIRE_DB truthy)."""
+    return os.environ.get("VAXT_REQUIRE_DB", "").strip().lower() in ("1", "true", "yes", "on")
+
+
+def _bundled_db_path() -> str | None:
+    """Absolute path to the DB bundled inside the installed wheel, or None.
+
+    Present only in a real (non-editable) wheel install where hatch_build.py staged
+    it; absent for editable/source checkouts (which resolve via env/workspace/cwd).
+    """
+    try:
+        p = importlib.resources.files("vaxt_mcp").joinpath(*_BUNDLED_REL)
+        fs = os.fspath(p)  # real on-disk path for a normally-installed (unzipped) wheel
+    except (ModuleNotFoundError, FileNotFoundError, TypeError, NotADirectoryError):
+        return None
+    return fs if os.path.exists(fs) else None
+
+
+def _resolve_db(require: bool | None = None, bundled: str | None = None) -> tuple[str, str]:
+    """Resolve the DuckDB path and its source.
+
+    Order: ``VAXT_DUCKDB_PATH`` env -> ``$WORKSPACE_ROOT``-relative -> cwd-relative
+    -> DB bundled in the package. Returns ``(path, source)`` where source is one of
+    ``env`` | ``workspace`` | ``cwd`` | ``bundled`` | ``missing``.
+
+    Fail-loud (the repo's warehouse-guard ethos): the bundled copy is a frozen
+    snapshot baked into the wheel. When the gate is active (``VAXT_REQUIRE_DB``),
+    the bundled fallback is *refused* so a stale wheel can never silently answer in
+    place of a missing external warehouse. Falling back to bundled always logs a
+    WARNING naming the source. ``require``/``bundled`` are injectable for testing.
+    """
+    if require is None:
+        require = _require_db()
+
     path = os.environ.get("VAXT_DUCKDB_PATH", "")
     if path:
-        return path
-    # Try relative to workspace root (WORKSPACE_ROOT env)
+        return path, "env"
+
     workspace = os.environ.get("WORKSPACE_ROOT", "/workspace")
     candidate = Path(workspace) / _DEFAULT_DB_PATH
     if candidate.exists():
-        return str(candidate)
-    # Try relative to cwd
+        return str(candidate), "workspace"
+
     if Path(_DEFAULT_DB_PATH).exists():
-        return _DEFAULT_DB_PATH
-    return str(candidate)
+        return _DEFAULT_DB_PATH, "cwd"
+
+    if bundled is None:
+        bundled = _bundled_db_path()
+    if bundled is not None:
+        if require:
+            raise FileNotFoundError(
+                "VAXT_REQUIRE_DB is set but no external warehouse was found "
+                "(VAXT_DUCKDB_PATH / WORKSPACE_ROOT / cwd). Refusing the DB bundled "
+                "in the vaxt-mcp package so a stale wheel cannot silently answer. "
+                "Set VAXT_DUCKDB_PATH to a live warehouse, or unset VAXT_REQUIRE_DB "
+                "to accept the frozen bundled snapshot."
+            )
+        log.warning(
+            "vaxt: no external warehouse found; using the DB bundled in the "
+            "vaxt-mcp package (%s). This is a FROZEN snapshot — set VAXT_DUCKDB_PATH "
+            "to query a live warehouse.",
+            bundled,
+        )
+        return bundled, "bundled"
+
+    # Nothing resolved and nothing bundled: return the (nonexistent) workspace
+    # candidate so duckdb.connect fails loud at open, exactly as before.
+    return str(candidate), "missing"
+
+
+def _resolve_db_path() -> str:
+    """Back-compat shim: the resolved path only (see ``_resolve_db`` for source)."""
+    return _resolve_db()[0]
+
+
+def _fingerprint_beside(db_path: str) -> dict | None:
+    """The WAREHOUSE.json snapshot fingerprint next to a bundled DB, if present."""
+    fp = Path(db_path).with_name("WAREHOUSE.json")
+    if fp.exists():
+        try:
+            return json.loads(fp.read_text(encoding="utf-8"))
+        except (ValueError, OSError):
+            return None
+    return None
 
 
 class VaxtClient:
     """Read-only DuckDB client for VAXT heritage grain data."""
 
     def __init__(self, db_path: str | None = None):
-        self._db_path = db_path or _resolve_db_path()
+        if db_path:
+            self._db_path, self._db_source = db_path, "explicit"
+        else:
+            self._db_path, self._db_source = _resolve_db()
         self._conn: duckdb.DuckDBPyConnection | None = None
 
     def _get_conn(self) -> duckdb.DuckDBPyConnection:
@@ -67,15 +148,27 @@ class VaxtClient:
             for (name,) in tables:
                 count = conn.execute(f'SELECT COUNT(*) FROM "{name}"').fetchone()[0]
                 counts[name] = count
-            return {
+            result = {
                 "status": "ok",
                 "db_path": self._db_path,
+                "db_source": self._db_source,
                 "tables": len(counts),
                 "table_counts": counts,
                 "total_rows": sum(counts.values()),
             }
+            fingerprint = _fingerprint_beside(self._db_path)
+            if fingerprint is not None:
+                # Present for a bundled wheel: identifies the frozen snapshot so a
+                # stale wheel is self-evident instead of silent.
+                result["warehouse_fingerprint"] = fingerprint
+            return result
         except Exception as e:
-            return {"status": "error", "error": str(e), "db_path": self._db_path}
+            return {
+                "status": "error",
+                "error": str(e),
+                "db_path": self._db_path,
+                "db_source": self._db_source,
+            }
 
     # --- Variety Intelligence ---
 

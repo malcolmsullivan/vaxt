@@ -5,14 +5,18 @@ quantitative or capability claim in the README (and in any résumé/portfolio
 description of VAXT) can be checked against the code and data on demand, with
 zero gap between what is said and what is true.
 
-**Verification method (2026-07-04):** read the source directly; ran read-only
-DuckDB queries against the committed warehouse
+**Verification method (2026-07-05, plugin surface added):** read the source
+directly; ran read-only DuckDB queries against the committed warehouse
 (`data/datasets/heritage-grain/heritage-grain.duckdb`); ran the full test suite
-(`pytest tests/` → **123 passed** with the warehouse present, after M3–M5); ran
-the keyless eval (`eval/run_eval.py --mode replay` → **17/17**); and drove the
-live web service in a browser (health, keyless state, citation-chip expansion) and
-in a container (`docker compose run eval` green with no API key). Figures below are
-from that snapshot.
+(`pytest tests/` → **135 passed** with the warehouse present, after the plugin
+surface); ran the keyless eval both locally and in the container
+(`eval/run_eval.py --mode replay` and `docker compose run --rm eval` → **17/17**);
+built the `vaxt-mcp` wheel and confirmed the warehouse is bundled inside it; and ran
+the **clean-environment turnkey test on Windows** — a fresh venv with only the wheel
+(no repo checkout, no env vars) resolved `db_source=bundled` (27 tables) and
+`VAXT_REQUIRE_DB=1` refused the bundled fallback (see §9). `claude plugin validate ./`
+passes and the Stop hook flags a fabricated `[table:key]` on a synthetic transcript.
+Figures below are from that snapshot.
 
 Legend: ✅ true · ➖ true but imprecise / worth restating · 🔧 was wrong, fixed in this pass.
 
@@ -22,9 +26,9 @@ Legend: ✅ true · ➖ true but imprecise / worth restating · 🔧 was wrong, 
 
 | Claim | Verified reality | Status |
 |---|---|---|
-| MCP server exposes **21 tools** | `packages/vaxt/src/vaxt_mcp/server.py` registers exactly 21 `@mcp.tool()` functions; `mcp.list_tools()` returns 21. | ✅ |
+| MCP server exposes **21 read-only data tools** (+ a grounding tool) | `server.py` registers **21** data-read `@mcp.tool()` functions **plus `vaxt_verify_citation`** (a deterministic citation check), so `mcp.list_tools()` returns **22**. The agent still runs over the **21** data tools (`vaxt_verify_citation` is filtered out of `all_tool_schemas`); asserted by `tests/vaxt-mcp/unit/test_server.py`. | ✅ (21 data + 1 grounding) |
 | Warehouse has **27 tables** | `information_schema.tables` (main schema, base tables) = **27**. | ✅ |
-| **62 tests** | Was 62 originally. **86** after the M0 truth pass, **93** after M1 (agent + provenance), **123** after M3 (11 web-service tests: health/ready/citation on both servers + the keyless-503 and `/chat` SSE shape via an injected fake runner, no tokens). | ✅ (superseded upward) |
+| **62 tests** | Was 62 originally. **86** after the M0 truth pass, **93** after M1 (agent + provenance), **123** after M3 (web-service tests), **135** after the plugin surface (2 server provenance/verify tests + 5 bundled-resolution tests + 5 plugin/hook tests). | ✅ (superseded upward) |
 | **3 validation gates** in the ETL | `scripts/vaxt/vaxt_runner.py`: (1) required columns, (2) external validator subprocess, (3) inline `min/max_rows` + `unique_key` + `numeric_bounds` + `required_values`. | ✅ |
 | CI runs against a **real** DuckDB | `.github/workflows/ci.yml` runs `pytest` against the **committed** warehouse. It does **not** build the DB in CI (and does not claim to). | ✅ |
 | BrAPI: **200 germplasm / 82 studies / 6202 observations** | `t3_germplasm` = 200; distinct `study_db_id` in `t3_observations` = 82; `t3_observations` = 6202. Asserted in `tests/vaxt-api/test_brapi.py`. | ✅ |
@@ -44,6 +48,7 @@ Legend: ✅ true · ➖ true but imprecise / worth restating · 🔧 was wrong, 
 | Parameterized SQL | All user input is bound via `?` placeholders; WHERE/LIMIT templates are code-controlled, no user value is f-string-interpolated into SQL. | ✅ |
 | Official MCP FastMCP SDK | `from mcp.server.fastmcp import FastMCP` (`mcp[cli]>=1.0`). | ✅ |
 | Graceful error envelopes | Each tool wrapper returns a structured `{"error": true, "message": ...}` on failure rather than raising (now covered by `tests/vaxt-mcp/unit/test_server.py`). | ✅ |
+| Provenance lives in the data tier | `enrich`/`resolve_citation`/`fetch_citation_row`/`TABLE_KEY` are in `vaxt_mcp.provenance`; the server's data tools emit `(table, key)` records and the agent/eval/web import the same module — one definition, so no consumer can disagree. A conformance test asserts the two agent transports still agree. | ✅ |
 
 ---
 
@@ -70,6 +75,15 @@ had no test.
   are real and verified, not as aspiration.
 - No "9-API" claim (the ETL touches 7 external APIs/downloads + 2 derived sources).
 - No "CI builds a real database" claim — the README states the DB is *committed*.
+- **The plugin (§9) is claimed as an install/distribution surface over the existing
+  MCP capability, not a new data capability.** Its "grounded, cited" claim is honest
+  because the plugin ships the deterministic verifier (`vaxt_verify_citation` + the
+  Stop hook), not just a citation *format* — a fabricated `[table:key]` is flagged in
+  code the plugin owns. The claim was written only after the clean-environment
+  turnkey test was executed and observed (§9), not as aspiration.
+- **`uv`/Python are a stated prerequisite, not bootstrapped.** Claude Code does not
+  install `uv`; the plugin's MCP server and Stop hook both require `uv` on PATH.
+  "Turnkey" means zero *data/config* setup, not zero runtime.
 
 ---
 
@@ -128,3 +142,24 @@ each `/chat` stream holds one thread, so concurrency is bounded by the ASGI
 threadpool (documented in `ARCHITECTURE.md`, not hidden). The live agent still has
 normal run-to-run model variance; the deterministic keyless eval, not the live
 answer, is the reproducible proof.
+
+---
+
+## 9. Installable Claude Code plugin (the sixth surface)
+
+| Claim | Verified reality | Status |
+|---|---|---|
+| VAXT installs as a Claude Code plugin | `.claude-plugin/marketplace.json` + `plugin.json` (plugin source `"./"`); `claude plugin validate ./` passes. Install flow: `/plugin marketplace add malcolmsullivan/vaxt` → `/plugin install vaxt@vaxt`. | ✅ |
+| It is a **distribution surface over the existing MCP capability**, not new data | The plugin declares the same 22-tool MCP server via `uvx --from ${CLAUDE_PLUGIN_ROOT}/packages/vaxt vaxt-mcp` (pinned to the installed plugin, never a floating remote). Verified: `uvx` builds the local package (bundling the DB) and the server speaks MCP. | ✅ |
+| The server is turnkey off-repo | The `vaxt-mcp` wheel bundles the 8.76 MiB warehouse (build hook + `WAREHOUSE.json` fingerprint: sha256, 27 tables, real row counts). **Clean-environment test (Windows):** fresh venv, only the wheel, no repo checkout, no env vars → `db_source=bundled`, 27 tables; `VAXT_REQUIRE_DB=1` refuses the bundled fallback (fail-loud). Also proven in CI (`wheel-build` job: build + assert DB inside + clean-env smoke). | ✅ |
+| Grounding is **enforced**, not just formatted | The `vaxt-grounding` skill carries the cite-`[table:key]` / `[[REFUSED]]` contract (derived from the canonical `SYSTEM_PROMPT`; a test guards drift), AND the plugin ships the verifier: `vaxt_verify_citation` (an MCP tool) + a **Stop hook** (`hooks/verify_citations.py`) that resolves every `[table:key]` in the final answer against DuckDB via the same `resolve_citation` — surfacing `VAXT grounding ✓ N/N` or flagging a fabricated key. So the plugin carries VAXT's guarantee, not just its citation style. | ✅ |
+| The hook is safe and honest | Flag-and-surface only: it always exits 0 (never blocks/loops), stays silent on non-VAXT turns, and **fails soft-to-neutral** — a raw-tail fallback handles transcript-format drift, and it never prints a ✓ it did not earn. Verified against synthetic transcripts (real + fabricated citations, refusal, non-VAXT) by `tests/plugin/test_plugin.py`. | ✅ |
+
+**Honest caveats:** the plugin's MCP server and Stop hook both require **`uv` and
+Python 3.11+ on PATH** — Claude Code does not bootstrap them; "turnkey" is about
+data/config, not runtime. The bundled warehouse is a **frozen snapshot** (identified
+by the `WAREHOUSE.json` sha256), not a live feed — the fingerprint makes a stale
+wheel self-evident, and `VAXT_REQUIRE_DB=1` refuses it. The Stop hook reads the
+Claude Code transcript, whose format is internal and can change between versions; on
+any parse failure it degrades to a neutral message (never a false ✓) rather than a
+verified verdict.

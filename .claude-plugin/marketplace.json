@@ -1,0 +1,20 @@
+{
+  "name": "vaxt",
+  "owner": {
+    "name": "Malcolm Sullivan",
+    "email": "malcolmjsullivan2000@gmail.com"
+  },
+  "description": "VAXT — grounded, cited access to the heritage-grain warehouse.",
+  "plugins": [
+    {
+      "name": "vaxt",
+      "source": "./",
+      "description": "Grounded, cited access to the VAXT heritage-grain warehouse: 21 read-only DuckDB tools + a deterministic citation verifier, an ask-in-prose grounding skill, and a Stop hook that machine-checks every [table:key] against the warehouse.",
+      "version": "0.1.0",
+      "homepage": "https://github.com/malcolmsullivan/vaxt",
+      "repository": "https://github.com/malcolmsullivan/vaxt",
+      "license": "CC-BY-4.0",
+      "keywords": ["mcp", "duckdb", "grounding", "citations", "genomics", "agriculture", "heritage-grain"]
+    }
+  ]
+}

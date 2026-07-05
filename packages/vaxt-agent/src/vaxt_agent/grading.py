@@ -10,7 +10,7 @@ import json
 
 import duckdb
 
-from vaxt_agent.provenance import resolve_citation
+from vaxt_mcp.provenance import resolve_citation
 
 
 def load_golden(path) -> list[dict]:

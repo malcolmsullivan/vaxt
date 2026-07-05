@@ -19,6 +19,13 @@ venv/
 .claude/settings.local.json
 .DS_Store
 
+# ── Wheel build artifacts (vaxt-mcp bundling) ───────────────────────────
+# The build hook (packages/vaxt/hatch_build.py) stages the warehouse + fingerprint
+# into the wheel at build time. These are build artifacts, never committed — the
+# canonical warehouse stays the single source of truth at data/… above.
+packages/vaxt/.hatch-build/
+packages/vaxt/src/vaxt_mcp/data/
+
 # ── Runtime data ────────────────────────────────────────────────────────
 # We COMMIT a prebuilt heritage-grain.duckdb (27 tables, ~9 MB) so CI runs the
 # tests offline and green. Everything else here (fetched ETL CSVs, the FAOSTAT

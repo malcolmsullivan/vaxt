@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=68.0", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "vaxt-mcp"
@@ -18,5 +18,23 @@ dev = [
     "pytest-asyncio>=0.23",
 ]
 
-[tool.setuptools.packages.find]
-where = ["src"]
+# `python -m vaxt_mcp` (via __main__.py) and `vaxt-mcp` / `uvx vaxt-mcp` both launch
+# the FastMCP server. uvx resolves from PyPI once published; until then use the
+# git+https path or `python -m vaxt_mcp`.
+[project.scripts]
+vaxt-mcp = "vaxt_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vaxt_mcp"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/vaxt_mcp", "hatch_build.py", "README.md"]
+
+# Custom build hook stages the canonical DuckDB warehouse (which lives ABOVE this
+# package's build root, at the repo data/ dir) into the wheel as package data, plus
+# a WAREHOUSE.json fingerprint. This is what makes `pip install` / `uvx` turnkey
+# off-repo. See hatch_build.py.
+[tool.hatch.build.hooks.custom]
+path = "hatch_build.py"
+# duckdb in the build env lets the fingerprint carry real table/row counts.
+dependencies = ["duckdb>=1.0"]

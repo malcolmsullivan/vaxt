@@ -41,7 +41,7 @@ jobs:
       - name: Ruff
         run: |
           pip install ruff
-          ruff check packages/vaxt/src packages/vaxt-api/src packages/vaxt-agent/src scripts/vaxt eval
+          ruff check packages/vaxt/src packages/vaxt-api/src packages/vaxt-agent/src scripts/vaxt eval hooks
 
   # Deterministic Ask VAXT eval — NO API key. Grades the committed transcripts
   # against DuckDB on every PR: every citation must resolve, every answer must be
@@ -61,6 +61,48 @@ jobs:
         env:
           VAXT_DUCKDB_PATH: data/datasets/heritage-grain/heritage-grain.duckdb
         run: python eval/run_eval.py --mode replay
+
+  # Wheel packaging — the editable install jobs above never exercise a built
+  # wheel, so a broken bundle would sail through green. This builds the wheel,
+  # asserts the warehouse is inside it, and proves a turnkey install: a clean env
+  # with NO repo checkout and NO env vars must resolve the bundled DB.
+  wheel-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build wheel
+        run: |
+          pip install build twine
+          python -m build --wheel packages/vaxt --outdir dist
+          twine check dist/*.whl
+      - name: Assert the warehouse is bundled in the wheel
+        run: |
+          python - <<'PY'
+          import glob, zipfile
+          whl = glob.glob("dist/*.whl")[0]
+          z = zipfile.ZipFile(whl)
+          db = [i for i in z.infolist() if i.filename.endswith("vaxt_mcp/data/heritage-grain.duckdb")]
+          assert db, "heritage-grain.duckdb not bundled in the wheel"
+          assert db[0].file_size > 5_000_000, f"bundled DB suspiciously small: {db[0].file_size}"
+          assert any(i.filename.endswith("vaxt_mcp/data/WAREHOUSE.json") for i in z.infolist()), "WAREHOUSE.json missing"
+          print(f"OK: bundled {db[0].filename} ({db[0].file_size} bytes)")
+          PY
+      - name: Turnkey smoke — clean env, no repo, resolves the bundled DB
+        run: |
+          python -m venv /tmp/clean
+          /tmp/clean/bin/pip install dist/*.whl
+          cd /tmp  # away from the repo so cwd-relative resolution cannot find data/
+          env -u VAXT_DUCKDB_PATH -u WORKSPACE_ROOT /tmp/clean/bin/python - <<'PY'
+          from vaxt_mcp.client import VaxtClient
+          h = VaxtClient().health_check()
+          assert h["db_source"] == "bundled", h["db_source"]
+          assert h["tables"] >= 27, h["tables"]
+          assert "warehouse_fingerprint" in h
+          print("turnkey OK: db_source=bundled, tables=", h["tables"])
+          PY
 
   # Live Ask VAXT eval — API-gated, manual only (workflow_dispatch). Re-runs the
   # agent against the model and grades fresh output (deterministic + semantic
