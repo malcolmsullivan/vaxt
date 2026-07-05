@@ -1,0 +1,32 @@
+{
+  "name": "vaxt",
+  "displayName": "VAXT — grounded heritage-grain research",
+  "version": "0.1.0",
+  "description": "Ask the VAXT heritage-grain warehouse and get grounded, cited answers. Exposes the 21 read-only MCP tools + a deterministic verify_citation tool, a grounding skill, and a Stop hook that machine-checks every [table:key] citation against DuckDB with no model call.",
+  "author": {
+    "name": "Malcolm Sullivan",
+    "url": "https://github.com/malcolmsullivan"
+  },
+  "homepage": "https://github.com/malcolmsullivan/vaxt",
+  "repository": "https://github.com/malcolmsullivan/vaxt",
+  "license": "CC-BY-4.0",
+  "keywords": ["mcp", "duckdb", "grounding", "citations", "genomics", "agriculture"],
+  "mcpServers": {
+    "vaxt": {
+      "command": "uvx",
+      "args": ["--from", "${CLAUDE_PLUGIN_ROOT}/packages/vaxt", "vaxt-mcp"]
+    }
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run --no-project --with duckdb python \"${CLAUDE_PLUGIN_ROOT}/hooks/verify_citations.py\""
+          }
+        ]
+      }
+    ]
+  }
+}
